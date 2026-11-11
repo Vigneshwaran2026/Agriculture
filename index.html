@@ -1,0 +1,2741 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8" />
+    <title>Stackly | Agriculture &amp; Farming</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+    <!-- Bootstrap  -->
+    <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Theme Style -->
+    <link href="static/css/magnific-popup.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/odometer.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/styles.css" rel="stylesheet" type="text/css" />
+    <!-- Animation Style -->
+    <link href="static/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/animate2.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/textanimation.css" rel="stylesheet" type="text/css" />
+    <!-- Font -->
+    <link href="static/css/fonts.css" rel="stylesheet" />
+    <!-- Icon -->
+    <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/all.min.css" rel="stylesheet" type="text/css" />
+    <style>
+
+        #header-main {
+            position: relative !important;
+            top: auto !important;
+        }
+
+        /* Move desktop Get In Touch buttons slightly to the left */
+        @media (min-width: 992px) {
+            #header-main .header-inner > .header-right > a.tf-btn,
+            #header-main .fixed-header .header-inner > .header-right > a.tf-btn {
+                transform: translateX(-12px);
+            }
+        }
+
+        /* Site-wide navigation and interaction fixes */
+        #header-main {
+            position: relative;
+            top: auto;
+            z-index: 9999;
+            background: #fff;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, .08)
+        }
+
+        #header-main .header-inner {
+            align-items: center
+        }
+
+        #header-main .nav-list {
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 1.5vw, 28px);
+            flex-wrap: nowrap
+        }
+
+        #header-main .nav-list>li {
+            white-space: nowrap
+        }
+
+        #header-main .nav-list>li>a {
+            font-weight: 600
+        }
+
+        #header-main .nav-list .sub-nav {
+            display: none !important
+        }
+
+        #header-main .nav-list li.has-child:after {
+            display: none !important
+        }
+
+        #header-main .mobile-main-nav .menu>li {
+            list-style: none
+        }
+
+        #header-main .mobile-main-nav .menu>li>a {
+            display: block;
+            padding: 12px 18px
+        }
+
+        @media(max-width:991px) {
+            #header-main {
+                position: relative;
+                top: auto
+            }
+
+            #header-main .nav-list {
+                gap: 10px
+            }
+        }
+
+        form input:invalid,
+        form textarea:invalid,
+        form select:invalid {
+            box-shadow: none
+        }
+
+        form input:focus,
+        form textarea:focus,
+        form select:focus {
+            outline: 2px solid rgba(74, 130, 45, .25);
+            outline-offset: 1px
+        }
+
+
+        /* Mobile navigation: readable links and a clear contact action */
+        @media (max-width: 991px) {
+            #header-main .mobile-nav-wrap .inner-mobile-nav {
+                width: min(320px, 88vw);
+                max-width: 88vw;
+                padding: 18px 16px 22px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                background: #0d401c;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav {
+                width: 100%;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu {
+                margin: 0;
+                padding: 0;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu > li {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu > li > a {
+                display: block;
+                padding: 12px 8px;
+                color: #ffffff !important;
+                font-family: "Work Sans", sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.4;
+                text-decoration: none;
+                opacity: 1;
+                visibility: visible;
+                border-bottom: 1px solid rgba(255,255,255,.12);
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu > li > a:hover,
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu > li > a:focus {
+                color: #f8c32c !important;
+            }
+
+            #header-main .mobile-nav-wrap .group-icon {
+                display: block;
+                width: 100%;
+                margin: 20px 0 0;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-get-in-touch {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                min-height: 48px;
+                padding: 12px 18px;
+                border-radius: 30px;
+                background: #f8c32c;
+                color: #0d401c !important;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 1.2;
+                text-decoration: none;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-get-in-touch i {
+                color: #0d401c !important;
+                font-size: 18px;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-get-in-touch:hover,
+            #header-main .mobile-nav-wrap .mobile-get-in-touch:focus {
+                background: #ffffff;
+                color: #0d401c !important;
+            }
+
+            #header-main .mobile-nav-wrap .inner-mobile-nav .logo .mobile-nav-close {
+                z-index: 5;
+                color: #ffffff !important;
+                font-size: 22px;
+            }
+
+            #header-main .mobile-nav-wrap .inner-mobile-nav .bottom {
+                margin-top: auto;
+                padding-top: 28px;
+            }
+        }
+
+    
+        /* Contact form: show only our custom validation messages */
+        #contactform label.error,
+        #contactform .error:not(.error-message) {
+            display: none !important;
+        }
+        #contactform .error-message {
+            display: block;
+            color: #dc3545;
+            font-size: 13px;
+            line-height: 18px;
+            margin-top: 5px;
+        }
+        #contactform .error-message:empty {
+            display: none !important;
+        }
+        #contactform input.input-error,
+        #contactform textarea.input-error,
+        #contactform select.input-error {
+            border: 1px solid #dc3545 !important;
+        }
+        #contactform input.input-success,
+        #contactform textarea.input-success,
+        #contactform select.input-success {
+            border: 1px solid #278d45 !important;
+        }
+        #contactform #form-status {
+            margin-top: 12px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        #contactform #form-status.error { color: #dc3545; }
+        #contactform #form-status.success { color: #278d45; }
+
+    
+        /* Contact terms row: one custom checkbox and a stable button position */
+        #contactform .send-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: 16px;
+            width: 100%;
+        }
+
+        #contactform .send-wrap > label {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            flex: 1 1 auto;
+            min-width: 0;
+            margin: 0;
+            padding-left: 32px;
+            cursor: pointer;
+        }
+
+        /* Hide the native square; .btn-checkbox is the visible custom control */
+        #contactform .send-wrap > label input[type="checkbox"].checkbox-item {
+            position: absolute !important;
+            width: 20px !important;
+            height: 20px !important;
+            left: 0 !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            margin: 0 !important;
+            opacity: 0 !important;
+            z-index: 2;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        #contactform .send-wrap > label .btn-checkbox {
+            pointer-events: none;
+        }
+
+        #contactform .send-wrap > button[type="submit"] {
+            flex: 0 0 auto;
+            margin: 0 0 0 auto;
+            white-space: nowrap;
+        }
+
+        #contactform .terms-error {
+            display: block;
+            width: 100%;
+            min-height: 0;
+            margin: 8px 0 0;
+            color: #ff4545;
+            font-size: 13px;
+            line-height: 18px;
+        }
+
+        #contactform .terms-error:empty {
+            display: none !important;
+        }
+
+        #contactform #terms:focus-visible + .btn-checkbox {
+            outline: 2px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 767px) {
+            #contactform .send-wrap {
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+            #contactform .send-wrap > label {
+                flex: 1 1 100%;
+            }
+
+            #contactform .send-wrap > button[type="submit"] {
+                margin-left: 0;
+            }
+        }
+
+</style>
+
+</head>
+
+<body class="counter-scroll">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Preloader -->
+        <div id="loading">
+            <div id="loading-center">
+                <div class="loader-container">
+                    <div class="wrap-loader">
+                        <div class="loader">
+                        </div>
+                        <div class="icon">
+                            <img alt="" src="images/logo.webp" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.Preloader -->
+                <!-- Top-bar -->
+        <div class="tf-topbar">
+            <div class="tf-container w-1780">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="topbar-inner">
+                            <div class="topbar-left">
+                                <span class="fs-14 font-nunito">Welcome to Stackly</span>
+                                <span class="fs-14 font-nunito">Agriculture &amp; Organic Farms</span>
+                            </div>
+                            <div class="topbar-right">
+                                <ul class="contact-list">
+    <li class="item">
+        <span class="icon">
+            <i class="fa-solid fa-phone"></i>
+        </span>
+        <span>+91 123 456 7890</span>
+    </li>
+
+    <li class="item">
+        <span class="icon">
+            <img alt="" src="static/picture/mailbox.webp" />
+        </span>
+        <span>info@thestackly.com</span>
+    </li>
+
+    <li class="item">
+        <span class="icon">
+            <i class="fa-solid fa-location-dot"></i>
+        </span>
+        <span>Serving farming communities across the region</span>
+    </li>
+</ul>
+                                <ul class="social-list">
+                                    <li class="item">
+                                        <a href="404.html">
+                                            <i class="icon-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="404.html">
+                                            <i class="icon-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="404.html">
+                                            <i class="icon-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="404.html">
+                                            <i class="icon-instagram2"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /Top-bar -->
+        <!-- Welcome -->
+        <div class="box-welcome">
+            <div class="tf-overlay"></div>
+            <div class="welcome-wrap">
+                <div class="content">
+                    <div class="btn-close-welcome icon style-circle">
+                        <i class="icon-close"></i>
+                    </div>
+                    <h3 class="title font-snowfall">
+                        Stackly Agriculture <br />
+                        Farm of laughter and
+                        happiness!
+                    </h3>
+                    <p class="text font-nunito">Stackly Agriculture is built around a simple goal: support farmers with
+                        practical information and connect communities with quality produce.</p>
+                    <ul class="infor-list">
+                        <li class="item">Serving farming communities across the region</li>
+                        <li class="item">
+                            <i class="fa-solid fa-phone"></i>
+                            <p>
+                                Call us: +91 123 456 7890
+                            </p>
+                        </li>
+                        <li class="item">
+                            <img alt="" src="static/picture/mailbox-2.webp" />
+                            <p>
+                                Mail Support:
+                                Stackly Agriculture Team
+                            </p>
+                        </li>
+                        <li class="item">
+                            <i class="fa-solid fa-clock"></i>
+                            <p>
+                                Mon - Sat: 8.00am - 18.00pm
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="wg-social">
+                        <ul class="list">
+                            <li class="item">
+                                <a href="404.html"><i class="icon-facebook1"></i></a>
+                            </li>
+                            <li class="item">
+                                <a href="404.html"><i class="icon-twitter"></i></a>
+                            </li>
+                            <li class="item">
+                                <a href="404.html"><i class="icon-instagram2"></i></a>
+                            </li>
+                            <li class="item">
+                                <a href="404.html"><i class="icon-pinterest"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.Welcome -->
+        <!-- Header  -->
+        <header class="header has-item-bot" id="header-main">
+            <div class="tf-container w-1780">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-inner">
+                            <div class="header-left">
+                                <div class="logo-site">
+                                    <a href="index.html">
+                                        <img alt="" src="images/logo-dark.webp" />
+                                    </a>
+                                </div>
+                                <div class="main-nav">
+                                    <ul class="nav-list">
+                                        <li class="item"><a href="index.html">Home</a></li>
+                                        <li class="item"><a href="about-us.html">About</a></li>
+                                        <li class="item"><a href="our-services.html">Services</a></li>
+                                        <li class="item"><a href="our-farmers.html">Farmers</a></li>
+                                        <li class="item"><a href="portfolio.html">Portfolio</a></li>
+                                        <li class="item"><a href="blog.html">Blog</a></li>
+                                        <li class="item"><a href="contact-us.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header-right">
+                                <a class="tf-btn gap-30" href="login.html">
+                                    <span class="text-style">Get In Touch!</span>
+                                    <div class="icon"><i class="icon-arrow_right"></i></div>
+                                </a>
+                                <div class="wg-welcome btn-open-welcome">
+                                    <i class="icon-fences-icon fs-24"></i>
+                                </div>
+                                <div class="mobile-button">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-nav-wrap">
+                            <div class="overlay-mobile-nav"></div>
+                            <div class="inner-mobile-nav overflow-y-auto">
+                                <div class="top">
+                                    <div class="logo">
+                                        <a class="main-logo" href="index.html" rel="home">
+                                            <img alt="" id="mobile-logo_header" src="images/logo-white.webp" />
+                                        </a>
+                                        <div class="mobile-nav-close">
+                                            <i class="icon-close"></i>
+                                        </div>
+                                    </div>
+                                    <nav class="mobile-main-nav" id="mobile-main-nav">
+                                        <ul class="menu" id="menu-mobile-menu">
+                                            <li class="menu-item"><a href="index.html">Home</a></li>
+                                            <li class="menu-item"><a href="about-us.html">About</a></li>
+                                            <li class="menu-item"><a href="our-services.html">Services</a></li>
+                                            <li class="menu-item"><a href="our-farmers.html">Farmers</a></li>
+                                            <li class="menu-item"><a href="portfolio.html">Portfolio</a></li>
+                                            <li class="menu-item"><a href="blog.html">Blog</a></li>
+                                            <li class="menu-item"><a href="contact-us.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                    <div class="group-icon">
+                                        <a class="mobile-get-in-touch" href="login.html">
+                                            <span>Get In Touch</span>
+                                            <i class="icon-arrow_right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="bottom">
+                                    <div class="infor-list">
+                                        <ul>
+                                            <li>
+                                                <h5 class="title">
+                                                    Address:
+                                                </h5>
+                                                <p>
+                                                    Serving farming communities across the region
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h5 class="title">
+                                                    Phone:
+                                                </h5>
+                                                <p>
+                                                    +91 123 456 7890
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h5 class="title">
+                                                    Email:
+                                                </h5>
+                                                <p>
+                                                    info@thestackly.com
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="wg-social">
+                                        <ul class="list">
+                                            <li class="item">
+                                                <a href="404.html"><i class="icon-facebook1"></i></a>
+                                            </li>
+                                            <li class="item">
+                                                <a href="404.html"><i class="icon-twitter"></i></a>
+                                            </li>
+                                            <li class="item">
+                                                <a href="404.html"><i class="icon-instagram2"></i></a>
+                                            </li>
+                                            <li class="item">
+                                                <a href="404.html"><i class="icon-pinterest"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fixed-header style-absolute">
+                <div class="tf-container w-1780">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="header-inner">
+                                <div class="header-left">
+                                    <div class="logo-site">
+                                        <a href="index.html">
+                                            <img alt="" src="images/logo-dark.webp" />
+                                        </a>
+                                    </div>
+                                    <div class="main-nav">
+                                        <ul class="nav-list">
+                                            <li class="item"><a href="index.html">Home</a></li>
+                                            <li class="item"><a href="about-us.html">About</a></li>
+                                            <li class="item"><a href="our-services.html">Services</a></li>
+                                            <li class="item"><a href="our-farmers.html">Farmers</a></li>
+                                            <li class="item"><a href="portfolio.html">Portfolio</a></li>
+                                            <li class="item"><a href="blog.html">Blog</a></li>
+                                            <li class="item"><a href="contact-us.html">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="header-right">
+                                    <a class="tf-btn gap-30" href="login.html">
+                                        <span class="text-style">Get In Touch!</span>
+                                        <div class="icon"><i class="icon-arrow_right"></i></div>
+                                    </a>
+                                    <div class="wg-welcome btn-open-welcome">
+                                        <i class="icon-fences-icon fs-24"></i>
+                                    </div>
+                                    <div class="mobile-button">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-item children">
+                    <img alt="" src="static/picture/page-title-top.webp" />
+                </div>
+            </div>
+            <div class="header-item">
+                <img alt="" src="static/picture/page-title-top.webp" />
+            </div>
+        </header><!-- /.Header -->
+        
+        <!-- Page-title-home-1 -->
+        <div class="page-title-home-1">
+            <div class="swiper-container slider-home-1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="slide-home-1">
+                            <div class="image overflow-hidden">
+                                <img alt="" class="lazyload tf-animate-zoom-in-out"
+                                    data-src="./images/page-title/index-1.webp" src="static/picture/index-1.webp" />
+                            </div>
+                            <div class="content-wrap">
+                                <div class="content">
+                                    <p class="sub-title font-snowfall tf-fade-top fade-item-1">Growing Stronger Farms
+                                    </p>
+                                    <h1 class="title font-farmhouse tf-fade-right fade-item-2">Healthy Soil,
+                                        <br />Harvests That Last.</h1>
+                                    <div class="img-item">
+                                        <img alt="" class="tf-trainsition-draw-left access-trainsition"
+                                            src="static/picture/line-throw-title.webp" />
+                                    </div>
+                                    <p class="text font-nunito tf-fade-left fade-item-4">Build productive farms with
+                                        practical growing methods, careful soil management and quality crops for every
+                                        season.</p>
+                                    <a class="tf-btn btn-view bg-white tf-fade-bottom fade-item-5" href="404.html">
+                                        <span class="text-style cl-primary">
+                                            See Our Services
+                                        </span>
+                                        <div class="icon">
+                                            <i class="icon-arrow_right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-home-1">
+                            <div class="image overflow-hidden">
+                                <img alt="" class="lazyload tf-animate-zoom-in-out"
+                                    data-src="./images/page-title/index-2.webp" src="static/picture/index-2.webp" />
+                            </div>
+                            <div class="content-wrap">
+                                <div class="content">
+                                    <p class="sub-title font-snowfall tf-fade-top fade-item-1">Supporting Local Farmers
+                                    </p>
+                                    <h1 class="title font-farmhouse tf-fade-right fade-item-2">Better Tools,
+                                        <br />Better Farming.</h1>
+                                    <div class="img-item">
+                                        <img alt="" class="tf-trainsition-draw-left access-trainsition"
+                                            src="static/picture/line-throw-title.webp" />
+                                    </div>
+                                    <p class="text font-nunito tf-fade-left fade-item-4">We help farming communities
+                                        improve their work with dependable resources, shared knowledge and sustainable
+                                        practices.</p>
+                                    <a class="tf-btn btn-view bg-white tf-fade-bottom fade-item-5" href="404.html">
+                                        <span class="text-style cl-primary">
+                                            See Our Services
+                                        </span>
+                                        <div class="icon">
+                                            <i class="icon-arrow_right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-home-1">
+                            <div class="image overflow-hidden">
+                                <img alt="" class="lazyload tf-animate-zoom-in-out"
+                                    data-src="./images/page-title/index-3.webp" src="static/picture/index-3.webp" />
+                            </div>
+                            <div class="content-wrap">
+                                <div class="content">
+                                    <p class="sub-title font-snowfall tf-fade-top fade-item-1">Fresh Food Starts Here
+                                    </p>
+                                    <h1 class="title font-farmhouse tf-fade-right fade-item-2">From Our Fields <br />To
+                                        Your Family.</h1>
+                                    <div class="img-item">
+                                        <img alt="" class="tf-trainsition-draw-left access-trainsition"
+                                            src="static/picture/line-throw-title.webp" />
+                                    </div>
+                                    <p class="text font-nunito tf-fade-left fade-item-4">Discover fresh farm produce
+                                        grown with care, respect for nature and a commitment to better food for
+                                        everyone.</p>
+                                    <a class="tf-btn btn-view bg-white tf-fade-bottom fade-item-5" href="404.html">
+                                        <span class="text-style cl-primary">
+                                            See Our Services
+                                        </span>
+                                        <div class="icon">
+                                            <i class="icon-arrow_right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-slide-home-1 btn-next">
+                    <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0" viewbox="0 0 80 20"
+                        width="80px" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="#ffffff">
+                            <path
+                                d="M63 19 c0 -0.5 2.6 -2.4 5.8 -4.2 l5.7 -3.3 -19.5 -0.8 c-11 -0.5 -27.1 -0.5 -37 0.1 -9.6 0.5 -17.7 0.7 -17.9 0.5 -2.4 -1.9 22 -3.5 48.7 -3.1 l25.2 0.3 -4.6 -3.9 c-2.5 -2.1 -4.3 -4 -4 -4.3 0.7 -0.7 14.6 8.9 14.6 10.2 0 1.1 -14.3 9.5 -16.2 9.5 -0.4 0 -0.8 -0.4 -0.8 -1z">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="btn-slide-home-1 btn-prev">
+                    <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0" viewbox="0 0 80 20"
+                        width="80px" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="#ffffff">
+                            <path
+                                d="M7 15.4 c-3.6 -2.4 -6.6 -5 -6.8 -5.7 -0.2 -1.2 13.8 -9.7 16 -9.7 2.4 0 0.2 2.4 -4.9 5.2 l-5.8 3.3 19.5 0.8 c11 0.5 27.1 0.5 37 -0.1 9.6 -0.5 17.7 -0.7 17.9 -0.5 2.4 1.9 -22 3.5 -48.6 3.1 l-25.2 -0.3 4.7 4.2 c6.1 5.5 4.4 5.3 -3.8 -0.3z">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div><!-- /.Page-title-home-1 -->
+        <!-- Main-content -->
+        <div class="main-content pt-0 page-index">
+            <!-- Section-break-page -->
+            <section class="s-break-page">
+                <div class="img-item item-1">
+                    <img alt="" class="" src="static/picture/grass-4.webp" />
+                </div>
+                <div class="img-item item-2 wow zoomIn">
+                    <div class="scroll-element-3">
+                        <img alt="" class="" src="static/picture/barn.webp" />
+                    </div>
+                </div>
+                <div class="img-item item-3">
+                    <img alt="" class="" src="static/picture/page-title-top.webp" />
+                </div>
+            </section><!-- /.Section-break-page -->
+            <!-- Section box portfolio -->
+            <section class="s-box-portfolio">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="box-portfolio style-4 tf-img-hover mb-s-991">
+                                <div class="image hover01">
+                                    <img alt="" class="lazyload" data-src="./images/widget/box-portfolio-1.webp"
+                                        src="static/picture/box-portfolio-1.webp" />
+                                </div>
+                                <div class="content">
+                                    <div class="icon hover02">
+                                        <i class="icon-healthy-food-1"></i>
+                                    </div>
+                                    <a class="title fs-22 font-worksans fw-6 hover-text-4" href="our-services.html">
+                                        We Use New Technology</a>
+                                    <p class="text font-nunito">We select practical farm technologies that help growers
+                                        monitor fields, use resources wisely and improve day-to-day operations.</p>
+                                    <div class="bot">
+                                        <a class="btn-read font-worksans fw-5" href="404.html">
+                                            Read More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="box-portfolio style-4 tf-img-hover mb-s-991">
+                                <div class="image hover01">
+                                    <img alt="" class="lazyload" data-src="./images/widget/box-portfolio-2.webp"
+                                        src="static/picture/box-portfolio-2.webp" />
+                                </div>
+                                <div class="content">
+                                    <div class="icon">
+                                        <i class="icon-healthy-food-1"></i>
+                                    </div>
+                                    <a class="title fs-22 font-worksans fw-6 hover-text-4" href="our-services.html">
+                                        Making Healthy Foods</a>
+                                    <p class="text font-nunito">Fresh vegetables are harvested with care, handled
+                                        cleanly and prepared for local markets and family kitchens.</p>
+                                    <div class="bot">
+                                        <a class="btn-read font-worksans fw-5" href="404.html">
+                                            Read More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="box-portfolio style-4 tf-img-hover">
+                                <div class="image hover01">
+                                    <img alt="" class="lazyload" data-src="./images/widget/box-portfolio-3.webp"
+                                        src="static/picture/box-portfolio-3.webp" />
+                                </div>
+                                <div class="content">
+                                    <div class="icon">
+                                        <i class="icon-healthy-food-1"></i>
+                                    </div>
+                                    <a class="title fs-23 font-worksans fw-6 hover-text-4" href="our-services.html">
+                                        Reforming In The Systems</a>
+                                    <p class="text font-nunito">Our farming approach protects soil structure, supports
+                                        biodiversity and makes thoughtful use of water and nutrients.</p>
+                                    <div class="bot">
+                                        <a class="btn-read font-worksans fw-5" href="404.html">
+                                            Read More
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /.Section box portfolio -->
+            <!-- Section about -->
+            <section class="s-about-us">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-section">
+                                <div class="content-left img-hover">
+                                    <div class="heading-section">
+                                        <p class="sub-title wow fadeInUp" data-wow-delay="0s">Practical Agriculture for
+                                            Stronger Farms</p>
+                                        <p class="title text-container tf-animate-2">Supporting growers with reliable
+                                            guidance and quality produce.</p>
+                                    </div>
+                                    <p class="text-1">We partner with growers and local suppliers to make quality farm
+                                        produce and practical agriculture knowledge more accessible.</p>
+                                    <p class="text-2">Healthy soil is the foundation of productive farming. We encourage
+                                        composting, soil testing and balanced nutrient management to support strong root
+                                        systems.</p>
+                                    <a class="tf-btn btn-read-more gap-34" href="404.html">
+                                        <span class="text-style">
+                                            More About Us
+                                        </span>
+                                        <div class="icon">
+                                            <i class="icon-arrow_right"></i>
+                                        </div>
+                                    </a>
+                                    <div class="image hover-item">
+                                        <img alt="" class="lazyload tf-animate-2"
+                                            data-src="./images/section/s-about.webp" src="static/picture/s-about.webp" />
+                                    </div>
+                                </div>
+                                <div class="content-right">
+                                    <div class="wg-counter style-2">
+                                        <div class="has-border">
+                                            <div class="counter-item">
+                                                <div class="icon style-circle">
+                                                    <i class="icon-wheat-grains"></i>
+                                                </div>
+                                                <p class="title font-worksans">Trusted by Farming Communities</p>
+                                                <div class="counter">
+                                                    <div class="odometer style-2" id="odometer">
+                                                        10000
+                                                    </div>
+                                                    <span class="sub-odo">+</span>
+                                                </div>
+                                                <p class="text font-nunito">We focus on healthy soil, efficient water
+                                                    use and thoughtful crop planning for dependable harvests.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-trust">
+                                        <div class="has-border">
+                                            <ul class="benefit-list">
+                                                <li>
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                    <p>
+                                                        Modern Agriculture
+                                                        Equipment
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                    <p>
+                                                        Awesome Harvest of
+                                                        Wheat
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                    <p>
+                                                        Fresh Fruits &amp;
+                                                        Vegetables
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                            <ul class="box-icon-list">
+                                                <li>
+                                                    <div class="box-icon style-3 ic-hover wow fadeInUp"
+                                                        data-wow-delay="0s">
+                                                        <div class="icon style-circle hover-icon">
+                                                            <i class="icon-farmer"></i>
+                                                        </div>
+                                                        <a class="caption fw-6 font-worksans text-upper hover-text-secondary"
+                                                            href="about-us.html">
+                                                            Highly Qualified &amp; <br />
+                                                            Specialized Farmers
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="box-icon style-3 ic-hover wow fadeInUp"
+                                                        data-wow-delay="0s">
+                                                        <div class="icon style-circle hover-icon">
+                                                            <i class="icon-chicken"></i>
+                                                        </div>
+                                                        <a class="caption fw-6 font-worksans text-upper hover-text-secondary"
+                                                            href="about-us.html">
+                                                            Fruit, Vegetables <br />
+                                                            And Livestock
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <a class="tf-btn-read text-white hover-text-secondary" href="404.html">
+                                                Read More
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /.Section about -->
+            <!-- Section service -->
+            <section class="s-service has-img-item">
+                <div class="tf-container w-1620">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="heading-section has-text text-center">
+                                <p class="sub-title">
+                                    What Is Our Expertise?
+                                </p>
+                                <p class="title wow fadeInUp" data-wow-delay="0s">
+                                    We Providing The <br />
+                                    Best Agricultural Services
+                                </p>
+                                <p class="text wow fadeInUp" data-wow-delay="0s">We help growers plan seasonal work,
+                                    choose suitable crops and maintain healthy fields from planting to harvest.</p>
+                                <div class="img-item">
+                                    <img alt="" class="tf-animate-1" src="static/picture/rice-plant-2.webp" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-icon style-6 ic-hover wow fadeInUp" data-wow-delay="0s">
+                                <div class="icon hover-icon style-circle">
+                                    <i class="icon-salad"></i>
+                                </div>
+                                <a class="caption fw-6 font-worksans hover-text-secondary" href="#">
+                                    Clean Vegetables
+                                </a>
+                                <p class="text font-nunito">Fresh seasonal vegetables are selected, cleaned and handled
+                                    carefully to bring quality produce from farm to table.</p>
+                                <a class="btn-read" href="404.html">
+                                    <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0"
+                                        viewbox="0 0 80 20" width="80px" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="#ffffff">
+                                            <path
+                                                d="M63 19 c0 -0.5 2.6 -2.4 5.8 -4.2 l5.7 -3.3 -19.5 -0.8 c-11 -0.5 -27.1 -0.5 -37 0.1 -9.6 0.5 -17.7 0.7 -17.9 0.5 -2.4 -1.9 22 -3.5 48.7 -3.1 l25.2 0.3 -4.6 -3.9 c-2.5 -2.1 -4.3 -4 -4 -4.3 0.7 -0.7 14.6 8.9 14.6 10.2 0 1.1 -14.3 9.5 -16.2 9.5 -0.4 0 -0.8 -0.4 -0.8 -1z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-icon style-6 ic-hover wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="icon hover-icon style-circle">
+                                    <i class="icon-cow"></i>
+                                </div>
+                                <a class="caption fw-6 font-worksans hover-text-secondary" href="404.html">
+                                    Pure Cow's Milk
+                                </a>
+                                <p class="text font-nunito">Milk is collected through clean milking routines and handled
+                                    with care to maintain freshness and quality.</p>
+                                <a class="btn-read" href="404.html">
+                                    <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0"
+                                        viewbox="0 0 80 20" width="80px" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="#ffffff">
+                                            <path
+                                                d="M63 19 c0 -0.5 2.6 -2.4 5.8 -4.2 l5.7 -3.3 -19.5 -0.8 c-11 -0.5 -27.1 -0.5 -37 0.1 -9.6 0.5 -17.7 0.7 -17.9 0.5 -2.4 -1.9 22 -3.5 48.7 -3.1 l25.2 0.3 -4.6 -3.9 c-2.5 -2.1 -4.3 -4 -4 -4.3 0.7 -0.7 14.6 8.9 14.6 10.2 0 1.1 -14.3 9.5 -16.2 9.5 -0.4 0 -0.8 -0.4 -0.8 -1z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-icon style-6 ic-hover wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="icon hover-icon style-circle">
+                                    <i class="icon-chicken-2 fs-67"></i>
+                                </div>
+                                <a class="caption fw-6 font-worksans hover-text-secondary" href="404.html">
+                                    Clean Chicken And Eggs
+                                </a>
+                                <p class="text font-nunito">Farm-fresh poultry and eggs are handled with attention to
+                                    hygiene, responsible care and product quality.</p>
+                                <a class="btn-read" href="404.html">
+                                    <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0"
+                                        viewbox="0 0 80 20" width="80px" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="#ffffff">
+                                            <path
+                                                d="M63 19 c0 -0.5 2.6 -2.4 5.8 -4.2 l5.7 -3.3 -19.5 -0.8 c-11 -0.5 -27.1 -0.5 -37 0.1 -9.6 0.5 -17.7 0.7 -17.9 0.5 -2.4 -1.9 22 -3.5 48.7 -3.1 l25.2 0.3 -4.6 -3.9 c-2.5 -2.1 -4.3 -4 -4 -4.3 0.7 -0.7 14.6 8.9 14.6 10.2 0 1.1 -14.3 9.5 -16.2 9.5 -0.4 0 -0.8 -0.4 -0.8 -1z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box-icon style-6 ic-hover wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="icon hover-icon style-circle">
+                                    <i class="icon-seed-bag"></i>
+                                </div>
+                                <a class="caption fw-6 font-worksans hover-text-secondary" href="404.html">
+                                    Fertilizer Product
+                                </a>
+                                <p class="text font-nunito">Explore farm nutrients and soil conditioners selected to
+                                    support healthy plant growth when used as directed.</p>
+                                <a class="btn-read" href="404.html">
+                                    <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0"
+                                        viewbox="0 0 80 20" width="80px" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="#ffffff">
+                                            <path
+                                                d="M63 19 c0 -0.5 2.6 -2.4 5.8 -4.2 l5.7 -3.3 -19.5 -0.8 c-11 -0.5 -27.1 -0.5 -37 0.1 -9.6 0.5 -17.7 0.7 -17.9 0.5 -2.4 -1.9 22 -3.5 48.7 -3.1 l25.2 0.3 -4.6 -3.9 c-2.5 -2.1 -4.3 -4 -4 -4.3 0.7 -0.7 14.6 8.9 14.6 10.2 0 1.1 -14.3 9.5 -16.2 9.5 -0.4 0 -0.8 -0.4 -0.8 -1z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s-img-item item-1">
+                    <img alt="" src="static/picture/page-title-top.webp" />
+                </div>
+                <div class="s-img-item item-2 wow zoomIn">
+                    <div class="scroll-element-3">
+                        <img alt="" src="static/picture/house-mountain.webp" />
+                    </div>
+                </div>
+                <div class="s-img-item item-3">
+                    <img alt="" src="static/picture/page-title-top.webp" />
+                </div>
+            </section><!-- /.Section service -->
+            <!-- Section why us -->
+            <section class="s-why-us has-img-item">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-section">
+                                <div class="image">
+                                    <div class="video-wrap style-4">
+                                        <img alt="" class="lazyload tf-animate-2"
+                                            data-src="./images/section/s-why-us.webp"
+                                            src="static/picture/s-why-us.webp" />
+                                        <div class="box-video tf-animate__box animate__slow">
+                                            <a class="style-icon-play popup-youtube" href="#">
+                                                <i class="icon-play3"></i>
+                                                <div class="wave"></div>
+                                                <div class="wave-1"></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content-section">
+                                    <div class="heading-section style-2">
+                                        <div class="img-item">
+                                            <div class="item">
+                                                <img alt="" class="tf-animate-1"
+                                                    src="static/picture/rice-plant-2.webp" />
+                                            </div>
+                                            <p class="sub-title">
+                                                Why Choose Stackly?
+                                            </p>
+                                        </div>
+                               <p class="title tf-animate-4">
+    Growing Fresh Crops With
+    Care, Passion & Sustainability
+</p>
+</div>
+<p class="text">
+    At Stackly Agriculture, we believe healthy soil creates a healthier
+    future. We focus on sustainable farming practices, natural cultivation
+    methods and responsible resource management to grow fresh, nutritious
+    crops. Our goal is to support farmers, protect the environment and
+    deliver quality farm produce for every generation.
+</p>
+                                    <a class="tf-btn btn-read-more scale-40" href="404.html">
+                                        <span class="text-style">
+                                            More Why Choose Us
+                                        </span>
+                                        <div class="icon">
+                                            <i class="icon-arrow_right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="bot relative">
+                                <ul class="benefit-list">
+                                    <li>
+                                        <div class="icon">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <a class="h5 hover-text-secondary title fw-6 font-worksans" href="404.html">
+                                            100% Organic Products
+                                        </a>
+                                        <p class="sub">Clean vegetables are picked at the right stage, sorted carefully
+                                            and delivered while fresh.</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <a class="h5 hover-text-secondary title fw-6 font-worksans" href="404.html">
+                                            Absolute Quality
+                                        </a>
+                                        <p class="sub">Our dairy partners follow careful animal care, clean milking
+                                            routines and proper milk handling practices.</p>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <a class="h5 hover-text-secondary title fw-6 font-worksans" href="404.html">
+                                            Environmentally Friendly
+                                        </a>
+                                        <p class="sub">Eggs and poultry products are handled with attention to farm
+                                            hygiene, animal welfare and freshness.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /.Section why us -->
+            <!-- Section our commitments -->
+            <section class="s-our-commitment tf-spacing-3 pb-75">
+                <div class="tf-container w-1620">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-section">
+                                <div class="content-section">
+                                    <div class="heading-section style-2">
+                                        <div class="img-item">
+                                            <div class="item">
+                                                <img alt="" class="tf-animate-1"
+                                                    src="static/picture/rice-plant-2.webp" />
+                                            </div>
+                                            <p class="sub-title">
+                                                Our Commitment
+                                            </p>
+                                        </div>
+                                        <p class="title wow fadeInUp" data-wow-delay="0s">
+                                            We Always Bring Customers Green
+                                            &amp; Clean Products
+                                        </p>
+                                    </div>
+                                    <p class="text mb-40">We care for the land by promoting responsible water use,
+                                        thoughtful farm inputs and growing practices that protect natural resources.</p>
+                                    <ul class="box-icon-list style-2">
+                                        <li class="li">
+                                            <div class="box-icon style-3 ic-hover wow fadeInUp" data-wow-delay="0s">
+                                                <div class="icon style-circle hover-icon">
+                                                    <i class="icon-chemical"></i>
+                                                </div>
+                                                <a class="caption fw-6 font-worksans hover-text-4" href="404.html">
+                                                    Minimal Chemicals Used
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="li">
+                                            <div class="box-icon style-3 ic-hover wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="icon style-circle hover-icon">
+                                                    <i class="icon-worm"></i>
+                                                </div>
+                                                <a class="caption fw-6 font-worksans hover-text-4" href="404.html">
+                                                    Minimal Color Used
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="li">
+                                            <div class="box-icon style-3 ic-hover wow fadeInUp" data-wow-delay="0.2s">
+                                                <div class="icon style-circle hover-icon">
+                                                    <i class="icon-disposal"></i>
+                                                </div>
+                                                <a class="caption fw-6 font-worksans hover-text-4" href="404.html">
+                                                    All Organic Waste Reused
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="li">
+                                            <div class="box-icon style-3 ic-hover wow fadeInUp" data-wow-delay="0.3s">
+                                                <div class="icon style-circle hover-icon">
+                                                    <i class="icon-light-bulb"></i>
+                                                </div>
+                                                <a class="caption fw-6 font-worksans hover-text-4" href="404.html">
+                                                    Do Not Use Artificial
+                                                    Light
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <a class="tf-btn btn-read-more scale-50" href="404.html">
+                                        <span class="text-style">
+                                            See More Our Commitment
+                                        </span>
+                                        <div class="icon">
+                                            <i class="icon-arrow_right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="image-wrap img-hover">
+                                    <div class="image hover-item">
+                                        <img alt="" class="lazyload" data-src="./images/section/s-commit.webp"
+                                            src="static/picture/s-commit.webp" />
+                                    </div>
+                                    <div class="img-item item-1 tf-animate__box animate__slow">
+                                        <img alt="" class="lazyload up-down-move" src="static/picture/notice.webp" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /.Section our commitments -->
+            <!-- Section project -->
+            <section class="s-project">
+                <div class="heading-side has-img-item">
+                    <div class="tf-container w-1290">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="heading-section style-3 has-text text-center">
+                                    <p class="sub-title">Our Farm Work</p>
+                                    <p class="title tf-animate-3">
+                                        Latest Projects List
+                                    </p>
+                                    <p class="text">Choose soil conditioners and farm inputs according to crop needs,
+                                        soil tests and responsible application guidance.</p>
+                                    <div class="img-item">
+                                        <img alt="" class="tf-animate-1" src="static/picture/rice-plant-2.webp" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="s-img-item item-1">
+                        <img alt="" src="static/picture/page-title-top.webp" />
+                    </div>
+                    <div class="s-img-item item-2 wow zoomIn">
+                        <img alt="" src="static/picture/windmill.webp" />
+                    </div>
+                    <div class="s-img-item item-3">
+                        <img alt="" src="static/picture/green.webp" />
+                    </div>
+                </div>
+                <div class="slider-side">
+                    <div class="tf-container w-1290">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="swiper-container slider-s-project">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="box-portfolio style-5">
+                                                <div class="image">
+                                                    <img alt="" class="lazyload"
+                                                        data-src="./images/section/s-project-1.webp"
+                                                        src="static/picture/s-project-1.webp" />
+                                                </div>
+                                                <div class="content">
+                                                    <p class="sub font-farmhouse text-upper">
+                                                        Agriculture - farm
+                                                    </p>
+                                                    <a class="title fs-23 font-worksans fw-6 hover-text-secondary"
+                                                        href="404.html">Soil Health Through Crop Rotation</a>
+                                                    <div class="bot">
+                                                        <p class="text font-nunito">Our team values local knowledge and
+                                                            practical support that helps farmers make confident
+                                                            decisions.</p>
+                                                        <a class="btn-read icon style-circle" href="404.html">
+                                                            <i class="icon-arrow_right"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="box-portfolio style-5">
+                                                <div class="image">
+                                                    <img alt="" class="lazyload"
+                                                        data-src="./images/section/s-project-2.webp"
+                                                        src="static/picture/s-project-2.webp" />
+                                                </div>
+                                                <div class="content">
+                                                    <p class="sub font-farmhouse text-upper">
+                                                        Agriculture - farm
+                                                    </p>
+                                                    <a class="title fs-23 font-worksans fw-6 hover-text-secondary"
+                                                        href="404.html">Soil Health Through Crop Rotation</a>
+                                                    <div class="bot">
+                                                        <p class="text font-nunito">Stackly connects growers with useful
+                                                            farm knowledge, carefully handled produce and responsible
+                                                            agricultural practices.</p>
+                                                        <a class="btn-read icon style-circle" href="404.html">
+                                                            <i class="icon-arrow_right"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="box-portfolio style-5">
+                                                <div class="image">
+                                                    <img alt="" class="lazyload"
+                                                        data-src="./images/section/s-project-3.webp"
+                                                        src="static/picture/s-project-3.webp" />
+                                                </div>
+                                                <div class="content">
+                                                    <p class="sub font-farmhouse text-upper">
+                                                        Agriculture - farm
+                                                    </p>
+                                                    <a class="title fs-23 font-worksans fw-6 hover-text-secondary"
+                                                        href="404.html">Soil Health Through Crop Rotation</a>
+                                                    <div class="bot">
+                                                        <p class="text font-nunito">We focus on healthy soil, efficient
+                                                            water use and thoughtful crop planning for dependable
+                                                            harvests.</p>
+                                                        <a class="btn-read icon style-circle" href="404.html">
+                                                            <i class="icon-arrow_right"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="bot">
+                                    <div class="swiper-pagination style-1 pagination-s-project"></div>
+                                    <a class="tf-btn-read hover-text-4" href="404.html">View All Latest
+                                        Projects</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s-img-item item-4">
+                    <img alt="" src="static/picture/page-title-top.webp" />
+                </div>
+            </section><!-- /.Section project -->
+            <!-- Section testimonial -->
+            <section class="s-testimonial">
+                <div class="tf-container full">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="content-wrap">
+                                <div class="image wow fadeInLeft" data-wow-delay="0s">
+                                    <img alt="" class="absolute scroll-element-3" src="static/picture/s-farm.webp" />
+                                </div>
+                                <div class="content-section">
+                                    <div class="heading-section">
+                                        <p class="sub-title">Testimonials With Us</p>
+                                        <p class="title tf-animate-2">What Clients Says?</p>
+                                        <div class="img-item">
+                                            <img alt="" class="tf-animate-1" src="static/picture/rice-plant-2.webp" />
+                                        </div>
+                                        <div class="img-item item-2">
+                                            <i class="icon-quote"></i>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-container slider-s-testimonial">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="testimonial style-4">
+                                                    <div class="comment">
+                                                        <p class="caption fs-23 font-snowfall">
+                                                            Having been a host farmer for
+                                                            three seasons, we’ve seen
+                                                            firsthand the difference this
+                                                            internship makes in beginning
+                                                            farmers and host farms alike. As
+                                                            a farmer it is difficult to
+                                                            weigh the benefits of hosting
+                                                            young farmers. Fresh energy and
+                                                            enthusiasm.
+                                                        </p>
+                                                    </div>
+                                                    <div class="author-wrap">
+                                                        <div class="left">
+                                                            <div class="image-avt">
+                                                                <img alt="" src="static/picture/author-comment.webp" />
+                                                            </div>
+                                                            <div class="infor">
+                                                                <div class="name-wrap">
+                                                                    <a class="name text-upper hover-text-4" href="#">
+                                                                        CHRISTINE ROSE
+                                                                    </a>
+                                                                    <div class="wg-rating">
+                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <i class="fa-solid fa-star"></i>
+                                                                        <i class="fa-solid fa-star"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <p class="duty">
+                                                                    Director, Radical Orange
+                                                                    Pty Ltd.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-s-testimonial btn-next relative">
+                                            <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0"
+                                                viewbox="0 0 80 20" width="58px" xmlns="http://www.w3.org/2000/svg">
+                                                <g fill="#0d401c">
+                                                    <path
+                                                        d="M63 19 c0 -0.5 2.6 -2.4 5.8 -4.2 l5.7 -3.3 -19.5 -0.8 c-11 -0.5 -27.1 -0.5 -37 0.1 -9.6 0.5 -17.7 0.7 -17.9 0.5 -2.4 -1.9 22 -3.5 48.7 -3.1 l25.2 0.3 -4.6 -3.9 c-2.5 -2.1 -4.3 -4 -4 -4.3 0.7 -0.7 14.6 8.9 14.6 10.2 0 1.1 -14.3 9.5 -16.2 9.5 -0.4 0 -0.8 -0.4 -0.8 -1z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="btn-s-testimonial btn-prev relative">
+                                            <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0"
+                                                viewbox="0 0 80 20" width="58px" xmlns="http://www.w3.org/2000/svg">
+                                                <g fill="#0d401c">
+                                                    <path
+                                                        d="M7 15.4 c-3.6 -2.4 -6.6 -5 -6.8 -5.7 -0.2 -1.2 13.8 -9.7 16 -9.7 2.4 0 0.2 2.4 -4.9 5.2 l-5.8 3.3 19.5 0.8 c11 0.5 27.1 0.5 37 -0.1 9.6 -0.5 17.7 -0.7 17.9 -0.5 2.4 1.9 -22 3.5 -48.6 3.1 l-25.2 -0.3 4.7 4.2 c6.1 5.5 4.4 5.3 -3.8 -0.3z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /.Section testimonial -->
+            <!-- Section counter -->
+            <section class="s-counter has-img-item">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="wg-counter p-0">
+                                <div class="counter-item">
+                                    <div class="icon">
+                                        <i class="icon-barley"></i>
+                                    </div>
+                                    <div class="counter">
+                                        <div class="odometer fs-65 style-1 style-1-1">
+                                            1000
+                                        </div>
+                                    </div>
+                                    <p class="sub">Completed Projects</p>
+                                </div>
+                                <div class="counter-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-cow"></i>
+                                    </div>
+                                    <div class="counter">
+                                        <div class="odometer fs-65 style-1 style-1-2">
+                                            1000
+                                        </div>
+                                    </div>
+                                    <p class="sub">Crops, Livestock and Healthy Soil</p>
+                                </div>
+                                <div class="counter-item">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-tractor"></i>
+                                    </div>
+                                    <div class="counter">
+                                        <div class="odometer fs-65 style-1-3">
+                                            10
+                                        </div>
+                                    </div>
+                                    <p class="sub">Years Of Experience</p>
+                                </div>
+                                <div class="counter-item">
+                                    <div class="icon">
+                                        <i class="icon-barley"></i>
+                                    </div>
+                                    <div class="counter">
+                                        <div class="odometer fs-65 style-1-4">
+                                            1000
+                                        </div>
+                                    </div>
+                                    <p class="sub">Tons of Harvest</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s-img-item item-1">
+                    <img alt="" src="static/picture/brown-top.webp" />
+                </div>
+                <div class="s-img-item item-2 zoomIn wow">
+                    <div class="scroll-element-4">
+                        <img alt="" src="static/picture/tructor.webp" />
+                    </div>
+                </div>
+                <div class="s-img-item item-bottom">
+                    <img alt="" src="static/picture/brown-bottom.webp" />
+                </div>
+            </section><!-- /.Section counter -->
+            <!-- Section break page -->
+            <section class="s-break-page style-2">
+                <div class="content">
+                    <h1 class="font-farmhouse text-center text-anime-style-1">Growing Food, Supporting Farmers and
+                        Caring for the Land</h1>
+                </div>
+            </section><!-- /.Section break page -->
+            <!-- Section faq -->
+            <section class="s-faq has-img-item tf-pt-0">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="content-section">
+                                <div class="heading-section style-2 has-text mb-43">
+                                    <div class="img-item">
+                                        <div class="item mr-16">
+                                            <img alt="" class="tf-animate-1" src="static/picture/rice-plant-2.webp" />
+                                        </div>
+                                        <p class="sub-title">
+                                            Frequently Asked Questions
+                                        </p>
+                                    </div>
+                                    <p class="title wow fadeInUp" data-wow-delay="0s">
+                                        Most Frequently Asked Questions
+                                        About The Farm.
+                                    </p>
+                                    <p class="text">Our team values local knowledge and practical support that helps
+                                        farmers make confident decisions.</p>
+                                </div>
+                            <div class="tf-accordion accordion" id="accordionExample">
+
+    <!-- FAQ 1 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne">
+                How can I choose the right crops for my farm?
+            </button>
+        </h2>
+
+        <div id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Selecting the right crops depends on your soil type,
+                climate, water availability and growing season.
+                Our agricultural guidance helps farmers choose
+                suitable crops for better productivity and quality.
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo">
+                What can I do to improve soil fertility?
+            </button>
+        </h2>
+
+        <div id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Improve soil fertility by adding organic compost,
+                practicing crop rotation, using natural fertilizers
+                and maintaining proper soil moisture. Regular soil
+                testing also helps maintain healthy growing conditions.
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree">
+                Does Stackly provide crop and irrigation guidance?
+            </button>
+        </h2>
+
+        <div id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Stackly provides practical agricultural information
+                about crop planning, irrigation methods, water
+                conservation and sustainable farming practices
+                to support informed farming decisions.
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour">
+                How can I become part of the farmer community?
+            </button>
+        </h2>
+
+        <div id="collapseFour"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingFour"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                Connect with our farming community to exchange
+                agricultural knowledge, share farming experiences,
+                discover useful resources and learn about modern
+                cultivation techniques.
+            </div>
+        </div>
+    </div>
+
+</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="s-right img-hover">
+                                <div class="image-wrap hover-item">
+                                    <div class="image">
+                                        <img alt="" class="lazyload tf-animate-2" data-src="./images/section/s-faq.webp"
+                                            src="static/picture/s-faq.webp" />
+                                    </div>
+                                </div>
+                                <div class="img-item tf-animate__box-2">
+                                    <img alt="" class="up-down-move" src="static/picture/question.webp" />
+                                </div>
+                                <div class="content">
+                                    <p class="text fs-30 font-snowfall">
+                                        You didn't find your question? See
+                                        more questions and ask us today!
+                                    </p>
+                                    <a class="tf-btn bg-white" href="404.html">
+                                        <span class="text-style cl-primary">
+                                            Read More
+                                        </span>
+                                        <div class="icon">
+                                            <i class="icon-arrow_right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s-img-item item-1 t--40 z-3">
+                    <img alt="" src="static/picture/page-title-top.webp" />
+                </div>
+            </section><!-- /.Section faq -->
+            <!-- Section banner -->
+            <section class="s-banner">
+                <div class="heading-side has-img-item">
+                    <div class="image scroll-element-3">
+                        <div class="wow zoomIn">
+                            <img alt="" class="scale-1-1" src="static/picture/gree-field.webp" />
+                        </div>
+                    </div>
+                    <div class="s-img-item item-bottom">
+                        <img alt="" src="static/picture/page-title-top.webp" />
+                    </div>
+                </div>
+                <div class="slider-side">
+                    <div class="tf-container w-1620">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="swiper-container slider-box-event">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="box-event">
+                                                <div class="image hover-item">
+                                                    <img alt="" class="lazyload"
+                                                        data-src="./images/widget/box-event-1.webp"
+                                                        src="static/picture/box-event-1.webp" />
+                                                </div>
+                                                <div class="content">
+                                                    <div class="img-item">
+                                                        <img alt="" src="static/picture/rice-plant-2.webp" />
+                                                    </div>
+                                                    <a class="title fw-7 font-worksans" href="404.html">Explore
+                                                        Sustainable Farming</a>
+                                                    <p class="text">Stackly connects growers with useful farm knowledge,
+                                                        carefully handled produce and responsible agricultural
+                                                        practices.</p>
+                                                    <a class="tf-btn-read hover-text-4" href="404.html">Read
+                                                        More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="box-event">
+                                                <div class="image hover-item">
+                                                    <img alt="" class="lazyload"
+                                                        data-src="./images/widget/box-event-2.webp"
+                                                        src="static/picture/box-event-2.webp" />
+                                                </div>
+                                                <div class="content">
+                                                    <div class="img-item">
+                                                        <img alt="" src="static/picture/rice-plant-2.webp" />
+                                                    </div>
+                                                    <a class="title fw-7 font-worksans" href="404.html">Seasonal Crop
+                                                        Care</a>
+                                                    <p class="text">We focus on healthy soil, efficient water use and
+                                                        thoughtful crop planning for dependable harvests.</p>
+                                                    <a class="tf-btn-read hover-text-4" href="404.html">Read
+                                                        More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="box-event">
+                                                <div class="image hover-item">
+                                                    <img alt="" class="lazyload"
+                                                        data-src="./images/widget/box-event-3.webp"
+                                                        src="static/picture/box-event-3.webp" />
+                                                </div>
+                                                <div class="content">
+                                                    <div class="img-item">
+                                                        <img alt="" src="static/picture/rice-plant-2.webp" />
+                                                    </div>
+                                                    <a class="title fw-7 font-worksans" href="404.html">Farm Learning
+                                                        and Field Visits</a>
+                                                    <p class="text">Our team values local knowledge and practical
+                                                        support that helps farmers make confident decisions.</p>
+                                                    <a class="tf-btn-read hover-text-4" href="404.html">Read
+                                                        More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /.Section banner -->
+            <!-- Section blog post -->
+            <section class="s-blog-post">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="heading-section has-text text-center mb-81">
+                                <p class="sub-title">From The Blog Post</p>
+                                <p class="title tf-animate-2">Latest News &amp; Articles</p>
+                                <p class="text">We support growers with practical crop planning, field preparation and
+                                    seasonal production advice.</p>
+                                <div class="img-item">
+                                    <img alt="" class="tf-animate-1" src="static/picture/rice-plant-2.webp" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s-slide">
+                    <div class="tf-container w-1290">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="swiper-container slider-blog-post">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <article class="article-blog-item type-3 style-2 img-hover">
+                                                <div class="image">
+                                                    <div class="video-wrap hover-item">
+                                                        <img alt="" class="lazyload" data-src="./images/blog/blog-1.webp"
+                                                            src="static/picture/blog-1.webp" />
+                                                        <a class="style-icon-play popup-youtube" href="#">
+                                                            <i class="fa-solid fa-play"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="entry-date">
+                                                        <p class="day">
+                                                            08
+                                                        </p>
+                                                        <p class="month-year">
+                                                            Sept 26
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <ul class="entry-meta">
+                                                        <li class="entry author">
+                                                            <i class="fa-solid fa-circle-user"></i>
+                                                            <p>
+                                                                <a href="404.html">
+                                                                    By
+                                                                    Stackly Agriculture Team
+                                                                </a>
+                                                            </p>
+                                                        </li>
+                                                        <li class="entry tags">
+                                                            <i class="fa-solid fa-tag"></i>
+                                                            <p>
+                                                                <a href="404.html">Agriculture</a>,
+                                                                <a href="404.html">Farm</a>
+                                                            </p>
+                                                        </li>
+                                                        <li class="entry comment">
+                                                            <i class="fa-solid fa-comment"></i>
+                                                            <p>
+                                                                <a href="404.html">0
+                                                                    Comments</a>
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <h3 class="title fw-6">Daily Dairy Farm Hygiene Practices</h3>
+                                                    <p class="text text-line-clamp-3">Good farm management starts with
+                                                        observation: check soil moisture, crop health and field
+                                                        conditions regularly.</p>
+                                                    <div class="bot">
+                                                        <a class="tf-btn-read hover-text-4" href="404.html">Continue
+                                                            Reading</a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <article class="article-blog-item type-3 style-2 img-hover">
+                                                <div class="image">
+                                                    <div class="video-wrap hover-item">
+                                                        <img alt="" class="lazyload" data-src="./images/blog/blog-4.webp"
+                                                            src="static/images/blog-2.webp" />
+                                                        <a class="style-icon-play popup-youtube" href="#">
+                                                            <i class="fa-solid fa-play"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="entry-date">
+                                                        <p class="day">
+                                                            08
+                                                        </p>
+                                                        <p class="month-year">
+                                                            Sept 26
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <ul class="entry-meta">
+                                                        <li class="entry author">
+                                                            <i class="fa-solid fa-circle-user"></i>
+                                                            <p>
+                                                                <a class="" href="404.html">
+                                                                    By
+                                                                    Stackly Agriculture Team
+                                                                </a>
+                                                            </p>
+                                                        </li>
+                                                        <li class="entry tags">
+                                                            <i class="fa-solid fa-tag"></i>
+                                                            <p>
+                                                                <a href="404.html">Agriculture</a>,
+                                                                <a href="404.html">Farm</a>
+                                                            </p>
+                                                        </li>
+                                                        <li class="entry comment">
+                                                            <i class="fa-solid fa-comment"></i>
+                                                            <p>
+                                                                <a href="404.html">0
+                                                                    Comments</a>
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <h3 class="title fw-6">How to Identify the Right Harvest Time</h3>
+                                                    <p class="text text-line-clamp-3">Our approach combines traditional
+                                                        farming knowledge with useful tools that make farm work more
+                                                        efficient.</p>
+                                                    <div class="bot">
+                                                        <a class="tf-btn-read hover-text-4" href="404.html">Continue
+                                                            Reading</a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <article class="article-blog-item type-3 style-2 img-hover">
+                                                <div class="image">
+                                                    <div class="video-wrap hover-item">
+                                                        <img alt="" class="lazyload" data-src="./images/blog/blog-3.webp"
+                                                            src="static/picture/blog-3.webp" />
+                                                        <a class="style-icon-play popup-youtube" href="#">
+                                                            <i class="fa-solid fa-play"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="entry-date">
+                                                        <p class="day">
+                                                            08
+                                                        </p>
+                                                        <p class="month-year">
+                                                            Sept 26
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <ul class="entry-meta">
+                                                        <li class="entry author">
+                                                            <i class="fa-solid fa-circle-user"></i>
+                                                            <p>
+                                                                <a class="" href="#">
+                                                                    By
+                                                                    Stackly Agriculture Team
+                                                                </a>
+                                                            </p>
+                                                        </li>
+                                                        <li class="entry tags">
+                                                            <i class="fa-solid fa-tag"></i>
+                                                            <p>
+                                                                <a href="404.html">Agriculture</a>,
+                                                                <a href="404.html">Farm</a>
+                                                            </p>
+                                                        </li>
+                                                        <li class="entry comment">
+                                                            <i class="fa-solid fa-comment"></i>
+                                                            <p>
+                                                                <a href="404.html">0
+                                                                    Comments</a>
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <h3 class="title fw-6">Planning a Productive Growing Season</h3>
+                                                    <p class="text text-line-clamp-3">We value transparent sourcing,
+                                                        careful handling and strong relationships with local producers.
+                                                    </p>
+                                                    <div class="bot">
+                                                        <a class="tf-btn-read hover-text-4" href="404.html">Continue
+                                                            Reading</a>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-s-blog-post btn-next">
+                        <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0" viewbox="0 0 80 20"
+                            width="58px" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="#0d401c">
+                                <path
+                                    d="M63 19 c0 -0.5 2.6 -2.4 5.8 -4.2 l5.7 -3.3 -19.5 -0.8 c-11 -0.5 -27.1 -0.5 -37 0.1 -9.6 0.5 -17.7 0.7 -17.9 0.5 -2.4 -1.9 22 -3.5 48.7 -3.1 l25.2 0.3 -4.6 -3.9 c-2.5 -2.1 -4.3 -4 -4 -4.3 0.7 -0.7 14.6 8.9 14.6 10.2 0 1.1 -14.3 9.5 -16.2 9.5 -0.4 0 -0.8 -0.4 -0.8 -1z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="btn-s-blog-post btn-prev">
+                        <svg height="20px" preserveaspectratio="xMidYMid meet" version="1.0" viewbox="0 0 80 20"
+                            width="58px" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="#0d401c">
+                                <path
+                                    d="M7 15.4 c-3.6 -2.4 -6.6 -5 -6.8 -5.7 -0.2 -1.2 13.8 -9.7 16 -9.7 2.4 0 0.2 2.4 -4.9 5.2 l-5.8 3.3 19.5 0.8 c11 0.5 27.1 0.5 37 -0.1 9.6 -0.5 17.7 -0.7 17.9 -0.5 2.4 1.9 -22 3.5 -48.6 3.1 l-25.2 -0.3 4.7 4.2 c6.1 5.5 4.4 5.3 -3.8 -0.3z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </section><!-- /.Section blog post -->
+            <!-- Section contact us -->
+            <section class="s-contact-us has-img-item">
+                <div class="section-wrap">
+                    <div class="tf-container w-1290">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="content-left">
+                                    <div class="image mb-30 mh-unset">
+                                        <img alt="./images/section/s-contact.webp" class="lazyload"
+                                            src="static/picture/s-contact.webp" />
+                                        <img alt="" class="img-item tf-animate__rotate-left"
+                                            src="static/picture/leaf.webp" />
+                                    </div>
+                                    <ul class="contact-list">
+                                        <li class="wow fadeInUp" data-wow-duration="1.4s">Serving farming communities
+                                            across the region</li>
+                                        <li class="wow fadeInUp" data-wow-duration="1.4s">
+                                            <div class="icon style-circle">
+                                                <i class="fa-solid fa-address-book"></i>
+                                            </div>
+                                            <div class="infor">
+                                                <p class="title">
+                                                    Contact Us
+                                                </p>
+                                                <p class="text">
+                                                    Stackly Agriculture Team <br />
+                                                    Send us a message for agriculture support
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="wow fadeInUp" data-wow-duration="1.4s">
+                                            <div class="icon style-circle">
+                                                <i class="fa-solid fa-clock"></i>
+                                            </div>
+                                            <div class="infor">
+                                                <p class="title">
+                                                    Working Hours
+                                                </p>
+                                                <p class="text">
+                                                    Mon - Fri: 8.00am - 18.00pm <br />
+                                                    Sat: 9.00am - 17.00pm Holidays: Closes
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="content-section">
+                                    <div class="heading-section mb-50 style-3 has-text">
+                                        <p class="sub-title">Let's Cooperate Together</p>
+                                        <p class="title tf-animate-1 transition-1s">
+                                            Contact Us Today!
+                                        </p>
+                                        <p class="text">
+                                            We will reply you within 24 hours via email, thank you for contacting
+                                        </p>
+                                        <div class="img-item">
+                                            <img alt="" class="tf-animate-1" src="static/picture/rice-plant-2.webp" />
+                                        </div>
+                                    </div>
+                                    <form id="contactform" class="form-send-message" novalidate>
+
+    <div class="cols style-2 mb-15">
+        <fieldset>
+            <input type="text" id="name" name="name"
+                placeholder="Full Name *"
+                minlength="3" maxlength="50" required>
+            <small class="error-message"></small>
+        </fieldset>
+
+        <fieldset>
+            <input type="email" id="mail" name="mail"
+                placeholder="Email Address *"
+                maxlength="100" required>
+            <small class="error-message"></small>
+        </fieldset>
+    </div>
+
+    <div class="cols style-2 mb-15">
+        <fieldset>
+            <input type="tel" id="phone" name="phone"
+                placeholder="Phone Number *"
+                maxlength="20" required>
+            <small class="error-message"></small>
+        </fieldset>
+
+        <fieldset class="dropdown">
+            <select id="Support" name="support" required>
+                <option value="" selected disabled>
+                    Select Agriculture Support *
+                </option>
+                <option value="Crop Consultation">Crop Consultation</option>
+                <option value="Soil Management">Soil Management</option>
+                <option value="Irrigation Support">Irrigation Support</option>
+                <option value="Organic Farming">Organic Farming</option>
+                <option value="General Enquiry">General Enquiry</option>
+            </select>
+            <small class="error-message"></small>
+        </fieldset>
+    </div>
+
+    <div class="cols mb-30">
+        <fieldset>
+            <textarea id="message" name="message"
+                placeholder="Write Your Message *"
+                minlength="10" maxlength="1000"
+                required></textarea>
+            <small class="error-message"></small>
+        </fieldset>
+    </div>
+
+    <div class="checkbox-item send-wrap">
+        <label class="mb-0">
+            <span class="text font-nunito">
+                I agree to the terms and conditions *
+            </span>
+
+            <!-- The theme styles this hidden input and the visible round checkbox -->
+            <input class="checkbox-item" type="checkbox" id="terms"
+                   aria-describedby="terms-error" required>
+            <span class="btn-checkbox" aria-hidden="true"></span>
+        </label>
+
+        <button class="tf-btn bg-white" type="submit">
+            <span class="text-style cl-primary">Send Message</span>
+            <span class="icon">
+                <i class="icon-arrow_right"></i>
+            </span>
+        </button>
+    </div>
+
+    <!-- Keep validation feedback outside the flex row so the button never jumps -->
+    <small class="error-message terms-error" id="terms-error"></small>
+    <div id="form-status" role="status" aria-live="polite"></div>
+
+</form>
+                                    <div class="img-item item-1 up-down-move">
+                                        <img alt="" src="static/picture/corn-3.webp" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s-img-item item-1">
+                    <img alt="" src="static/picture/page-title-top.webp" />
+                </div>
+            </section><!-- /.Section contact us -->
+            <!-- Section partner -->
+            <section class="s-partner pb-100">
+                <div class="tf-container w-1780">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="slider-wrap">
+                                <div class="swiper-container slider-partner">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="slide-partner">
+                                                <div class="image">
+                                                    <a href="404.html">
+                                                        <img alt="" class="lazyload"
+                                                            src="static/picture/wide-open.webp" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slide-partner">
+                                                <div class="image">
+                                                    <a href="404.html">
+                                                        <img alt="" class="lazyload" src="static/picture/sollio.webp" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slide-partner">
+                                                <div class="image">
+                                                    <a href="404.html">
+                                                        <img alt="" class="lazyload"
+                                                            src="static/picture/syngenta.webp" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slide-partner">
+                                                <div class="image">
+                                                    <a href="404.html">
+                                                        <img alt="" class="lazyload"
+                                                            src="static/picture/stony-field.webp" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slide-partner">
+                                                <div class="image">
+                                                    <a href="404.html">
+                                                        <img alt="" class="lazyload"
+                                                            src="static/picture/new-holland.webp" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="slide-partner">
+                                                <div class="image">
+                                                    <a href="404.html">
+                                                        <img alt="" class="lazyload"
+                                                            src="static/picture/stony-field.webp" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /.Section partner -->
+        </div><!-- /.Main-content -->
+        <!-- Footer -->
+        <footer class="footer" id="footer-main">
+            <div class="tf-container w-1290">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-top">
+                            <div class="footer-left">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img alt="" src="images/logo-white.webp" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="footer-center">
+                                <p class="font-snowfall">
+                                    Growing Better Farms, Together
+                                </p>
+                            </div>
+                            <div class="footer-right">
+                                <div class="wg-social">
+                                    <ul class="list">
+                                        <li class="item">
+                                            <a href="404.html"><i class="icon-facebook1"></i></a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="404.html"><i class="icon-twitter"></i></a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="404.html"><i class="icon-instagram2"></i></a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="404.html"><i class="icon-pinterest"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-inner">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-inner-wrap footer-col-block">
+                                <h4 class="footer-title footer-title-desktop mb-23">
+                                    Contact Us!
+                                </h4>
+                                <h4 class="footer-title footer-title-mobile mb-23">
+                                    Contact Us!
+                                </h4>
+                                <ul class="contact-list tf-collapse-content">
+                                    <li>Serving farming communities across the region</li>
+                                    <li>
+                                        <i class="fa-solid fa-phone"></i>
+                                        <p class="phone-number fs-15">
+                                            Contact our team for farm support
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="icon-package-box"></i>
+                                        <p class="email fs-15">
+                                            Email: Info@thestackly.com
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-clock"></i>
+                                        <p class="time-open fs-15">
+                                            Monday - Saturday: Farm support and enquiries
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-inner-wrap footer-col-block">
+                                <h4 class="footer-title footer-title-desktop mb-23">
+                                    News Posts
+                                </h4>
+                                <h4 class="footer-title footer-title-mobile mb-23">
+                                    News Posts
+                                </h4>
+                                <ul class="new-post-list tf-collapse-content">
+                                    <li class="item img-hover">
+                                        <div class="image hover-item">
+                                            <img alt="" src="static/picture/f-new-post-1.webp" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="title-post hover-text-secondary" href="404.html">10 Practical Tips for
+                                                New Farmers</a>
+                                            <p class="date-release">
+                                                Latest Farm Updates
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="item img-hover">
+                                        <div class="image hover-item">
+                                            <img alt="" src="static/picture/f-new-post--2.webp" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="title-post hover-text-secondary" href="404.html">Building Resilient Farms
+                                                for the Future</a>
+                                            <p class="date-release">
+                                                Latest Farm Updates
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-inner-wrap footer-col-block">
+                                <h4 class="footer-title footer-title-desktop mb-28">
+                                    Quick Links
+                                </h4>
+                                <h4 class="footer-title footer-title-mobile mb-28">
+                                    Quick Links
+                                </h4>
+                                <ul class="link-list tf-collapse-content">
+                                    <li class="item">
+                                        <a href="about-us.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Learn About Us
+                                        </a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="our-services.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Services We Provide</a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="portfolio.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            View Recent Projects</a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="our-farmers.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Meet The Farmers</a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="blog.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Latest News</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-inner-wrap">
+                                <h4 class="footer-title fs-20">
+                                    Subscribe Newsletter
+                                </h4>
+                                <!-- Newsletter Subscribe Form -->
+
+
+<!-- Newsletter Form Start -->
+<form id="subscribe-form"
+      class="newsletter-custom-form style-2"
+      method="post"
+      action="#"
+      novalidate>
+
+    <div class="w-100" id="subscribe-content">
+
+        <input
+            type="email"
+            class="email style-2"
+            id="subscribe-email"
+            name="email-form"
+            placeholder="Email address *"
+            autocomplete="email"
+            maxlength="100"
+        />
+
+        <!-- Inline Error Message -->
+        <span id="subscribe-error" class="subscribe-error"></span>
+
+        <button
+            class="tf-btn full bg-white scale-40"
+            id="subscribe-button"
+            type="submit">
+
+            <span class="text-style cl-primary">
+                Subscribe Now!
+            </span>
+
+            <span class="icon">
+                <i class="fa-solid fa-paper-plane fs-14"></i>
+            </span>
+
+        </button>
+
+    </div>
+
+</form>
+<!-- Newsletter Form End -->
+
+
+<style>
+#subscribe-error {
+    display: block;
+    color: #ff3b3b;
+    font-size: 13px;
+    margin-top: 7px;
+    min-height: 18px;
+    line-height: 18px;
+}
+
+#subscribe-email.input-error {
+    border: 1px solid #ff3b3b !important;
+}
+
+#subscribe-email.input-success {
+    border: 1px solid #28a745 !important;
+}
+
+#subscribe-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("subscribe-form");
+    const email = document.getElementById("subscribe-email");
+    const error = document.getElementById("subscribe-error");
+    const button = document.getElementById("subscribe-button");
+
+    if (!form || !email || !error || !button) return;
+
+    function validateEmail() {
+
+        const value = email.value.trim();
+
+        email.classList.remove("input-error", "input-success");
+        error.textContent = "";
+
+        if (value === "") {
+            error.textContent = "Please enter your email address.";
+            email.classList.add("input-error");
+            return false;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+        if (!emailPattern.test(value)) {
+            error.textContent = "Please enter a valid email address.";
+            email.classList.add("input-error");
+            return false;
+        }
+
+        email.classList.add("input-success");
+        return true;
+    }
+
+    email.addEventListener("blur", validateEmail);
+
+    email.addEventListener("input", function () {
+        error.textContent = "";
+        email.classList.remove("input-error", "input-success");
+    });
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+
+        if (!validateEmail()) {
+            email.focus();
+            return;
+        }
+
+        button.disabled = true;
+        button.querySelector(".text-style").textContent = "Please wait...";
+
+        setTimeout(function () {
+            window.location.href = "404.html";
+        }, 800);
+
+    }, true);
+
+});
+</script>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tf-container w-1290">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-bottom">
+                            <p class="no-copy font-nunito">
+                                <span>© 2026 Stackly. All rights reserved.</span>
+                            </p>
+                            <ul class="policy-list">
+                                <li class="item">
+                                    <a href="404.html">
+                                        Confidentiality &amp; Privacy
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="404.html"> Legal Information </a>
+                                </li>
+                                <li class="item">
+                                    <a href="404.html">
+                                        Return and Refund Policy
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-item item-1">
+                <img alt="" src="static/picture/grass-2.webp" />
+            </div>
+            <div class="img-item item-2">
+                <div class="scroll-element-3">
+                    <img alt="" class="wow zoomIn" src="static/picture/silo.webp" />
+                </div>
+            </div>
+        </footer>
+        <!-- /.Footer -->
+    </div>
+    <!-- /#Wapper -->
+    <!-- Prograss -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" height="100%" viewbox="-1 -1 102 102" width="100%">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div><!-- /.Prograss -->
+    <!-- Javascript -->
+    <script src="static/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/js/jquery.min.js" type="text/javascript"></script>
+    <script src="static/js/lazysize.min.js" type="text/javascript"></script>
+    <script src="static/js/wow.min.js" type="text/javascript"></script>
+    <script src="static/js/magnific-popup.min.js" type="text/javascript"></script>
+    <script src="static/js/swiper-bundle.min.js" type="text/javascript"></script>
+    <script src="static/js/swiper.js" type="text/javascript"></script>
+    <script src="static/js/odometer.min.js" type="text/javascript"></script>
+    <script src="static/js/counter.js" type="text/javascript"></script>
+    <script src="static/js/count-down.js" type="text/javascript"></script>
+    <script src="static/js/jquery-validate.js" type="text/javascript"></script>
+    <script src="static/js/gsap-animation.js" type="text/javascript"></script>
+    <script src="static/js/gsap.min.js" type="text/javascript"></script>
+    <script src="static/js/ScrollTrigger.min.js" type="text/javascript"></script>
+    <script src="static/js/Splitetext.js" type="text/javascript"></script>
+    <script src="static/js/main.js" type="text/javascript"></script>
+    <!-- /Javascript -->
+
+    
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contactform");
+        if (!form) return;
+
+        // Prevent the theme's jQuery validator from adding a second message.
+        if (window.jQuery) {
+            const $form = window.jQuery(form);
+            if (typeof $form.off === "function") {
+                $form.off("submit.validate");
+            }
+            if (typeof $form.removeData === "function") {
+                $form.removeData("validator");
+            }
+        }
+
+        form.setAttribute("novalidate", "novalidate");
+
+        const fields = [
+            form.querySelector("#name"),
+            form.querySelector("#mail"),
+            form.querySelector("#phone"),
+            form.querySelector("#Support"),
+            form.querySelector("#message")
+        ].filter(Boolean);
+
+        const terms = form.querySelector("#terms");
+        const termsError = form.querySelector(".terms-error");
+        const status = form.querySelector("#form-status");
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        function setError(field, message) {
+            const error = field.parentElement.querySelector(".error-message");
+            if (error) error.textContent = message;
+            field.classList.toggle("input-error", Boolean(message));
+            field.classList.toggle("input-success", !message && Boolean(field.value.trim()));
+            field.setAttribute("aria-invalid", message ? "true" : "false");
+            return !message;
+        }
+
+        function validateField(field) {
+            const value = field.value.trim();
+            let message = "";
+
+            if (field.id === "name") {
+                if (!value) message = "Please enter your full name.";
+                else if (!/^[A-Za-z][A-Za-z .'-]{2,49}$/.test(value))
+                    message = "Enter a valid name (3–50 characters).";
+            } else if (field.id === "mail") {
+                if (!value) message = "Please enter your email address.";
+                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value))
+                    message = "Please enter a valid email address.";
+            } else if (field.id === "phone") {
+                const digits = value.replace(/\D/g, "");
+                if (!value) message = "Please enter your phone number.";
+                else if (!/^[0-9+() .-]{10,20}$/.test(value) || digits.length < 10 || digits.length > 15)
+                    message = "Please enter a valid phone number.";
+            } else if (field.id === "Support") {
+                if (!value) message = "Please select an agriculture support category.";
+            } else if (field.id === "message") {
+                if (!value) message = "Please enter your message.";
+                else if (value.length < 10) message = "Message must contain at least 10 characters.";
+            }
+
+            return setError(field, message);
+        }
+
+        fields.forEach(function (field) {
+            field.addEventListener("blur", function () {
+                validateField(field);
+            });
+            field.addEventListener("input", function () {
+                if (field.classList.contains("input-error") || field.value.trim()) {
+                    validateField(field);
+                }
+            });
+            field.addEventListener("change", function () {
+                validateField(field);
+            });
+        });
+
+        if (terms) {
+            terms.addEventListener("change", function () {
+                if (termsError) {
+                    termsError.textContent = terms.checked ? "" : "Please accept the terms and conditions.";
+                }
+            });
+        }
+
+        // Capture the submit before theme/plugin handlers. No native reportValidity().
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            let valid = true;
+            fields.forEach(function (field) {
+                if (!validateField(field)) valid = false;
+            });
+
+            if (terms && !terms.checked) {
+                if (termsError) termsError.textContent = "Please accept the terms and conditions.";
+                valid = false;
+            }
+
+            if (!valid) {
+                if (status) {
+                    status.textContent = "Please correct the highlighted fields.";
+                    status.className = "error";
+                }
+                const firstInvalid = form.querySelector(".input-error");
+                if (firstInvalid) firstInvalid.focus();
+                else if (terms && !terms.checked) terms.focus();
+                return;
+            }
+
+            if (status) {
+                status.textContent = "Validation successful! Redirecting...";
+                status.className = "success";
+            }
+            if (submitButton) submitButton.disabled = true;
+
+            window.setTimeout(function () {
+                window.location.href = "404.html";
+            }, 700);
+        }, true);
+    });
+    </script>
+
+</body>
+
+</html>

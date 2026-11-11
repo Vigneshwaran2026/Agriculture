@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Login | Stackly Agriculture</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #174d32;
+      --lime: #d8ef83;
+      --ink: #17251d;
+      --muted: #718078;
+      --line: #e4eae4;
+      --cream: #f5f7f0
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      min-height: 100vh
+    }
+
+    .auth {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr
+    }
+
+    .visual {
+      padding: 42px clamp(28px, 6vw, 88px);
+      background: linear-gradient(140deg, rgba(10, 39, 24, .92), rgba(18, 70, 42, .78)), url('static/picture/s-about.webp') center/cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden
+    }
+
+    .visual:after {
+      content: "";
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border: 1px solid #d8ef8366;
+      border-radius: 50%;
+      right: -180px;
+      bottom: -180px;
+      box-shadow: 0 0 0 45px #d8ef8312, 0 0 0 90px #d8ef830b
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      width: 210px;
+      max-width: 70%;
+      text-decoration: none
+    }
+
+    .brand img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 66px;
+      object-fit: contain;
+      object-position: left center
+    }
+
+    .visual-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 590px;
+      padding: 60px 0
+    }
+
+    .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--lime);
+      font-weight: 800
+    }
+
+    .visual h1 {
+      font: 800 clamp(42px, 5.5vw, 76px)/1.02 Manrope, sans-serif;
+      letter-spacing: -3px;
+      margin: 20px 0
+    }
+
+    .visual h1 span {
+      color: var(--lime)
+    }
+
+    .visual p {
+      color: #dce8df;
+      line-height: 1.8;
+      max-width: 470px
+    }
+
+    .chips {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .chips i {
+      color: var(--lime);
+      margin-right: 7px
+    }
+
+    .foot {
+      position: relative;
+      z-index: 1;
+      color: #c0d0c5;
+      font-size: 10px;
+      letter-spacing: 2px
+    }
+
+    .panel {
+      display: grid;
+      place-items: center;
+      padding: 40px 25px
+    }
+
+    .card {
+      width: min(100%, 440px);
+      background: white;
+      padding: clamp(28px, 4vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 22px 70px #193c2010
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 38px;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    .top a {
+      color: var(--green);
+      text-decoration: none
+    }
+
+    .eyebrow {
+      color: #5c8a42;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase
+    }
+
+    .card h2 {
+      font: 800 37px Manrope, sans-serif;
+      margin: 10px 0
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 27px
+    }
+
+    .field {
+      margin: 17px 0
+    }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 8px
+    }
+
+    .control {
+      width: 100%;
+      height: 52px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0 15px;
+      font: 14px 'DM Sans';
+      outline: none;
+      background: #fbfcfa
+    }
+
+    .control:focus {
+      border-color: #6d9c59;
+      box-shadow: 0 0 0 3px #6d9c591b
+    }
+
+    .err {
+      font-size: 11px;
+      color: #c0392b;
+      display: block;
+      margin-top: 6px;
+      min-height: 14px
+    }
+
+    .submit {
+      width: 100%;
+      height: 54px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: .3px;
+      cursor: pointer;
+      margin-top: 10px
+    }
+
+    .submit:hover {
+      background: #0d3822
+    }
+
+    .switch {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 22px
+    }
+
+    .switch a {
+      color: var(--green);
+      font-weight: 800;
+      text-decoration: none
+    }
+
+    .status {
+      font-size: 12px;
+      color: #b42318;
+      text-align: center;
+      margin-top: 12px
+    }
+
+    .remember {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+      margin: 5px 0 15px
+    }
+
+    .remember a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700
+    }
+
+    @media(max-width:850px) {
+      .auth {
+        grid-template-columns: 1fr
+      }
+
+      .visual {
+        min-height: 360px
+      }
+
+      .visual-copy {
+        padding: 38px 0
+      }
+
+      .visual h1 {
+        font-size: 48px
+      }
+
+      .foot {
+        display: none
+      }
+    }
+
+    @media(max-width:480px) {
+      .visual {
+        min-height: 320px;
+        padding: 26px 22px
+      }
+
+      .visual h1 {
+        font-size: 42px
+      }
+
+      .chips {
+        gap: 12px
+      }
+
+      .panel {
+        padding: 22px 14px
+      }
+
+      .card {
+        padding: 27px 22px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="auth">
+    <aside class="visual"><a class="brand" href="index.html" aria-label="Stackly Agriculture home"><img
+          src="images/logo-white.webp" alt="Stackly Agriculture logo" /></a>
+      <div class="visual-copy"><span class="kicker">Growing better, together</span>
+        <h1>WELCOME BACK<br />TO YOUR <span>FARM.</span></h1>
+        <p>Sign in to manage your farm activities, follow crop progress and stay connected with the Stackly agriculture
+          community.</p>
+        <div class="chips"><span><i class="fa-solid fa-leaf"></i>Crop updates</span><span><i
+              class="fa-solid fa-tractor"></i>Farm records</span><span><i class="fa-solid fa-chart-line"></i>Progress
+            tracking</span></div>
+      </div>
+      <div class="foot">STACKLY AGRICULTURE · GROW WITH CONFIDENCE</div>
+    </aside>
+    <main class="panel">
+      <section class="card">
+        <div class="top"><span>ACCOUNT ACCESS / 01</span><a href="index.html"><i class="fa-solid fa-arrow-left"></i>
+            Back to website</a></div><span class="eyebrow">Good to have you here</span>
+        <h2>Sign in</h2>
+        <p class="sub">Enter your account details to continue to your dashboard.</p>
+        <form id="loginForm" novalidate="">
+          <div class="field"><label for="role">SIGN IN AS</label><select class="control" id="role">
+              <option value="farmer">Farmer</option>
+              <option value="admin">Admin</option>
+            </select><small class="err" id="roleErr"></small></div>
+          <div class="field"><label for="email">EMAIL ADDRESS</label><input autocomplete="username" class="control"
+              id="email" placeholder="name@example.com" type="email" /><small class="err" id="emailErr"></small></div>
+          <div class="field"><label for="password">PASSWORD</label>
+            <div style="position:relative"><input aria-describedby="passHint passErr" autocomplete="current-password"
+                class="control" id="password" maxlength="128" placeholder="Enter your password"
+                type="password" /><button aria-label="Show password" id="togglePass"
+                style="position:absolute;right:12px;top:12px;border:0;background:transparent;color:#174d32;cursor:pointer"
+                type="button"></button></div><small id="passHint"
+              style="display:block;color:#718078;font-size:11px;line-height:1.6;margin-top:7px">Use at least 8
+              characters, including uppercase and lowercase letters, a number and a symbol. No spaces.</small><small
+              class="err" id="passErr"></small>
+          </div>
+          <div class="remember"><label><input id="remember" type="checkbox" /> Remember me</label><a
+              href="404.html">Forgot password?</a></div><button class="submit" type="submit">Sign in to dashboard <i
+              class="fa-solid fa-arrow-right"></i></button>
+          <p class="status" id="status" role="alert"></p>
+          <div class="switch">New to Stackly? <a href="signup.html">Create an account</a></div>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script>
+    const $ = id => document.getElementById(id);
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const strongPasswordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])\S{8,128}$/;
+    $('togglePass').addEventListener('click', () => {
+      const field = $('password'); const show = field.type === 'password';
+      field.type = show ? 'text' : 'password';
+      $('togglePass').innerHTML = show ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
+      $('togglePass').setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    });
+    $('loginForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const email = $('email').value.trim();
+      const password = $('password').value;
+      const errors = {
+        roleErr: ['farmer', 'admin'].includes($('role').value) ? '' : 'Choose a valid account type.',
+        emailErr: emailPattern.test(email) ? '' : 'Enter a valid email address, for example name@example.com.',
+        passErr: strongPasswordPattern.test(password) ? '' : 'Use 8–128 characters with uppercase, lowercase, a number and a symbol. Spaces are not allowed.'
+      };
+      let valid = true;
+      Object.entries(errors).forEach(([id, message]) => { $(id).textContent = message; if (message) valid = false; });
+      $('status').textContent = '';
+      if (!valid) { $('status').textContent = 'Please correct the highlighted fields.'; return; }
+      const data = { email: email.toLowerCase(), role: $('role').value, loginTime: new Date().toISOString(), passwordConfigured: true }; // Never store the password in browser storage.
+      try {
+        sessionStorage.setItem('stacklyLogin', JSON.stringify(data));
+        if ($('remember').checked) localStorage.setItem('stacklyEmail', data.email);
+        else localStorage.removeItem('stacklyEmail');
+        location.href = data.role === 'admin' ? 'admin-dashboard.html' : 'farmer-dashboard.html';
+      } catch (error) {
+        $('status').textContent = 'Browser storage is unavailable. Please enable storage and try again.';
+      }
+    });
+    if (localStorage.getItem('stacklyEmail')) { $('email').value = localStorage.getItem('stacklyEmail'); $('remember').checked = true; }
+  </script>
+</body>
+
+</html>

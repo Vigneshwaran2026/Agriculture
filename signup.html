@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <title>Create Account | Stackly Agriculture</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --g: #174d32;
+      --lime: #d8ef83;
+      --ink: #17251d;
+      --muted: #718078;
+      --line: #e4eae4;
+      --cream: #f5f7f0
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink)
+    }
+
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr
+    }
+
+    .side {
+      background: linear-gradient(145deg, #103c25eF, #174d32eF), url('static/picture/s-about.webp') center/cover;
+      color: #fff;
+      padding: 45px clamp(25px, 5vw, 75px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between
+    }
+
+    .brand {
+      color: #fff;
+      text-decoration: none;
+      font: 800 25px Manrope
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      width: 210px;
+      max-width: 70%;
+      text-decoration: none
+    }
+
+    .brand img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 66px;
+      object-fit: contain;
+      object-position: left center
+    }
+
+
+    .brand i {
+      color: var(--lime);
+      margin-right: 8px
+    }
+
+    .side h1 {
+      font: 800 clamp(38px, 5vw, 64px)/1.04 Manrope;
+      letter-spacing: -2px
+    }
+
+    .side h1 span {
+      color: var(--lime)
+    }
+
+    .side p {
+      color: #dce8df;
+      line-height: 1.8;
+      max-width: 420px
+    }
+
+    .side small {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #c5d6ca
+    }
+
+    .main {
+      display: grid;
+      place-items: center;
+      padding: 35px 20px
+    }
+
+    .form-card {
+      width: min(100%, 650px);
+      background: #fff;
+      padding: clamp(25px, 4vw, 46px);
+      border-radius: 20px;
+      box-shadow: 0 20px 65px #193c2010;
+      border: 1px solid var(--line)
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 28px
+    }
+
+    .top a {
+      color: var(--g);
+      text-decoration: none
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      color: #5c8a42;
+      font-weight: 800;
+      letter-spacing: 2px
+    }
+
+    .form-card h2 {
+      font: 800 34px Manrope;
+      margin: 8px 0
+    }
+
+    .intro {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 23px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 15px
+    }
+
+    .field {
+      margin: 0 0 15px;
+      min-width: 0
+    }
+
+    .field.full {
+      grid-column: 1/-1
+    }
+
+    .field label {
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      margin-bottom: 7px
+    }
+
+    .control {
+      height: 48px;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 0 13px;
+      background: #fbfcfa;
+      font: 13px 'DM Sans';
+      outline: none
+    }
+
+    .control:focus {
+      border-color: #6d9c59;
+      box-shadow: 0 0 0 3px #6d9c591b
+    }
+
+    .err {
+      font-size: 10px;
+      color: #c0392b;
+      display: block;
+      min-height: 13px;
+      margin-top: 4px
+    }
+
+    .terms {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5
+    }
+
+    .terms a {
+      color: var(--g);
+      font-weight: 700
+    }
+
+    .submit {
+      width: 100%;
+      height: 52px;
+      background: var(--g);
+      color: #fff;
+      border: 0;
+      border-radius: 9px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 12px
+    }
+
+    .submit:hover {
+      background: #0d3822
+    }
+
+    .message {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 12px
+    }
+
+    .switch {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 20px
+    }
+
+    .switch a {
+      color: var(--g);
+      font-weight: 800;
+      text-decoration: none
+    }
+
+    @media(max-width:850px) {
+      .wrap {
+        grid-template-columns: 1fr
+      }
+
+      .side {
+        min-height: 250px;
+        padding: 25px 28px
+      }
+
+      .side h1 {
+        font-size: 40px;
+        margin: 25px 0 10px
+      }
+
+      .side p {
+        margin-bottom: 0
+      }
+
+      .side small {
+        display: none
+      }
+    }
+
+    @media(max-width:520px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .field.full {
+        grid-column: auto
+      }
+
+      .main {
+        padding: 18px 12px
+      }
+
+      .form-card {
+        padding: 25px 19px
+      }
+
+      .top {
+        margin-bottom: 23px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <aside class="side"><a class="brand" href="index.html" aria-label="Stackly Agriculture home"><img
+          src="images/logo-white.webp" alt="Stackly Agriculture logo" /></a>
+      <div><span class="eyebrow" style="color:#d8ef83">JOIN OUR COMMUNITY</span>
+        <h1>GROW YOUR<br /><span>FUTURE.</span></h1>
+        <p>Create your Stackly account to follow farm updates, connect with the agriculture community and keep your farm
+          information organised.</p>
+      </div><small>STACKLY AGRICULTURE · ROOTED IN GROWTH</small>
+    </aside>
+    <main class="main">
+      <section class="form-card">
+        <div class="top"><span>NEW ACCOUNT / 02</span><a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back
+            to website</a></div><span class="eyebrow">LET'S GET STARTED</span>
+        <h2>Create account</h2>
+        <p class="intro">Complete the details below to set up your account.</p>
+        <form id="signupForm" novalidate="">
+          <div class="grid">
+            <div class="field full"><label for="name">FULL NAME</label><input class="control" id="name" maxlength="80"
+                placeholder="Enter your full name" /><small class="err" id="nameErr"></small></div>
+            <div class="field full"><label for="email">EMAIL ADDRESS</label><input class="control" id="email"
+                placeholder="name@example.com" type="email" /><small class="err" id="emailErr"></small></div>
+            <div class="field full"><label for="role">ACCOUNT TYPE</label><select class="control" id="role">
+                <option value="farmer">Farmer</option>
+                <option value="admin">Admin</option>
+              </select><small class="err" id="roleErr"></small></div>
+            <div class="field"><label for="password">PASSWORD</label><input aria-describedby="passwordHint passErr"
+                class="control" id="password" maxlength="128" placeholder="Create password" type="password" /><small
+                id="passwordHint" style="display:block;color:#718078;font-size:10px;line-height:1.6;margin-top:5px">At
+                least 8 characters with uppercase, lowercase, a number and a symbol. No spaces.</small><small
+                class="err" id="passErr"></small></div>
+            <div class="field"><label for="confirm">CONFIRM PASSWORD</label><input class="control" id="confirm"
+                placeholder="Re-enter password" type="password" /><small class="err" id="confirmErr"></small></div>
+            <div class="field full"><label class="terms"><input id="terms" type="checkbox" /> <span>I agree to the <a
+                    href="404.html">Terms and Conditions</a> and <a href="404.html">Privacy
+                    Policy</a>.</span></label><small class="err" id="termsErr"></small></div>
+          </div><button class="submit" type="submit">Create account <i class="fa-solid fa-arrow-right"></i></button>
+          <p aria-live="polite" class="message" id="message"></p>
+          <div class="switch">Already have an account? <a href="login.html">Sign in</a></div>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script>
+    const $ = id => document.getElementById(id);
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const strongPasswordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])\S{8,128}$/;
+    $('signupForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const name = $('name').value.trim(), email = $('email').value.trim();
+      const password = $('password').value, confirm = $('confirm').value;
+      const errors = {
+        nameErr: name.length >= 3 ? '' : 'Enter your full name (at least 3 characters).',
+        emailErr: emailPattern.test(email) ? '' : 'Enter a valid email address, for example name@example.com.',
+        roleErr: ['farmer', 'admin'].includes($('role').value) ? '' : 'Select a valid account type.',
+        passErr: strongPasswordPattern.test(password) ? '' : 'Use 8–128 characters with uppercase, lowercase, a number and a symbol. Spaces are not allowed.',
+        confirmErr: password && password === confirm ? '' : 'Passwords must match.',
+        termsErr: $('terms').checked ? '' : 'Please accept the terms and conditions.'
+      };
+      let valid = true;
+      Object.entries(errors).forEach(([id, message]) => { $(id).textContent = message; if (message) valid = false; });
+      $('message').textContent = '';
+      if (!valid) { $('message').style.color = '#b42318'; $('message').textContent = 'Please correct the highlighted fields.'; return; }
+      try {
+        sessionStorage.setItem('stacklyNewAccount', JSON.stringify({ name, email: email.toLowerCase(), role: $('role').value }));
+        $('message').style.color = '#247443';
+        $('message').textContent = 'Your details passed validation. Please sign in to continue.';
+        setTimeout(() => location.href = 'login.html', 1300);
+      } catch (error) {
+        $('message').style.color = '#b42318'; $('message').textContent = 'Unable to save details in this browser. Please enable browser storage.';
+      }
+    });
+  </script>
+</body>
+
+</html>

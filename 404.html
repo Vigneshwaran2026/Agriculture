@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#235130">
+  <meta name="description" content="The page you are looking for could not be found. Return to Stackly Agriculture.">
+  <title>404 - Page Not Found | Stackly Agriculture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #235130;
+      --green-dark: #12351f;
+      --green-soft: #eaf2e9;
+      --yellow: #f8c32c;
+      --ink: #17251b;
+      --muted: #69766d;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 15%, rgba(248,195,44,.13), transparent 25%),
+        radial-gradient(circle at 92% 82%, rgba(35,81,48,.10), transparent 28%),
+        #f7f9f5;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    .site-header {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 25px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .brand img {
+      display: block;
+      width: 190px;
+      max-width: 48vw;
+      height: auto;
+      object-fit: contain;
+    }
+    .header-link {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      transition: color .2s ease;
+    }
+    .header-link:hover { color: #4b8b56; }
+    main {
+      flex: 1;
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 45px;
+      padding: 48px 0 75px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 14px;
+      border-radius: 100px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+    .eyebrow span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 0 4px rgba(248,195,44,.18);
+    }
+    h1 {
+      margin: 23px 0 14px;
+      font: 800 clamp(54px, 7vw, 90px)/.98 "Manrope", sans-serif;
+      letter-spacing: -5px;
+      color: var(--green-dark);
+    }
+    h1 .number { color: var(--green); }
+    h2 {
+      margin: 0 0 14px;
+      font: 800 clamp(25px, 3vw, 35px)/1.2 "Manrope", sans-serif;
+      letter-spacing: -1.2px;
+    }
+    .description {
+      max-width: 500px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px;
+      margin-top: 30px;
+    }
+    .btn {
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 9px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+      box-shadow: 0 10px 22px rgba(35,81,48,.18);
+    }
+    .btn-primary:hover { background: var(--green-dark); box-shadow: 0 13px 25px rgba(35,81,48,.24); }
+    .btn-secondary {
+      border: 1px solid #dce5dc;
+      color: var(--green);
+      background: rgba(255,255,255,.75);
+    }
+    .btn-secondary:hover { background: var(--white); }
+    .btn svg { width: 17px; height: 17px; }
+    .visual {
+      position: relative;
+      min-height: 440px;
+      display: grid;
+      place-items: center;
+    }
+    .visual-card {
+      width: min(100%, 480px);
+      aspect-ratio: 1 / .91;
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      background: linear-gradient(145deg, #dfeadd, #f5f0d9);
+      box-shadow: 0 28px 70px rgba(28,62,37,.12);
+      isolation: isolate;
+    }
+    .sun {
+      position: absolute;
+      width: 105px; height: 105px;
+      right: 58px; top: 48px;
+      border-radius: 50%;
+      background: var(--yellow);
+      opacity: .95;
+    }
+    .hill {
+      position: absolute;
+      width: 125%; height: 58%;
+      left: -12%; bottom: -19%;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(-8deg);
+      background: #7caa70;
+    }
+    .hill.hill-back {
+      width: 115%; height: 48%;
+      left: 12%; bottom: -9%;
+      transform: rotate(11deg);
+      background: #a8c78e;
+    }
+    .hill.hill-front {
+      width: 135%; height: 43%;
+      left: -16%; bottom: -24%;
+      transform: rotate(5deg);
+      background: var(--green);
+    }
+    .field-lines {
+      position: absolute;
+      z-index: 2;
+      left: 8%; right: 8%; bottom: 10%;
+      height: 30%;
+      border-top: 2px solid rgba(255,255,255,.45);
+      border-radius: 50%;
+      transform: rotate(-8deg);
+    }
+    .field-lines::before, .field-lines::after {
+      content: "";
+      position: absolute;
+      inset: 20px 5% auto;
+      height: 65px;
+      border-top: 2px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+    }
+    .field-lines::after { inset: 42px 12% auto; }
+    .sprout {
+      position: absolute;
+      z-index: 4;
+      left: 50%; top: 32%;
+      width: 95px; height: 130px;
+      transform: translateX(-50%);
+    }
+    .stem {
+      position: absolute;
+      width: 7px; height: 105px;
+      left: 44px; bottom: 0;
+      border-radius: 8px;
+      background: var(--green-dark);
+      transform: rotate(4deg);
+    }
+    .leaf {
+      position: absolute;
+      width: 57px; height: 34px;
+      background: #4f8b4d;
+      border-radius: 100% 0 100% 0;
+    }
+    .leaf.left { left: 0; top: 36px; transform: rotate(12deg); }
+    .leaf.right { right: 0; top: 8px; transform: rotate(75deg) scaleX(-1); background: #6da75c; }
+    .floating-tag {
+      position: absolute;
+      z-index: 5;
+      left: 22px; top: 25px;
+      padding: 11px 15px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.9);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 8px 25px rgba(24,55,31,.08);
+    }
+    .floating-number {
+      position: absolute;
+      z-index: 5;
+      right: 22px; bottom: 22px;
+      width: 72px; height: 72px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      font: 800 18px "Manrope", sans-serif;
+      background: rgba(13,48,25,.24);
+      backdrop-filter: blur(7px);
+    }
+    .footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      color: #89948b;
+      font-size: 12px;
+    }
+    .footer strong { color: var(--green); }
+    @media (max-width: 800px) {
+      .site-header, main { width: min(100% - 36px, 560px); }
+      main {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 38px 0 45px;
+      }
+      .copy { text-align: center; }
+      .description { margin: 0 auto; }
+      .actions { justify-content: center; }
+      .visual { min-height: 0; }
+      .visual-card { max-width: 430px; }
+      h1 { letter-spacing: -3px; }
+    }
+    @media (max-width: 420px) {
+      .site-header { padding: 19px 0; }
+      .brand img { width: 160px; }
+      .header-link { font-size: 12px; }
+      main { padding-top: 30px; }
+      .description { font-size: 14px; }
+      .btn { width: 100%; }
+      .visual-card { border-radius: 23px; }
+      .visual { margin-top: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Stackly Agriculture home">
+      <img src="images/logo-dark.webp" alt="STACKLY logo">
+    </a>
+    <a class="header-link" href="index.html">Back to Home <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="copy" aria-labelledby="error-title">
+      <div class="eyebrow"><span></span> Page not found</div>
+      <h1 id="error-title"><span class="number">404</span></h1>
+      <h2>Oops! This field has no path.</h2>
+      <p class="description">
+        The page you are looking for may have been moved, removed, or is temporarily unavailable.
+        Let’s get you back to growing something great.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 10.5 12 3l9 7.5M5.5 9v11h13V9M9.5 20v-6h5v6"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to Home
+        </a>
+        <button class="btn btn-secondary" type="button" onclick="history.back()">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M19 12H5m0 0 6-6m-6 6 6 6"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Go Back
+        </button>
+      </div>
+    </section>
+
+    <div class="visual" aria-hidden="true">
+      <div class="visual-card">
+        <div class="sun"></div>
+        <div class="floating-tag">GROW WITH CONFIDENCE</div>
+        <div class="sprout">
+          <div class="leaf left"></div>
+          <div class="leaf right"></div>
+          <div class="stem"></div>
+        </div>
+        <div class="hill hill-back"></div>
+        <div class="hill"></div>
+        <div class="hill hill-front"></div>
+        <div class="field-lines"></div>
+        <div class="floating-number">404</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> <strong>Stackly Agriculture</strong>. Growing a greener tomorrow.
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

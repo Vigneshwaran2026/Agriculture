@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <title>Stackly | Admin Dashboard</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --forest: #174d32;
+      --leaf: #8dbb55;
+      --ink: #17251d;
+      --muted: #77847b;
+      --paper: #f4f7f1;
+      --line: #e4eae3;
+      --white: #fff
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', Arial, sans-serif
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer
+    }
+
+    .layout {
+      min-height: 100vh
+    }
+
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: 250px;
+      background: #143c29;
+      color: #fff;
+      padding: 25px 17px;
+      display: flex;
+      flex-direction: column;
+      z-index: 5
+    }
+
+    .brand {
+      font: 800 23px Manrope, sans-serif;
+      padding: 5px 12px 28px;
+      color: #fff
+    }
+
+    .brand i {
+      color: #d8ef83;
+      margin-right: 8px
+    }
+
+    .brand img {
+      display: block;
+      width: 168px;
+      max-width: 100%;
+      height: auto;
+      max-height: 54px;
+      object-fit: contain;
+      object-position: left center
+    }
+
+    .side-caption {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: #9fb6a5;
+      padding: 14px 13px 9px
+    }
+
+    .nav {
+      display: grid;
+      gap: 5px
+    }
+
+    .nav button {
+      border: 0;
+      background: transparent;
+      color: #c5d3c9;
+      text-align: left;
+      padding: 12px 13px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .nav button i {
+      width: 25px;
+      color: #a9c77b
+    }
+
+    .nav button:hover,
+    .nav button.active {
+      background: #ffffff17;
+      color: #fff
+    }
+
+    .nav button.active {
+      box-shadow: inset 3px 0 #d8ef83
+    }
+
+    .side-bottom {
+      margin-top: auto;
+      padding: 14px;
+      border: 1px solid #ffffff20;
+      border-radius: 12px;
+      color: #c5d3c9;
+      font-size: 11px;
+      line-height: 1.6
+    }
+
+    .side-bottom strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 5px
+    }
+
+    .main {
+      margin-left: 250px;
+      min-height: 100vh
+    }
+
+    .topbar {
+      height: 78px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      position: sticky;
+      top: 0;
+      z-index: 4
+    }
+
+    .heading h1 {
+      font: 800 20px Manrope;
+      margin: 0
+    }
+
+    .heading p {
+      font-size: 11px;
+      color: var(--muted);
+      margin: 5px 0 0
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #e8f1df;
+      color: var(--forest);
+      font-weight: 800
+    }
+
+    .logout {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #b24a3a;
+      border-radius: 8px;
+      padding: 10px 13px;
+      font-size: 11px;
+      font-weight: 800
+    }
+
+    .content {
+      max-width: 1500px;
+      padding: 28px;
+      margin: auto
+    }
+
+    .welcome {
+      background: linear-gradient(110deg, #174d32, #2f7147);
+      color: #fff;
+      border-radius: 16px;
+      padding: 27px 30px;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .welcome:after {
+      content: '✳';
+      position: absolute;
+      right: 7%;
+      top: -40px;
+      font-size: 190px;
+      color: #ffffff12
+    }
+
+    .welcome h2 {
+      font: 800 25px Manrope;
+      margin: 0 0 8px;
+      position: relative;
+      z-index: 1
+    }
+
+    .welcome p {
+      font-size: 12px;
+      color: #dce9df;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      line-height: 1.7
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 16px;
+      background: #d8ef83;
+      color: #193b25;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      position: relative;
+      z-index: 1
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 15px;
+      margin-bottom: 20px
+    }
+
+    .stat,
+    .panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 19px
+    }
+
+    .stat-top {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700
+    }
+
+    .stat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #edf4e7;
+      color: var(--forest);
+      display: grid;
+      place-items: center
+    }
+
+    .stat h3 {
+      font: 800 26px Manrope;
+      margin: 15px 0 4px
+    }
+
+    .stat small {
+      color: #4c965e;
+      font-size: 10px
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 17px;
+      margin-bottom: 18px
+    }
+
+    .panel h3 {
+      font: 800 14px Manrope;
+      margin: 0 0 5px
+    }
+
+    .panel .desc {
+      font-size: 10px;
+      color: var(--muted);
+      margin: 0 0 18px
+    }
+
+    .bars {
+      height: 170px;
+      display: flex;
+      align-items: end;
+      gap: 13px;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 4px 0
+    }
+
+    .barcol {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      flex-direction: column;
+      gap: 7px
+    }
+
+    .bar {
+      width: 70%;
+      max-width: 35px;
+      background: #8dbb55;
+      border-radius: 5px 5px 0 0;
+      min-height: 6px
+    }
+
+    .bar.dark {
+      background: #174d32
+    }
+
+    .barcol small {
+      font-size: 9px;
+      color: var(--muted)
+    }
+
+    .activity {
+      display: grid;
+      gap: 15px
+    }
+
+    .activity-row {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      font-size: 11px
+    }
+
+    .activity-icon {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: #edf4e7;
+      color: var(--forest);
+      flex-shrink: 0
+    }
+
+    .activity-row p {
+      margin: 0;
+      line-height: 1.5
+    }
+
+    .activity-row small {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px
+    }
+
+    .table-wrap {
+      overflow: auto
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      min-width: 500px
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 13px 10px;
+      border-bottom: 1px solid #edf0eb
+    }
+
+    th {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 20px;
+      background: #edf5e9;
+      color: #377344;
+      font-size: 9px;
+      font-weight: 800
+    }
+
+    .section {
+      display: none
+    }
+
+    .section.active {
+      display: block
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 8px;
+      padding: 9px
+    }
+
+    @media(max-width:1050px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .grid2 {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:760px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: .25s
+      }
+
+      .sidebar.open {
+        transform: translateX(0)
+      }
+
+      .main {
+        margin-left: 0
+      }
+
+      .menu-toggle {
+        display: inline-block
+      }
+
+      .topbar {
+        padding: 0 15px
+      }
+
+      .content {
+        padding: 18px 14px
+      }
+
+      .user span {
+        display: none
+      }
+
+      .welcome {
+        padding: 23px
+      }
+
+      .welcome h2 {
+        font-size: 21px
+      }
+    }
+
+    @media(max-width:440px) {
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 9px
+      }
+
+      .stat {
+        padding: 14px
+      }
+
+      .stat h3 {
+        font-size: 22px
+      }
+
+      .logout {
+        padding: 9px
+      }
+
+      .heading h1 {
+        font-size: 16px
+      }
+    }
+
+    .session-panel {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 20px
+    }
+
+    .session-item {
+      background: #fff;
+      border: 1px solid #e4eae3;
+      border-radius: 12px;
+      padding: 15px 17px;
+      min-width: 0
+    }
+
+    .session-item small {
+      display: block;
+      color: #77847b;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      margin-bottom: 8px
+    }
+
+    .session-item strong {
+      display: block;
+      color: #17251d;
+      font-size: 12px;
+      overflow-wrap: anywhere
+    }
+
+    .session-item .safe-note {
+      font-weight: 600;
+      color: #4c7956
+    }
+
+    @media(max-width:650px) {
+      .session-panel {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* Dashboard alignment and responsive polish */
+    .content {
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 30px clamp(16px, 2.4vw, 36px) 48px;
+    }
+
+    .topbar {
+      min-height: 78px;
+      height: auto;
+      gap: 16px;
+      padding: 14px clamp(16px, 2.4vw, 34px);
+    }
+
+    .heading {
+      min-width: 0
+    }
+
+    .heading h1 {
+      line-height: 1.2;
+      overflow-wrap: anywhere
+    }
+
+    .heading p {
+      line-height: 1.45
+    }
+
+    .user {
+      min-width: 0;
+      max-width: min(38vw, 340px);
+      gap: 10px
+    }
+
+    .user span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+      line-height: 1.35
+    }
+
+    .user-email {
+      display: block !important;
+      font-size: 10px !important;
+      font-weight: 500 !important;
+      color: #718078 !important;
+      margin-top: 3px;
+      max-width: 230px;
+      overflow-wrap: anywhere
+    }
+
+    .stats {
+      align-items: stretch;
+      gap: 16px;
+      margin: 22px 0
+    }
+
+    .stat {
+      min-width: 0;
+      padding: 20px;
+      border-radius: 14px
+    }
+
+    .stat h3 {
+      line-height: 1.15;
+      overflow-wrap: anywhere
+    }
+
+    .stat small {
+      line-height: 1.5
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+      margin: 18px 0
+    }
+
+    .panel {
+      min-width: 0;
+      padding: 22px;
+      border-radius: 14px;
+      overflow: hidden
+    }
+
+    .panel h3 {
+      line-height: 1.35
+    }
+
+    .desc {
+      line-height: 1.6;
+      max-width: 100%
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto
+    }
+
+    .table-wrap table {
+      width: 100%;
+      min-width: 580px;
+      border-collapse: collapse
+    }
+
+    .table-wrap th,
+    .table-wrap td {
+      padding: 13px 12px;
+      text-align: left;
+      vertical-align: middle;
+      white-space: normal;
+      line-height: 1.45
+    }
+
+    .activity-row {
+      align-items: flex-start;
+      gap: 12px
+    }
+
+    .activity-row p {
+      min-width: 0;
+      line-height: 1.45
+    }
+
+    .session-panel {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 22px
+    }
+
+    .session-item {
+      min-width: 0;
+      padding: 17px;
+      border-radius: 13px
+    }
+
+    .session-item strong {
+      line-height: 1.5;
+      overflow-wrap: anywhere
+    }
+
+    .welcome {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 28px 30px;
+      border-radius: 16px
+    }
+
+    .welcome>div {
+      min-width: 0;
+      flex: 1
+    }
+
+    .extra-dashboard-grid {
+      margin-top: 18px
+    }
+
+    .planning-list,
+    .resource-list,
+    .calendar-list,
+    .region-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 18px
+    }
+
+    .planning-row,
+    .resource-list>div,
+    .calendar-list>div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      padding: 12px 0;
+      border-bottom: 1px solid #edf0eb
+    }
+
+    .planning-row:last-child,
+    .resource-list>div:last-child,
+    .calendar-list>div:last-child {
+      border-bottom: 0
+    }
+
+    .planning-row>div,
+    .resource-list>div>div,
+    .calendar-list p {
+      flex: 1;
+      min-width: 0
+    }
+
+    .planning-row b,
+    .resource-list b,
+    .calendar-list b {
+      display: block;
+      font-size: 12px;
+      line-height: 1.4
+    }
+
+    .planning-row small,
+    .resource-list small,
+    .calendar-list small {
+      display: block;
+      margin-top: 4px;
+      color: #77847b;
+      font-size: 11px;
+      line-height: 1.45
+    }
+
+    .plan-icon,
+    .resource-icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: #edf5e9;
+      color: #347246
+    }
+
+    .planning-row>strong,
+    .resource-list>div>strong {
+      font-size: 11px;
+      color: #347246;
+      white-space: nowrap
+    }
+
+    .region-list>div {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      font-size: 11px;
+      align-items: center
+    }
+
+    .region-list>div>b {
+      font-size: 11px
+    }
+
+    .region-list i {
+      grid-column: 1/-1;
+      height: 7px;
+      border-radius: 20px;
+      background: #edf1e9;
+      overflow: hidden
+    }
+
+    .region-list em {
+      display: block;
+      height: 100%;
+      background: #8dbb55;
+      border-radius: 20px
+    }
+
+    .calendar-list time {
+      flex: 0 0 58px;
+      padding: 8px 5px;
+      text-align: center;
+      border-radius: 8px;
+      background: #edf5e9;
+      color: #347246;
+      font-size: 10px;
+      font-weight: 800
+    }
+
+    .tip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px
+    }
+
+    .tip-grid>div {
+      padding: 16px;
+      border-radius: 11px;
+      background: #f5f8f2
+    }
+
+    .tip-grid b {
+      font-size: 12px
+    }
+
+    .tip-grid p {
+      margin-top: 7px;
+      color: #718078;
+      font-size: 11px;
+      line-height: 1.6
+    }
+
+    @media(max-width:1050px) {
+      .grid2 {
+        grid-template-columns: 1fr
+      }
+
+      .tip-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:760px) {
+      .content {
+        padding: 18px 14px 36px
+      }
+
+      .topbar {
+        padding: 12px 14px;
+        min-height: 70px
+      }
+
+      .user {
+        max-width: 44vw
+      }
+
+      .user-email {
+        max-width: 38vw;
+        font-size: 9px !important
+      }
+
+      .user span {
+        display: block !important
+      }
+
+      .welcome {
+        padding: 22px
+      }
+
+      .session-panel {
+        grid-template-columns: 1fr
+      }
+
+      .stats {
+        gap: 10px
+      }
+
+      .panel {
+        padding: 17px
+      }
+
+      .tip-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:480px) {
+      .topbar {
+        gap: 8px
+      }
+
+      .heading h1 {
+        font-size: 15px
+      }
+
+      .heading p {
+        font-size: 10px
+      }
+
+      .user {
+        display: none
+      }
+
+      .logout {
+        font-size: 10px;
+        padding: 8px 10px
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      .stat {
+        padding: 13px
+      }
+
+      .stat h3 {
+        font-size: 20px
+      }
+
+      .session-item {
+        padding: 14px
+      }
+
+      .welcome h2 {
+        font-size: 20px
+      }
+
+      .panel {
+        padding: 15px
+      }
+
+      .planning-row {
+        align-items: flex-start
+      }
+
+      .planning-row>strong {
+        font-size: 10px
+      }
+    }
+
+    .section-intro { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:18px; }
+    .section-intro h2 { font:800 19px Manrope,sans-serif; margin:0 0 6px; }
+    .section-intro p { color:var(--muted); font-size:11px; line-height:1.6; margin:0; }
+    .section-actions { display:flex; gap:9px; flex-wrap:wrap; }
+    .action-link { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 13px; border-radius:8px; background:var(--forest); color:#fff !important; font-size:10px; font-weight:800; text-decoration:none; }
+    .action-link.secondary { background:#edf4e7; color:var(--forest) !important; border:1px solid #dce8d5; }
+    .mini-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; margin:0 0 18px; }
+    .mini-card { padding:16px; border:1px solid var(--line); border-radius:12px; background:#fff; }
+    .mini-card small { display:block; color:var(--muted); font-size:10px; font-weight:700; }
+    .mini-card strong { display:block; margin-top:8px; font:800 22px Manrope,sans-serif; }
+    .mini-card span { display:block; margin-top:5px; color:#4c965e; font-size:10px; }
+    .settings-list { display:grid; gap:12px; }
+    .settings-row { display:flex; justify-content:space-between; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid #edf0eb; }
+    .settings-row:last-child { border-bottom:0; }
+    .settings-row b { display:block; font-size:12px; }
+    .settings-row small { display:block; margin-top:4px; color:var(--muted); font-size:10px; line-height:1.5; }
+    @media(max-width:650px) { .mini-cards { grid-template-columns:1fr; } .section-actions { width:100%; } .action-link { flex:1; } }
+
+
+    /* Mobile topbar: keep profile and logout accessible on every screen size */
+    @media (max-width: 760px) {
+      .topbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        row-gap: 10px;
+        min-height: auto;
+        padding: 12px 14px;
+      }
+      .topbar > div:first-child {
+        flex: 1 1 100%;
+        min-width: 0;
+      }
+      .topbar > .user {
+        display: flex !important;
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-top: 9px;
+        border-top: 1px solid var(--line);
+      }
+      .topbar > .user .avatar {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+      }
+      .topbar > .user span {
+        display: block !important;
+        flex: 1 1 120px;
+        min-width: 0;
+        font-size: 11px;
+      }
+      .topbar > .user .user-email {
+        display: block !important;
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-left: 42px;
+        font-size: 10px !important;
+      }
+      .topbar > .user .logout {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        min-height: 36px;
+        white-space: nowrap;
+      }
+    }
+    @media (max-width: 480px) {
+      .topbar { gap: 10px; }
+      .topbar > .user { display: flex !important; }
+      .topbar > .user span { display: block !important; }
+      .topbar > .user .user-email { display: block !important; }
+      .topbar > .user .logout { display: inline-flex !important; }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"><a aria-label="Stackly Agriculture home" class="brand" href="index.html"><img
+          alt="Stackly Agriculture logo" src="images/logo-white.webp" /></a>
+      <div class="side-caption">ADMIN WORKSPACE</div>
+      <nav class="nav"><button class="active" data-section="overview"><i
+            class="fa-solid fa-chart-pie"></i>Overview</button><button data-section="farmers"><i
+            class="fa-solid fa-users"></i>Farmers</button><button data-section="crops"><i
+            class="fa-solid fa-wheat-awn"></i>Crop Management</button><button data-section="harvest"><i
+            class="fa-solid fa-basket-shopping"></i>Harvest Records</button><button data-section="reports"><i
+            class="fa-solid fa-chart-column"></i>Reports</button><button data-section="settings"><i
+            class="fa-solid fa-gear"></i>Settings</button></nav>
+      <div class="side-bottom"><strong>Stackly Agriculture</strong>Manage farm activity, farmer records and crop
+        performance from one place.</div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div style="display:flex;align-items:center;gap:12px"><button class="menu-toggle" id="menu"><i
+              class="fa-solid fa-bars"></i></button>
+          <div class="heading">
+            <h1 id="pageTitle">Admin Overview</h1>
+            <p>Farm operations at a glance</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="avatar" id="avatar">AD</div><span id="userName">Administrator</span><button class="logout"
+            onclick="logout()">Log out</button><small class="user-email" id="headerEmail">Signed-in email</small>
+        </div>
+      </header>
+      <div class="content">
+        <section class="section active" id="overview">
+          <div class="welcome">
+            <h2>Good morning, Admin</h2>
+            <p>Here is the latest overview of your agriculture network. Review farm activity, crop progress and harvest
+              updates.</p><span class="tag">SEASON OVERVIEW · 2026</span>
+          </div>
+          <div aria-label="Account session details" class="session-panel">
+            <div class="session-item"><small>Signed-in account</small><strong id="sessionEmail">Not available</strong>
+            </div>
+            <div class="session-item"><small>Login date and time</small><strong id="sessionLoginTime">Not
+                available</strong></div>
+            <div class="session-item"><small>Password status</small><strong class="safe-note">Protected · Password is
+                not displayed</strong></div>
+          </div>
+          <div class="stats">
+            <article class="stat">
+              <div class="stat-top">Registered Farmers <span class="stat-icon"><i class="fa-solid fa-users"></i></span>
+              </div>
+              <h3>1,284</h3><small>↑ 8.4% this season</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Active Farms <span class="stat-icon"><i class="fa-solid fa-tractor"></i></span>
+              </div>
+              <h3>846</h3><small>↑ 5.2% this month</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Crops in Progress <span class="stat-icon"><i
+                    class="fa-solid fa-seedling"></i></span></div>
+              <h3>2,460</h3><small>Across all farm regions</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Harvest Recorded <span class="stat-icon"><i
+                    class="fa-solid fa-wheat-awn"></i></span></div>
+              <h3>18.6 t</h3><small>↑ 12% from last season</small>
+            </article>
+          </div>
+          <div class="grid2">
+            <article class="panel">
+              <h3>Monthly farm registrations</h3>
+              <p class="desc">New farmer registrations this year</p>
+              <div class="bars">
+                <div class="barcol">
+                  <div class="bar" style="height:35%"></div><small>Jan</small>
+                </div>
+                <div class="barcol">
+                  <div class="bar" style="height:48%"></div><small>Feb</small>
+                </div>
+                <div class="barcol">
+                  <div class="bar" style="height:42%"></div><small>Mar</small>
+                </div>
+                <div class="barcol">
+                  <div class="bar" style="height:66%"></div><small>Apr</small>
+                </div>
+                <div class="barcol">
+                  <div class="bar" style="height:58%"></div><small>May</small>
+                </div>
+                <div class="barcol">
+                  <div class="bar dark" style="height:88%"></div><small>Jun</small>
+                </div>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>Recent activity</h3>
+              <p class="desc">Latest updates from the farm network</p>
+              <div class="activity">
+                <div class="activity-row"><span class="activity-icon"><i class="fa-solid fa-user-plus"></i></span>
+                  <p><b>New farmer registered</b><small>Ravi Kumar · 18 minutes ago</small></p>
+                </div>
+                <div class="activity-row"><span class="activity-icon"><i class="fa-solid fa-wheat-awn"></i></span>
+                  <p><b>Harvest record submitted</b><small>Green Valley Farm · 2 hours ago</small></p>
+                </div>
+                <div class="activity-row"><span class="activity-icon"><i class="fa-solid fa-cloud-sun"></i></span>
+                  <p><b>Crop progress updated</b><small>South Field · Yesterday</small></p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <article class="panel">
+            <h3>Recent farmer registrations</h3>
+            <p class="desc">New accounts in the Stackly network</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Farmer</th>
+                    <th>Location</th>
+                    <th>Primary crop</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Ravi Kumar</td>
+                    <td>Madurai</td>
+                    <td>Rice</td>
+                    <td><span class="pill">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Meena Devi</td>
+                    <td>Theni</td>
+                    <td>Banana</td>
+                    <td><span class="pill">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Arun Prakash</td>
+                    <td>Dindigul</td>
+                    <td>Millets</td>
+                    <td><span class="pill">Review</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+          <div class="grid2 extra-dashboard-grid">
+            <article class="panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Season planning</h3>
+                  <p class="desc">Key activities to keep the farming network on schedule</p>
+                </div><span class="pill">2026 season</span>
+              </div>
+              <div class="planning-list">
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-seedling"></i></span>
+                  <div><b>Monsoon crop registration</b><small>Review new paddy and millet registrations</small></div>
+                  <strong>82%</strong>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-droplet"></i></span>
+                  <div><b>Irrigation review</b><small>Check water availability across active farms</small></div>
+                  <strong>68%</strong>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-warehouse"></i></span>
+                  <div><b>Harvest collection planning</b><small>Coordinate storage and transport schedules</small></div>
+                  <strong>45%</strong>
+                </div>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Regional crop snapshot</h3>
+                  <p class="desc">Current activity by major growing area</p>
+                </div>
+              </div>
+              <div class="region-list">
+                <div><span>Madurai · Rice</span><b>320 acres</b><i><em style="width:82%"></em></i></div>
+                <div><span>Theni · Banana</span><b>185 acres</b><i><em style="width:64%"></em></i></div>
+                <div><span>Dindigul · Millets</span><b>140 acres</b><i><em style="width:48%"></em></i></div>
+                <div><span>Virudhunagar · Groundnut</span><b>112 acres</b><i><em style="width:39%"></em></i></div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section" id="farmers">
+
+          <div class="section-intro">
+            <div><h2>Farmer Management</h2><p>Review farmer profiles, farm locations, crop preferences and account activity across the Stackly network.</p></div>
+            <div class="section-actions"><a class="action-link" href="404.html"><i class="fa-solid fa-user-plus"></i> Add Farmer</a><a class="action-link secondary" href="404.html"><i class="fa-solid fa-file-export"></i> Export Directory</a></div>
+          </div>
+          <div class="mini-cards">
+            <div class="mini-card"><small>Total registered farmers</small><strong>1,284</strong><span>8.4% growth this season</span></div>
+            <div class="mini-card"><small>Active farmer accounts</small><strong>1,146</strong><span>89% of registered farmers</span></div>
+            <div class="mini-card"><small>Profiles awaiting review</small><strong>38</strong><span>Require admin attention</span></div>
+          </div>
+          <article class="panel">
+            <h3>Farmer directory</h3><p class="desc">Farmer contact and farm information. Sample records for dashboard demonstration.</p>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Farmer ID</th><th>Name</th><th>Location</th><th>Farm size</th><th>Main crop</th><th>Last activity</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>FMR-1024</td><td>Ravi Kumar</td><td>Madurai</td><td>4.5 acres</td><td>Rice</td><td>Today</td><td><span class="pill">Active</span></td><td><a class="action-link secondary" href="404.html">View</a></td></tr>
+                <tr><td>FMR-1025</td><td>Meena Devi</td><td>Theni</td><td>2 acres</td><td>Banana</td><td>Yesterday</td><td><span class="pill">Active</span></td><td><a class="action-link secondary" href="404.html">View</a></td></tr>
+                <tr><td>FMR-1026</td><td>Arun Prakash</td><td>Dindigul</td><td>6 acres</td><td>Millets</td><td>08 Nov 2026</td><td><span class="pill">Review</span></td><td><a class="action-link secondary" href="404.html">Review</a></td></tr>
+                <tr><td>FMR-1027</td><td>Kavitha Selvam</td><td>Salem</td><td>3.2 acres</td><td>Tapioca</td><td>07 Nov 2026</td><td><span class="pill">Active</span></td><td><a class="action-link secondary" href="404.html">View</a></td></tr>
+                <tr><td>FMR-1028</td><td>Muthuvel</td><td>Virudhunagar</td><td>5 acres</td><td>Groundnut</td><td>06 Nov 2026</td><td><span class="pill">Active</span></td><td><a class="action-link secondary" href="404.html">View</a></td></tr>
+              </tbody>
+            </table></div>
+          </article>
+          <div class="grid2 extra-dashboard-grid">
+            <article class="panel"><h3>Farmer onboarding</h3><p class="desc">Typical stages in the registration process</p>
+              <div class="planning-list">
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-id-card"></i></span><div><b>Profile submitted</b><small>Identity and contact details received</small></div><strong>1,284</strong></div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-clipboard-check"></i></span><div><b>Documents verified</b><small>Farm ownership and supporting details reviewed</small></div><strong>1,246</strong></div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-circle-check"></i></span><div><b>Account activated</b><small>Farmer access enabled</small></div><strong>1,146</strong></div>
+              </div>
+            </article>
+            <article class="panel"><h3>Regional coverage</h3><p class="desc">Farmer distribution by selected districts</p>
+              <div class="region-list"><div><span>Madurai</span><b>320 farmers</b><i><em style="width:82%"></em></i></div><div><span>Theni</span><b>185 farmers</b><i><em style="width:64%"></em></i></div><div><span>Dindigul</span><b>140 farmers</b><i><em style="width:48%"></em></i></div><div><span>Salem</span><b>112 farmers</b><i><em style="width:39%"></em></i></div></div>
+            </article>
+          </div>
+
+        </section>
+        <section class="section" id="crops">
+
+          <div class="section-intro">
+            <div><h2>Crop Management</h2><p>Track crop types, growing seasons, field area, irrigation status and crop health across registered farms.</p></div>
+            <div class="section-actions"><a class="action-link" href="404.html"><i class="fa-solid fa-plus"></i> Add Crop Record</a><a class="action-link secondary" href="404.html"><i class="fa-solid fa-calendar-days"></i> Crop Calendar</a></div>
+          </div>
+          <div class="mini-cards">
+            <div class="mini-card"><small>Active crop cycles</small><strong>2,460</strong><span>Across all registered regions</span></div>
+            <div class="mini-card"><small>Area under cultivation</small><strong>1,842 ac</strong><span>Reported by participating farms</span></div>
+            <div class="mini-card"><small>Fields needing review</small><strong>26</strong><span>Check crop health and water status</span></div>
+          </div>
+          <article class="panel">
+            <h3>Crop cycle register</h3><p class="desc">Current crop schedules and field progress. Sample records for demonstration.</p>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Crop ID</th><th>Crop</th><th>Region</th><th>Season</th><th>Area</th><th>Growth stage</th><th>Irrigation</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>CRP-2101</td><td>Rice</td><td>Madurai</td><td>Monsoon</td><td>320 acres</td><td>Flowering</td><td>Scheduled</td><td><span class="pill">On track</span></td><td><a class="action-link secondary" href="404.html">Details</a></td></tr>
+                <tr><td>CRP-2102</td><td>Banana</td><td>Theni</td><td>Year-round</td><td>185 acres</td><td>Fruit development</td><td>Active</td><td><span class="pill">On track</span></td><td><a class="action-link secondary" href="404.html">Details</a></td></tr>
+                <tr><td>CRP-2103</td><td>Groundnut</td><td>Virudhunagar</td><td>Summer</td><td>112 acres</td><td>Vegetative</td><td>Review</td><td><span class="pill">Monitor</span></td><td><a class="action-link secondary" href="404.html">Review</a></td></tr>
+                <tr><td>CRP-2104</td><td>Tapioca</td><td>Salem</td><td>Regional</td><td>96 acres</td><td>Root development</td><td>Scheduled</td><td><span class="pill">On track</span></td><td><a class="action-link secondary" href="404.html">Details</a></td></tr>
+                <tr><td>CRP-2105</td><td>Millets</td><td>Dindigul</td><td>Monsoon</td><td>140 acres</td><td>Seedling</td><td>Review</td><td><span class="pill">Monitor</span></td><td><a class="action-link secondary" href="404.html">Review</a></td></tr>
+              </tbody>
+            </table></div>
+          </article>
+          <div class="grid2 extra-dashboard-grid">
+            <article class="panel"><h3>Crop health checklist</h3><p class="desc">Routine monitoring areas for field teams</p><div class="tip-grid"><div><b><i class="fa-solid fa-leaf"></i> Pest inspection</b><p>Record visible pest activity and schedule field checks where required.</p></div><div><b><i class="fa-solid fa-droplet"></i> Soil moisture</b><p>Review water availability and irrigation schedules for active plots.</p></div><div><b><i class="fa-solid fa-seedling"></i> Growth progress</b><p>Update crop stage observations and expected harvest windows.</p></div></div></article>
+            <article class="panel"><h3>Seasonal priorities</h3><p class="desc">Activities to review during the current crop cycle</p><div class="planning-list"><div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-cloud-rain"></i></span><div><b>Weather readiness</b><small>Check local rainfall and drainage preparation</small></div><strong>High</strong></div><div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-flask"></i></span><div><b>Soil testing</b><small>Review pending soil sample records</small></div><strong>Medium</strong></div><div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-truck"></i></span><div><b>Input availability</b><small>Coordinate seed and fertilizer requirements</small></div><strong>Medium</strong></div></div></article>
+          </div>
+
+        </section>
+        <section class="section" id="harvest">
+
+          <div class="section-intro">
+            <div><h2>Harvest Records</h2><p>Review submitted harvest quantities, quality checks, collection dates and storage readiness.</p></div>
+            <div class="section-actions"><a class="action-link" href="404.html"><i class="fa-solid fa-plus"></i> Add Harvest Entry</a><a class="action-link secondary" href="404.html"><i class="fa-solid fa-file-arrow-down"></i> Export Records</a></div>
+          </div>
+          <div class="mini-cards">
+            <div class="mini-card"><small>Total harvest recorded</small><strong>18.6 t</strong><span>Current season sample total</span></div>
+            <div class="mini-card"><small>Verified submissions</small><strong>42</strong><span>Quality checks completed</span></div>
+            <div class="mini-card"><small>Pending verification</small><strong>7</strong><span>Awaiting review by admin</span></div>
+          </div>
+          <article class="panel">
+            <h3>Harvest collection register</h3><p class="desc">Harvest records submitted by participating farms. Sample records for demonstration.</p>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Record ID</th><th>Farm</th><th>District</th><th>Crop</th><th>Quantity</th><th>Harvest date</th><th>Quality</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>HRV-501</td><td>Green Valley Farm</td><td>Madurai</td><td>Rice</td><td>2.4 tonnes</td><td>10 Nov 2026</td><td>Grade A</td><td><span class="pill">Verified</span></td><td><a class="action-link secondary" href="404.html">View</a></td></tr>
+                <tr><td>HRV-502</td><td>Sunrise Fields</td><td>Theni</td><td>Banana</td><td>850 kg</td><td>08 Nov 2026</td><td>Pending</td><td><span class="pill">Pending</span></td><td><a class="action-link secondary" href="404.html">Review</a></td></tr>
+                <tr><td>HRV-503</td><td>Hillview Farm</td><td>Salem</td><td>Tapioca</td><td>1.2 tonnes</td><td>06 Nov 2026</td><td>Grade A</td><td><span class="pill">Verified</span></td><td><a class="action-link secondary" href="404.html">View</a></td></tr>
+                <tr><td>HRV-504</td><td>Southern Fields</td><td>Dindigul</td><td>Millets</td><td>640 kg</td><td>05 Nov 2026</td><td>Pending</td><td><span class="pill">Pending</span></td><td><a class="action-link secondary" href="404.html">Review</a></td></tr>
+              </tbody>
+            </table></div>
+          </article>
+          <div class="grid2 extra-dashboard-grid">
+            <article class="panel"><h3>Post-harvest checklist</h3><p class="desc">Key handling steps for safe produce storage</p><div class="planning-list"><div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-scale-balanced"></i></span><div><b>Weighing and entry</b><small>Confirm quantity and measurement unit</small></div><strong>Done</strong></div><div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-magnifying-glass"></i></span><div><b>Quality inspection</b><small>Record grade, moisture and visible damage</small></div><strong>Review</strong></div><div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-warehouse"></i></span><div><b>Storage allocation</b><small>Confirm suitable storage and collection schedule</small></div><strong>Pending</strong></div></div></article>
+            <article class="panel"><h3>Harvest by crop</h3><p class="desc">Illustrative distribution of recorded produce</p><div class="region-list"><div><span>Rice</span><b>8.2 tonnes</b><i><em style="width:88%"></em></i></div><div><span>Banana</span><b>4.1 tonnes</b><i><em style="width:62%"></em></i></div><div><span>Tapioca</span><b>3.5 tonnes</b><i><em style="width:53%"></em></i></div><div><span>Millets</span><b>2.8 tonnes</b><i><em style="width:42%"></em></i></div></div></article>
+          </div>
+
+        </section>
+        <section class="section" id="reports">
+
+          <div class="section-intro">
+            <div><h2>Reports &amp; Analytics</h2><p>Explore seasonal productivity, crop performance, water usage and regional activity summaries.</p></div>
+            <div class="section-actions"><a class="action-link" href="404.html"><i class="fa-solid fa-file-pdf"></i> Generate Report</a><a class="action-link secondary" href="404.html"><i class="fa-solid fa-chart-line"></i> View Analytics</a></div>
+          </div>
+          <div class="stats">
+            <div class="stat"><div class="stat-top">Average yield <span class="stat-icon"><i class="fa-solid fa-wheat-awn"></i></span></div><h3>3.8 t/ha</h3><small>Across recorded crop samples</small></div>
+            <div class="stat"><div class="stat-top">Crop success <span class="stat-icon"><i class="fa-solid fa-seedling"></i></span></div><h3>92%</h3><small>Current season sample figure</small></div>
+            <div class="stat"><div class="stat-top">Water usage <span class="stat-icon"><i class="fa-solid fa-droplet"></i></span></div><h3>−8%</h3><small>Compared with prior period</small></div>
+            <div class="stat"><div class="stat-top">Active regions <span class="stat-icon"><i class="fa-solid fa-map-location-dot"></i></span></div><h3>12</h3><small>Regions represented</small></div>
+          </div>
+          <div class="grid2">
+            <article class="panel"><h3>Season performance summary</h3><p class="desc">Key indicators for the current sample reporting period</p><div class="region-list"><div><span>Farmer registration target</span><b>84%</b><i><em style="width:84%"></em></i></div><div><span>Crop monitoring completion</span><b>76%</b><i><em style="width:76%"></em></i></div><div><span>Harvest verification</span><b>88%</b><i><em style="width:88%"></em></i></div><div><span>Water review completion</span><b>68%</b><i><em style="width:68%"></em></i></div></div></article>
+            <article class="panel"><h3>Report categories</h3><p class="desc">Choose a report type to open its placeholder page</p><div class="resource-list"><div><span class="resource-icon"><i class="fa-solid fa-users"></i></span><div><b>Farmer activity report</b><small>Registration, district and account status</small></div><a class="action-link secondary" href="404.html">Open</a></div><div><span class="resource-icon"><i class="fa-solid fa-leaf"></i></span><div><b>Crop performance report</b><small>Crop cycles, growth stages and field area</small></div><a class="action-link secondary" href="404.html">Open</a></div><div><span class="resource-icon"><i class="fa-solid fa-boxes-stacked"></i></span><div><b>Harvest summary report</b><small>Yield, quality and collection status</small></div><a class="action-link secondary" href="404.html">Open</a></div></div></article>
+          </div>
+          <article class="panel"><h3>Recent report activity</h3><p class="desc">Sample report history for the dashboard preview</p><div class="table-wrap"><table><thead><tr><th>Report</th><th>Period</th><th>Generated</th><th>Prepared by</th><th>Status</th><th>Action</th></tr></thead><tbody><tr><td>Monthly Crop Summary</td><td>October 2026</td><td>02 Nov 2026</td><td>Administrator</td><td><span class="pill">Ready</span></td><td><a class="action-link secondary" href="404.html">View</a></td></tr><tr><td>Harvest Collection Review</td><td>November 2026</td><td>10 Nov 2026</td><td>Field Operations</td><td><span class="pill">Ready</span></td><td><a class="action-link secondary" href="404.html">View</a></td></tr><tr><td>Farmer Registration Summary</td><td>November 2026</td><td>11 Nov 2026</td><td>Administrator</td><td><span class="pill">Draft</span></td><td><a class="action-link secondary" href="404.html">Open</a></td></tr></tbody></table></div></article>
+
+        </section>
+        <section class="section" id="settings">
+
+          <div class="section-intro">
+            <div><h2>Dashboard Settings</h2><p>Review account preferences, access controls, notifications and data-management options.</p></div>
+            <div class="section-actions"><a class="action-link" href="404.html"><i class="fa-solid fa-sliders"></i> Manage Preferences</a></div>
+          </div>
+          <div class="grid2">
+            <article class="panel"><h3>Administrator profile</h3><p class="desc">Current signed-in account information</p>
+              <div class="settings-list">
+                <div class="settings-row"><div><b>Account email</b><small id="profileEmail">Not available</small></div><i class="fa-solid fa-envelope" style="color:#347246"></i></div>
+                <div class="settings-row"><div><b>Account role</b><small id="accountRole">Administrator</small></div><i class="fa-solid fa-user-shield" style="color:#347246"></i></div>
+                <div class="settings-row"><div><b>Last login</b><small id="profileLoginTime">Not available</small></div><i class="fa-solid fa-clock" style="color:#347246"></i></div>
+                <div class="settings-row"><div><b>Password security</b><small>Password is protected and is never displayed in this dashboard.</small></div><i class="fa-solid fa-lock" style="color:#347246"></i></div>
+              </div>
+              <div class="section-actions" style="margin-top:16px"><a class="action-link" href="404.html">Edit Profile</a><a class="action-link secondary" href="404.html">Change Password</a></div>
+            </article>
+            <article class="panel"><h3>Workspace preferences</h3><p class="desc">Available configuration areas</p>
+              <div class="settings-list">
+                <div class="settings-row"><div><b>Notification preferences</b><small>Choose updates for farmer registrations and harvest reviews.</small></div><a class="action-link secondary" href="404.html">Configure</a></div>
+                <div class="settings-row"><div><b>Access management</b><small>Review roles and permissions for dashboard users.</small></div><a class="action-link secondary" href="404.html">Manage</a></div>
+                <div class="settings-row"><div><b>Regional preferences</b><small>Set preferred regions and crop reporting filters.</small></div><a class="action-link secondary" href="404.html">Update</a></div>
+                <div class="settings-row"><div><b>Data and privacy</b><small>Review data retention and account security information.</small></div><a class="action-link secondary" href="404.html">Review</a></div>
+              </div>
+            </article>
+          </div>
+          <article class="panel"><h3>System information</h3><p class="desc">Dashboard environment and operational notes</p><div class="tip-grid"><div><b><i class="fa-solid fa-database"></i> Sample data</b><p>This front-end dashboard currently displays sample agriculture records. Connect a secure backend for live data.</p></div><div><b><i class="fa-solid fa-shield-halved"></i> Account safety</b><p>Never store or display a user's plain-text password in browser storage or dashboard screens.</p></div><div><b><i class="fa-solid fa-headset"></i> Support</b><p>Use the support page placeholder to request help with access or dashboard configuration.</p><a class="action-link secondary" href="404.html">Contact Support</a></div></div></article>
+
+        </section>
+      </div>
+    </main>
+  </div>
+  <script>
+    const sections = [...document.querySelectorAll('.section')], nav = [...document.querySelectorAll('.nav button')];
+    nav.forEach(btn => btn.addEventListener('click', () => { nav.forEach(x => x.classList.remove('active')); btn.classList.add('active'); sections.forEach(s => s.classList.toggle('active', s.id === btn.dataset.section)); document.getElementById('pageTitle').textContent = btn.textContent.trim(); document.getElementById('sidebar').classList.remove('open') }));
+    document.getElementById('menu').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('open'));
+    function logout() { sessionStorage.removeItem('stacklyLogin'); location.href = 'login.html' }
+    function saveNote() { localStorage.setItem('stacklyWeatherNote', document.getElementById('weatherNote').value); document.getElementById('noteStatus').textContent = 'Your note has been saved in this browser.' }
+    try { const d = JSON.parse(sessionStorage.getItem('stacklyLogin') || 'null'); if (d && d.email) { const displayName = d.email.split('@')[0]; const stamp = d.loginTime ? new Date(d.loginTime) : null; const formatted = stamp && !Number.isNaN(stamp.getTime()) ? stamp.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }) : 'Not available'; const emailNode = document.getElementById('sessionEmail'); if (emailNode) emailNode.textContent = d.email; const timeNode = document.getElementById('sessionLoginTime'); if (timeNode) timeNode.textContent = formatted; const profileTime = document.getElementById('profileLoginTime'); if (profileTime) profileTime.textContent = formatted; const nameNode = document.getElementById('userName'); if (nameNode) nameNode.textContent = d.role === 'admin' ? 'Administrator' : displayName; const avatar = document.getElementById('avatar'); if (avatar) avatar.textContent = (d.role === 'admin' ? 'AD' : displayName.slice(0, 2)).toUpperCase(); const profileEmail = document.getElementById('profileEmail'); if (profileEmail) profileEmail.textContent = d.email; const welcome = document.getElementById('welcomeTitle'); if (welcome) welcome.textContent = 'Welcome back, ' + displayName + '!'; } } catch (e) { console.warn('Unable to read the current session.', e) }
+  </script>
+  <script>
+    // Session details are read from the login page; passwords are never stored or displayed.
+    (function hydrateStacklySession() {
+      try {
+        const session = JSON.parse(sessionStorage.getItem('stacklyLogin') || 'null');
+        if (!session || !session.email) {
+          const emailTargets = ['sessionEmail', 'profileEmail', 'headerEmail'];
+          emailTargets.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = 'No active login session'; });
+          return;
+        }
+        const email = String(session.email).trim().toLowerCase();
+        const date = session.loginTime ? new Date(session.loginTime) : null;
+        const loginLabel = date && !Number.isNaN(date.getTime()) ? date.toLocaleString(undefined, { dateStyle: 'full', timeStyle: 'short' }) : 'Unavailable';
+        ['sessionEmail', 'profileEmail', 'headerEmail'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = email; });
+        ['sessionLoginTime', 'profileLoginTime'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = loginLabel; });
+        const userName = document.getElementById('userName');
+        if (userName) userName.textContent = email.split('@')[0].replace(/[._-]+/g, ' ').replace(/\w/g, c => c.toUpperCase());
+        const avatar = document.getElementById('avatar');
+        if (avatar) avatar.textContent = email.slice(0, 2).toUpperCase();
+        const welcome = document.getElementById('welcomeTitle');
+        if (welcome && 'admin' === 'farmer') welcome.textContent = 'Welcome back, ' + email.split('@')[0].replace(/[._-]+/g, ' ') + '!';
+        const roleLabel = document.getElementById('accountRole');
+        if (roleLabel) roleLabel.textContent = session.role === 'admin' ? 'Administrator' : 'Farmer';
+      } catch (error) { console.warn('Could not load Stackly login details.', error); }
+    })();
+  </script>
+</body>
+
+</html>

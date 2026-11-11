@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8" />
+    <title>Stackly | Agriculture &amp; Farming</title>
+    <!-- Mobile Specific Metas -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+    <!-- Bootstrap  -->
+    <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Theme Style -->
+    <link href="static/css/magnific-popup.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/odometer.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/styles.css" rel="stylesheet" type="text/css" />
+    <!-- Animation Style -->
+    <link href="static/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/animate2.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/textanimation.css" rel="stylesheet" type="text/css" />
+    <!-- Font -->
+    <link href="static/css/fonts.css" rel="stylesheet" />
+    <!-- Icon -->
+    <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/all.min.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        #header-main {
+            position: relative !important;
+            top: auto !important;
+            z-index: auto;
+            background: #fff;
+            box-shadow: none;
+        }
+
+        #header-main > .fixed-header.style-absolute {
+            position: fixed !important;
+            top: -1px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 10000;
+        }
+
+        #header-main .header-inner {
+            align-items: center
+        }
+
+        #header-main .nav-list {
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 1.5vw, 28px);
+            flex-wrap: nowrap
+        }
+
+        #header-main .nav-list>li {
+            white-space: nowrap
+        }
+
+        #header-main .nav-list>li>a {
+            font-weight: 600
+        }
+
+        #header-main .nav-list .sub-nav {
+            display: none !important
+        }
+
+        #header-main .nav-list li.has-child:after {
+            display: none !important
+        }
+
+        #header-main .mobile-main-nav .menu>li {
+            list-style: none
+        }
+
+        #header-main .mobile-main-nav .menu>li>a {
+            display: block;
+            padding: 12px 18px
+        }
+
+        @media(max-width:991px) {
+            #header-main { position: relative !important; top: auto !important; }
+
+            #header-main .nav-list {
+                gap: 10px
+            }
+        }
+
+        form input:invalid,
+        form textarea:invalid,
+        form select:invalid {
+            box-shadow: none
+        }
+
+        form input:focus,
+        form textarea:focus,
+        form select:focus {
+            outline: 2px solid rgba(74, 130, 45, .25);
+            outline-offset: 1px
+        }
+    </style>
+
+    <style>
+        /* Contact form validation */
+        #contactform .contact-field-error { display:block; min-height:17px; margin:5px 0 0; color:#c62828; font-size:12px; line-height:1.4; }
+        #contactform .is-invalid { border:1px solid #c62828 !important; }
+        #contactform .contact-form-error { color:#c62828; font-size:13px; margin:0 0 12px; }
+        #contactform .send-wrap label { cursor:pointer; }
+        #contactform .send-wrap input[type=checkbox] { cursor:pointer; }
+        .box-map .map { width:100%; min-height:420px; }
+        .box-map .map iframe { display:block; width:100%; height:420px; border:0; }
+
+                /* Mobile navigation: readable links and a clear contact action */
+        @media (max-width: 991px) {
+            #header-main .mobile-nav-wrap .inner-mobile-nav {
+                width: min(320px, 88vw);
+                max-width: 88vw;
+                padding: 18px 16px 22px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                background: #0d401c;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav {
+                width: 100%;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu {
+                margin: 0;
+                padding: 0;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu > li {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu > li > a {
+                display: block;
+                padding: 12px 8px;
+                color: #ffffff !important;
+                font-family: "Work Sans", sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.4;
+                text-decoration: none;
+                opacity: 1;
+                visibility: visible;
+                border-bottom: 1px solid rgba(255,255,255,.12);
+            }
+
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu > li > a:hover,
+            #header-main .mobile-nav-wrap .mobile-main-nav #menu-mobile-menu > li > a:focus {
+                color: #f8c32c !important;
+            }
+
+            #header-main .mobile-nav-wrap .group-icon {
+                display: block;
+                width: 100%;
+                margin: 20px 0 0;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-get-in-touch {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                min-height: 48px;
+                padding: 12px 18px;
+                border-radius: 30px;
+                background: #f8c32c;
+                color: #0d401c !important;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 1.2;
+                text-decoration: none;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-get-in-touch i {
+                color: #0d401c !important;
+                font-size: 18px;
+            }
+
+            #header-main .mobile-nav-wrap .mobile-get-in-touch:hover,
+            #header-main .mobile-nav-wrap .mobile-get-in-touch:focus {
+                background: #ffffff;
+                color: #0d401c !important;
+            }
+
+            #header-main .mobile-nav-wrap .inner-mobile-nav .logo .mobile-nav-close {
+                z-index: 5;
+                color: #ffffff !important;
+                font-size: 22px;
+            }
+
+            #header-main .mobile-nav-wrap .inner-mobile-nav .bottom {
+                margin-top: auto;
+                padding-top: 28px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+    <div id="loading">
+            <div id="loading-center">
+                <div class="loader-container">
+                    <div class="wrap-loader">
+                        <div class="loader">
+                        </div>
+                        <div class="icon">
+                            <img alt="" src="images/logo.webp" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.Preloader -->
+                <!-- Top-bar -->
+        <div class="tf-topbar">
+            <div class="tf-container w-1780">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="topbar-inner">
+                            <div class="topbar-left">
+                                <span class="fs-14 font-nunito">Welcome to Stackly</span>
+                                <span class="fs-14 font-nunito">Agriculture &amp; Organic Farms</span>
+                            </div>
+                            <div class="topbar-right">
+                                <ul class="contact-list">
+    <li class="item">
+        <span class="icon">
+            <i class="fa-solid fa-phone"></i>
+        </span>
+        <span>+91 123 456 7890</span>
+    </li>
+
+    <li class="item">
+        <span class="icon">
+            <img alt="" src="static/picture/mailbox.webp" />
+        </span>
+        <span>info@thestackly.com</span>
+    </li>
+
+    <li class="item">
+        <span class="icon">
+            <i class="fa-solid fa-location-dot"></i>
+        </span>
+        <span>Serving farming communities across the region</span>
+    </li>
+</ul>
+                                <ul class="social-list">
+                                    <li class="item">
+                                        <a href="404.html">
+                                            <i class="icon-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="404.html">
+                                            <i class="icon-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="404.html">
+                                            <i class="icon-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="404.html">
+                                            <i class="icon-instagram2"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /Top-bar -->
+        <!-- Welcome -->
+        <div class="box-welcome">
+            <div class="tf-overlay"></div>
+            <div class="welcome-wrap">
+                <div class="content">
+                    <div class="btn-close-welcome icon style-circle">
+                        <i class="icon-close"></i>
+                    </div>
+                    <h3 class="title font-snowfall">
+                        Stackly Agriculture <br />
+                        Farm of laughter and
+                        happiness!
+                    </h3>
+                    <p class="text font-nunito">Stackly Agriculture is built around a simple goal: support farmers with
+                        practical information and connect communities with quality produce.</p>
+                    <ul class="infor-list">
+                        <li class="item">Serving farming communities across the region</li>
+                        <li class="item">
+                            <i class="fa-solid fa-phone"></i>
+                            <p>
+                                Call us: +91 123 456 7890
+                            </p>
+                        </li>
+                        <li class="item">
+                            <img alt="" src="static/picture/mailbox-2.webp" />
+                            <p>
+                                Mail Support:
+                                Stackly Agriculture Team
+                            </p>
+                        </li>
+                        <li class="item">
+                            <i class="fa-solid fa-clock"></i>
+                            <p>
+                                Mon - Sat: 8.00am - 18.00pm
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="wg-social">
+                        <ul class="list">
+                            <li class="item">
+                                <a href="404.html"><i class="icon-facebook1"></i></a>
+                            </li>
+                            <li class="item">
+                                <a href="404.html"><i class="icon-twitter"></i></a>
+                            </li>
+                            <li class="item">
+                                <a href="404.html"><i class="icon-instagram2"></i></a>
+                            </li>
+                            <li class="item">
+                                <a href="404.html"><i class="icon-pinterest"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.Welcome -->
+        <!-- Header  -->
+        <header class="header has-item-bot" id="header-main">
+            <div class="tf-container w-1780">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-inner">
+                            <div class="header-left">
+                                <div class="logo-site">
+                                    <a href="index.html">
+                                        <img alt="" src="images/logo-dark.webp" />
+                                    </a>
+                                </div>
+                                <div class="main-nav">
+                                    <ul class="nav-list">
+                                        <li class="item"><a href="index.html">Home</a></li>
+                                        <li class="item"><a href="about-us.html">About</a></li>
+                                        <li class="item"><a href="our-services.html">Services</a></li>
+                                        <li class="item"><a href="our-farmers.html">Farmers</a></li>
+                                        <li class="item"><a href="portfolio.html">Portfolio</a></li>
+                                        <li class="item"><a href="blog.html">Blog</a></li>
+                                        <li class="item"><a href="contact-us.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header-right">
+                                <a class="tf-btn gap-30" href="login.html">
+                                    <span class="text-style">Get In Touch!</span>
+                                    <div class="icon"><i class="icon-arrow_right"></i></div>
+                                </a>
+                                <div class="wg-welcome btn-open-welcome">
+                                    <i class="icon-fences-icon fs-24"></i>
+                                </div>
+                                <div class="mobile-button">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-nav-wrap">
+                            <div class="overlay-mobile-nav"></div>
+                            <div class="inner-mobile-nav overflow-y-auto">
+                                <div class="top">
+                                    <div class="logo">
+                                        <a class="main-logo" href="index.html" rel="home">
+                                            <img alt="" id="mobile-logo_header" src="images/logo-white.webp" />
+                                        </a>
+                                        <div class="mobile-nav-close">
+                                            <i class="icon-close"></i>
+                                        </div>
+                                    </div>
+                                    <nav class="mobile-main-nav" id="mobile-main-nav">
+                                        <ul class="menu" id="menu-mobile-menu">
+                                            <li class="menu-item"><a href="index.html">Home</a></li>
+                                            <li class="menu-item"><a href="about-us.html">About</a></li>
+                                            <li class="menu-item"><a href="our-services.html">Services</a></li>
+                                            <li class="menu-item"><a href="our-farmers.html">Farmers</a></li>
+                                            <li class="menu-item"><a href="portfolio.html">Portfolio</a></li>
+                                            <li class="menu-item"><a href="blog.html">Blog</a></li>
+                                            <li class="menu-item"><a href="contact-us.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                    <div class="group-icon">
+                                        <a class="mobile-get-in-touch" href="login.html">
+                                            <span>Get In Touch</span>
+                                            <i class="icon-arrow_right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="bottom">
+                                    <div class="infor-list">
+                                        <ul>
+                                            <li>
+                                                <h5 class="title">
+                                                    Address:
+                                                </h5>
+                                                <p>
+                                                    Serving farming communities across the region
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h5 class="title">
+                                                    Phone:
+                                                </h5>
+                                                <p>
+                                                    +91 123 456 7890
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h5 class="title">
+                                                    Email:
+                                                </h5>
+                                                <p>
+                                                    info@thestackly.com
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="wg-social">
+                                        <ul class="list">
+                                            <li class="item">
+                                                <a href="404.html"><i class="icon-facebook1"></i></a>
+                                            </li>
+                                            <li class="item">
+                                                <a href="404.html"><i class="icon-twitter"></i></a>
+                                            </li>
+                                            <li class="item">
+                                                <a href="404.html"><i class="icon-instagram2"></i></a>
+                                            </li>
+                                            <li class="item">
+                                                <a href="404.html"><i class="icon-pinterest"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fixed-header style-absolute">
+                <div class="tf-container w-1780">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="header-inner">
+                                <div class="header-left">
+                                    <div class="logo-site">
+                                        <a href="index.html">
+                                            <img alt="" src="images/logo-dark.webp" />
+                                        </a>
+                                    </div>
+                                    <div class="main-nav">
+                                        <ul class="nav-list">
+                                            <li class="item"><a href="index.html">Home</a></li>
+                                            <li class="item"><a href="about-us.html">About</a></li>
+                                            <li class="item"><a href="our-services.html">Services</a></li>
+                                            <li class="item"><a href="our-farmers.html">Farmers</a></li>
+                                            <li class="item"><a href="portfolio.html">Portfolio</a></li>
+                                            <li class="item"><a href="blog.html">Blog</a></li>
+                                            <li class="item"><a href="contact-us.html">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="header-right">
+                                    <a class="tf-btn gap-30" href="login.html">
+                                        <span class="text-style">Get In Touch!</span>
+                                        <div class="icon"><i class="icon-arrow_right"></i></div>
+                                    </a>
+                                    <div class="wg-welcome btn-open-welcome">
+                                        <i class="icon-fences-icon fs-24"></i>
+                                    </div>
+                                    <div class="mobile-button">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-item children">
+                    <img alt="" src="static/picture/page-title-top.webp" />
+                </div>
+            </div>
+            <div class="header-item">
+                <img alt="" src="static/picture/page-title-top.webp" />
+            </div>
+        </header><!-- /.Header -->
+    
+        <!-- Page-title -->
+        <div class="page-title page-contact-us">
+            <div class="rellax" data-rellax-speed="5">
+                <img alt="" src="static/picture/contact-us.webp" />
+            </div>
+            <div class="content-wrap">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="content">
+                                <p class="sub-title">
+                                    Contact Us Today To Work Together
+                                </p>
+                                <h1 class="title">
+                                    Contact Us
+                                </h1>
+                                <div class="icon-img">
+                                    <img alt="" src="static/picture/line-throw-title.webp" />
+                                </div>
+                                <div class="breadcrumb">
+                                    <a href="index.html">Home</a>
+                                    <div class="icon">
+                                        <i class="icon-arrow-right1"></i>
+                                    </div>
+                                    <a href="javascript:void(0)">Contact Us </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-item item-2">
+                <img alt="" src="static/picture/grass.webp" />
+            </div>
+        </div><!-- /.Page-title -->
+        <!-- Main-content -->
+        <div class="main-content pt-0 pb-0 page-contact-us">
+            <!-- Section contact us -->
+            <section class="s-contact-us style-2 bg-white pt-118 pb-88">
+                <div class="section-wrap">
+                    <div class="tf-container w-1290">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="content-left">
+                                    <div class="image mb-30">
+                                        <img alt="./images/section/s-contact.webp" class="img lazyload"
+                                            src="static/picture/s-contact.webp" />
+                                        <img alt="" class="img-item tf-animate__rotate-left"
+                                            src="static/picture/leaf.webp" />
+                                    </div>
+                                    <ul class="contact-list">
+                                        <li class="wow fadeInUp" data-wow-duration="1.4s">Serving farming communities
+                                            across the region</li>
+                                        <li class="wow fadeInUp" data-wow-duration="1.4s">
+                                            <div class="icon style-circle">
+                                                <i class="fa-solid fa-address-book"></i>
+                                            </div>
+                                            <div class="infor">
+                                                <p class="title">
+                                                    Contact Us
+                                                </p>
+                                                <p class="text">
+                                                    Stackly Agriculture Team <br />
+                                                    Send us a message for agriculture support
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="wow fadeInUp" data-wow-duration="1.4s">
+                                            <div class="icon style-circle">
+                                                <i class="fa-solid fa-clock"></i>
+                                            </div>
+                                            <div class="infor">
+                                                <p class="title">
+                                                    Working Hours
+                                                </p>
+                                                <p class="text">
+                                                    Mon - Fri: 8.00am - 18.00pm <br />
+                                                    Sat: 9.00am - 17.00pm Holidays: Closes
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="content-section">
+                                    <div class="heading-section has-text mb-50">
+                                        <p class="sub-title">Let's Cooperate Together</p>
+                                        <p class="title wow fadeInUp" data-wow-delay="0s">Contact Us Today!</p>
+                                        <p class="text">
+                                            We will reply you within 24 hours via email, thank you for contacting
+
+                                        </p>
+                                        <div class="img-item">
+                                            <img alt="" class="tf-animate-1" src="static/picture/rice-plant-2.webp" />
+                                        </div>
+                                    </div>
+                                    <form action="404.html" class="form-send-message style-2" id="contactform" method="get" novalidate>
+                                        <div class="cols style-2 mb-15">
+                                            <fieldset>
+                                                <input aria-required="true" class="form-control" id="name" name="name" maxlength="80" autocomplete="name"
+                                                    placeholder="Name*" required type="text" />
+                                            </fieldset>
+                                            <fieldset>
+                                                <input class="form-control email" id="mail" name="mail" maxlength="120" autocomplete="email"
+                                                    placeholder="Email*" required type="email" />
+                                            </fieldset>
+                                        </div>
+                                        <div class="cols style-2 mb-15">
+                                            <fieldset>
+                                                <input aria-required="true" class="form-control" id="phone" name="phone" autocomplete="tel"
+                                                    pattern="[0-9+() .-]{7,20}" maxlength="20" placeholder="Phone*" required
+                                                    type="tel" />
+                                            </fieldset>
+                                            <fieldset class="dropdown">
+                                                <select id="Support" name="text" required="required">
+                                                    <option selected value="" disabled>Select a support topic*</option>
+                                                    <option value="Crop and soil support">Crop and soil support</option>
+                                                    <option value="Farm planning">Farm planning</option>
+                                                    <option value="Livestock care">Livestock care</option>
+                                                    <option value="General enquiry">General enquiry</option>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                                        <div class="cols mb-30">
+                                            <fieldset>
+                                                <textarea id="message" name="message" placeholder="Message..." minlength="10" maxlength="1000" required></textarea>
+                                            </fieldset>
+                                        </div>
+                                        <div id="contact-form-error" class="contact-form-error" role="alert" aria-live="polite"></div>
+                                        <div class="checkbox-item send-wrap">
+                                            <label class="mb-0">
+                                                <span class="text font-nunito">Agree to our terms and
+                                                    conditions</span>
+                                                <input class="checkbox-item" id="contact-terms" name="terms" type="checkbox" required />
+                                                <span class="btn-checkbox"></span>
+                                            </label>
+                                            <button class="tf-btn" type="submit">
+                                                <span class="text-style">
+                                                    Send Message
+                                                </span>
+                                                <span class="icon">
+                                                    <i class="icon-arrow_right"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- /.Section contact us -->
+            <!-- Section map -->
+            <div class="box-map">
+                <div class="map" id="map" aria-label="Map showing Salem, Tamil Nadu">
+                    <iframe
+                        title="Map of Salem, Tamil Nadu"
+                        src="https://www.google.com/maps?q=Salem%2C%20Tamil%20Nadu%2C%20India&output=embed"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div><!-- Section map -->
+        </div><!-- /.Main-content -->
+        <!-- Footer -->
+        <footer class="footer" id="footer-main">
+            <div class="tf-container w-1290">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-top">
+                            <div class="footer-left">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img alt="" src="images/logo-white.webp" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="footer-center">
+                                <p class="font-snowfall">
+                                    Growing Better Farms, Together
+                                </p>
+                            </div>
+                            <div class="footer-right">
+                                <div class="wg-social">
+                                    <ul class="list">
+                                        <li class="item">
+                                            <a href="404.html"><i class="icon-facebook1"></i></a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="404.html"><i class="icon-twitter"></i></a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="404.html"><i class="icon-instagram2"></i></a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="404.html"><i class="icon-pinterest"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-inner">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-inner-wrap footer-col-block">
+                                <h4 class="footer-title footer-title-desktop mb-23">
+                                    Contact Us!
+                                </h4>
+                                <h4 class="footer-title footer-title-mobile mb-23">
+                                    Contact Us!
+                                </h4>
+                                <ul class="contact-list tf-collapse-content">
+                                    <li>Serving farming communities across the region</li>
+                                    <li>
+                                        <i class="fa-solid fa-phone"></i>
+                                        <p class="phone-number fs-15">
+                                            Contact our team for farm support
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="icon-package-box"></i>
+                                        <p class="email fs-15">
+                                            Email: Info@thestackly.com
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-clock"></i>
+                                        <p class="time-open fs-15">
+                                            Monday - Saturday: Farm support and enquiries
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-inner-wrap footer-col-block">
+                                <h4 class="footer-title footer-title-desktop mb-23">
+                                    News Posts
+                                </h4>
+                                <h4 class="footer-title footer-title-mobile mb-23">
+                                    News Posts
+                                </h4>
+                                <ul class="new-post-list tf-collapse-content">
+                                    <li class="item img-hover">
+                                        <div class="image hover-item">
+                                            <img alt="" src="static/picture/f-new-post-1.webp" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="title-post hover-text-secondary" href="404.html">10 Practical Tips for
+                                                New Farmers</a>
+                                            <p class="date-release">
+                                                Latest Farm Updates
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="item img-hover">
+                                        <div class="image hover-item">
+                                            <img alt="" src="static/picture/f-new-post--2.webp" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="title-post hover-text-secondary" href="404.html">Building Resilient Farms
+                                                for the Future</a>
+                                            <p class="date-release">
+                                                Latest Farm Updates
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-inner-wrap footer-col-block">
+                                <h4 class="footer-title footer-title-desktop mb-28">
+                                    Quick Links
+                                </h4>
+                                <h4 class="footer-title footer-title-mobile mb-28">
+                                    Quick Links
+                                </h4>
+                                <ul class="link-list tf-collapse-content">
+                                    <li class="item">
+                                        <a href="about-us.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Learn About Us
+                                        </a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="our-services.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Services We Provide</a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="portfolio.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            View Recent Projects</a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="our-farmers.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Meet The Farmers</a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="blog.html">
+                                            <svg height="16" viewbox="0 0 448 512" width="14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Latest News</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-inner-wrap">
+                                <h4 class="footer-title fs-20">
+                                    Subscribe Newsletter
+                                </h4>
+                                <!-- Newsletter Subscribe Form -->
+
+
+<!-- Newsletter Form Start -->
+<form id="subscribe-form"
+      class="newsletter-custom-form style-2"
+      method="post"
+      action="#"
+      novalidate>
+
+    <div class="w-100" id="subscribe-content">
+
+        <input
+            type="email"
+            class="email style-2"
+            id="subscribe-email"
+            name="email-form"
+            placeholder="Email address *"
+            autocomplete="email"
+            maxlength="100"
+        />
+
+        <!-- Inline Error Message -->
+        <span id="subscribe-error" class="subscribe-error"></span>
+
+        <button
+            class="tf-btn full bg-white scale-40"
+            id="subscribe-button"
+            type="submit">
+
+            <span class="text-style cl-primary">
+                Subscribe Now!
+            </span>
+
+            <span class="icon">
+                <i class="fa-solid fa-paper-plane fs-14"></i>
+            </span>
+
+        </button>
+
+    </div>
+
+</form>
+<!-- Newsletter Form End -->
+
+
+<style>
+#subscribe-error {
+    display: block;
+    color: #ff3b3b;
+    font-size: 13px;
+    margin-top: 7px;
+    min-height: 18px;
+    line-height: 18px;
+}
+
+#subscribe-email.input-error {
+    border: 1px solid #ff3b3b !important;
+}
+
+#subscribe-email.input-success {
+    border: 1px solid #28a745 !important;
+}
+
+#subscribe-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("subscribe-form");
+    const email = document.getElementById("subscribe-email");
+    const error = document.getElementById("subscribe-error");
+    const button = document.getElementById("subscribe-button");
+
+    if (!form || !email || !error || !button) return;
+
+    function validateEmail() {
+
+        const value = email.value.trim();
+
+        email.classList.remove("input-error", "input-success");
+        error.textContent = "";
+
+        if (value === "") {
+            error.textContent = "Please enter your email address.";
+            email.classList.add("input-error");
+            return false;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+        if (!emailPattern.test(value)) {
+            error.textContent = "Please enter a valid email address.";
+            email.classList.add("input-error");
+            return false;
+        }
+
+        email.classList.add("input-success");
+        return true;
+    }
+
+    email.addEventListener("blur", validateEmail);
+
+    email.addEventListener("input", function () {
+        error.textContent = "";
+        email.classList.remove("input-error", "input-success");
+    });
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+
+        if (!validateEmail()) {
+            email.focus();
+            return;
+        }
+
+        button.disabled = true;
+        button.querySelector(".text-style").textContent = "Please wait...";
+
+        setTimeout(function () {
+            window.location.href = "404.html";
+        }, 800);
+
+    }, true);
+
+});
+</script>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tf-container w-1290">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-bottom">
+                            <p class="no-copy font-nunito">
+                                <span>© 2026 Stackly. All rights reserved.</span>
+                            </p>
+                            <ul class="policy-list">
+                                <li class="item">
+                                    <a href="404.html">
+                                        Confidentiality &amp; Privacy
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="404.html"> Legal Information </a>
+                                </li>
+                                <li class="item">
+                                    <a href="404.html">
+                                        Return and Refund Policy
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-item item-1">
+                <img alt="" src="static/picture/grass-2.webp" />
+            </div>
+            <div class="img-item item-2">
+                <div class="scroll-element-3">
+                    <img alt="" class="wow zoomIn" src="static/picture/silo.webp" />
+                </div>
+            </div>
+        </footer>
+    </div><!-- /#Wapper -->
+
+    <!-- Prograss -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" height="100%" viewbox="-1 -1 102 102" width="100%">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div><!-- /.Prograss -->
+    <!-- Javascript -->
+    <script src="static/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="static/js/jquery.min.js" type="text/javascript"></script>
+    <script src="static/js/lazysize.min.js" type="text/javascript"></script>
+    <script src="static/js/wow.min.js" type="text/javascript"></script>
+    <script src="static/js/magnific-popup.min.js" type="text/javascript"></script>
+    <script src="static/js/odometer.min.js" type="text/javascript"></script>
+    <script src="static/js/counter.js" type="text/javascript"></script>
+    <script src="static/js/swiper-bundle.min.js" type="text/javascript"></script>
+    <script src="static/js/swiper.js" type="text/javascript"></script>
+    <script src="static/js/jquery-validate.js" type="text/javascript"></script>
+    <script src="static/js/rellax.min.js" type="text/javascript"></script>
+    <script>
+        var rellax = new Rellax(".rellax");
+    </script>
+    <script src="static/js/main.js" type="text/javascript"></script>
+    <!-- /Javascript -->
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contactform");
+        if (!form) return;
+
+        const fields = [
+            { el: document.getElementById("name"), message: "Please enter your name.", validate: v => v.length >= 2 },
+            { el: document.getElementById("mail"), message: "Please enter a valid email address.", validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) },
+            { el: document.getElementById("phone"), message: "Please enter a valid phone number (7–20 characters).", validate: v => /^[0-9+() .-]{7,20}$/.test(v) && v.replace(/\D/g, "").length >= 7 },
+            { el: document.getElementById("Support"), message: "Please select a support topic.", validate: v => v !== "" },
+            { el: document.getElementById("message"), message: "Please enter a message (at least 10 characters).", validate: v => v.length >= 10 }
+        ];
+
+        fields.forEach(({el}) => {
+            if (!el) return;
+            const error = document.createElement("span");
+            error.className = "contact-field-error";
+            error.setAttribute("aria-live", "polite");
+            el.closest("fieldset")?.appendChild(error);
+            el.dataset.errorTarget = "contact-field-error";
+            el.addEventListener("input", () => {
+                el.classList.remove("is-invalid");
+                const target = el.closest("fieldset")?.querySelector(".contact-field-error");
+                if (target) target.textContent = "";
+            });
+            el.addEventListener("change", () => {
+                el.classList.remove("is-invalid");
+                const target = el.closest("fieldset")?.querySelector(".contact-field-error");
+                if (target) target.textContent = "";
+            });
+        });
+
+        const terms = document.getElementById("contact-terms");
+        const termsLabel = terms?.closest("label");
+        let termsError = null;
+        if (termsLabel) {
+            termsError = document.createElement("span");
+            termsError.className = "contact-field-error";
+            termsError.setAttribute("aria-live", "polite");
+            termsLabel.appendChild(termsError);
+            terms.addEventListener("change", () => { if (terms.checked) termsError.textContent = ""; });
+        }
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            let firstInvalid = null;
+            fields.forEach(({el, message, validate}) => {
+                const value = (el.value || "").trim();
+                const valid = validate(value);
+                const error = el.closest("fieldset")?.querySelector(".contact-field-error");
+                if (!valid) {
+                    el.classList.add("is-invalid");
+                    if (error) error.textContent = message;
+                    if (!firstInvalid) firstInvalid = el;
+                } else {
+                    el.classList.remove("is-invalid");
+                    if (error) error.textContent = "";
+                }
+            });
+
+            if (terms && !terms.checked) {
+                termsError.textContent = "Please agree to the terms and conditions.";
+                if (!firstInvalid) firstInvalid = terms;
+            }
+
+            if (firstInvalid) {
+                firstInvalid.focus();
+                return;
+            }
+
+            const button = form.querySelector('button[type="submit"]');
+            if (button) {
+                button.disabled = true;
+                const label = button.querySelector(".text-style");
+                if (label) label.textContent = "Please wait...";
+            }
+            window.location.href = "404.html";
+        });
+    });
+    </script>
+
+</body>
+
+</html>

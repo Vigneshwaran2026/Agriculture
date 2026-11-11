@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <title>Stackly | Farmer Dashboard</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --forest: #174d32;
+      --leaf: #8dbb55;
+      --ink: #17251d;
+      --muted: #77847b;
+      --paper: #f4f7f1;
+      --line: #e4eae3;
+      --white: #fff
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', Arial, sans-serif
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer
+    }
+
+    .layout {
+      min-height: 100vh
+    }
+
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: 250px;
+      background: #143c29;
+      color: #fff;
+      padding: 25px 17px;
+      display: flex;
+      flex-direction: column;
+      z-index: 5
+    }
+
+    .brand {
+      font: 800 23px Manrope, sans-serif;
+      padding: 5px 12px 28px;
+      color: #fff
+    }
+
+    .brand i {
+      color: #d8ef83;
+      margin-right: 8px
+    }
+
+    .brand img {
+      display: block;
+      width: 168px;
+      max-width: 100%;
+      height: auto;
+      max-height: 54px;
+      object-fit: contain;
+      object-position: left center
+    }
+
+    .side-caption {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: #9fb6a5;
+      padding: 14px 13px 9px
+    }
+
+    .nav {
+      display: grid;
+      gap: 5px
+    }
+
+    .nav button {
+      border: 0;
+      background: transparent;
+      color: #c5d3c9;
+      text-align: left;
+      padding: 12px 13px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .nav button i {
+      width: 25px;
+      color: #a9c77b
+    }
+
+    .nav button:hover,
+    .nav button.active {
+      background: #ffffff17;
+      color: #fff
+    }
+
+    .nav button.active {
+      box-shadow: inset 3px 0 #d8ef83
+    }
+
+    .side-bottom {
+      margin-top: auto;
+      padding: 14px;
+      border: 1px solid #ffffff20;
+      border-radius: 12px;
+      color: #c5d3c9;
+      font-size: 11px;
+      line-height: 1.6
+    }
+
+    .side-bottom strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 5px
+    }
+
+    .main {
+      margin-left: 250px;
+      min-height: 100vh
+    }
+
+    .topbar {
+      height: 78px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      position: sticky;
+      top: 0;
+      z-index: 4
+    }
+
+    .heading h1 {
+      font: 800 20px Manrope;
+      margin: 0
+    }
+
+    .heading p {
+      font-size: 11px;
+      color: var(--muted);
+      margin: 5px 0 0
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #e8f1df;
+      color: var(--forest);
+      font-weight: 800
+    }
+
+    .logout {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #b24a3a;
+      border-radius: 8px;
+      padding: 10px 13px;
+      font-size: 11px;
+      font-weight: 800
+    }
+
+    .content {
+      max-width: 1500px;
+      padding: 28px;
+      margin: auto
+    }
+
+    .welcome {
+      background: linear-gradient(110deg, #174d32, #2f7147);
+      color: #fff;
+      border-radius: 16px;
+      padding: 27px 30px;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .welcome:after {
+      content: '✳';
+      position: absolute;
+      right: 7%;
+      top: -40px;
+      font-size: 190px;
+      color: #ffffff12
+    }
+
+    .welcome h2 {
+      font: 800 25px Manrope;
+      margin: 0 0 8px;
+      position: relative;
+      z-index: 1
+    }
+
+    .welcome p {
+      font-size: 12px;
+      color: #dce9df;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      line-height: 1.7
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 16px;
+      background: #d8ef83;
+      color: #193b25;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      position: relative;
+      z-index: 1
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 15px;
+      margin-bottom: 20px
+    }
+
+    .stat,
+    .panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 19px
+    }
+
+    .stat-top {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700
+    }
+
+    .stat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #edf4e7;
+      color: var(--forest);
+      display: grid;
+      place-items: center
+    }
+
+    .stat h3 {
+      font: 800 26px Manrope;
+      margin: 15px 0 4px
+    }
+
+    .stat small {
+      color: #4c965e;
+      font-size: 10px
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 17px;
+      margin-bottom: 18px
+    }
+
+    .panel h3 {
+      font: 800 14px Manrope;
+      margin: 0 0 5px
+    }
+
+    .panel .desc {
+      font-size: 10px;
+      color: var(--muted);
+      margin: 0 0 18px
+    }
+
+    .bars {
+      height: 170px;
+      display: flex;
+      align-items: end;
+      gap: 13px;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 4px 0
+    }
+
+    .barcol {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      flex-direction: column;
+      gap: 7px
+    }
+
+    .bar {
+      width: 70%;
+      max-width: 35px;
+      background: #8dbb55;
+      border-radius: 5px 5px 0 0;
+      min-height: 6px
+    }
+
+    .bar.dark {
+      background: #174d32
+    }
+
+    .barcol small {
+      font-size: 9px;
+      color: var(--muted)
+    }
+
+    .activity {
+      display: grid;
+      gap: 15px
+    }
+
+    .activity-row {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      font-size: 11px
+    }
+
+    .activity-icon {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: #edf4e7;
+      color: var(--forest);
+      flex-shrink: 0
+    }
+
+    .activity-row p {
+      margin: 0;
+      line-height: 1.5
+    }
+
+    .activity-row small {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px
+    }
+
+    .table-wrap {
+      overflow: auto
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      min-width: 500px
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 13px 10px;
+      border-bottom: 1px solid #edf0eb
+    }
+
+    th {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 20px;
+      background: #edf5e9;
+      color: #377344;
+      font-size: 9px;
+      font-weight: 800
+    }
+
+    .section {
+      display: none
+    }
+
+    .section.active {
+      display: block
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 8px;
+      padding: 9px
+    }
+
+    @media(max-width:1050px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .grid2 {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:760px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: .25s
+      }
+
+      .sidebar.open {
+        transform: translateX(0)
+      }
+
+      .main {
+        margin-left: 0
+      }
+
+      .menu-toggle {
+        display: inline-block
+      }
+
+      .topbar {
+        padding: 0 15px
+      }
+
+      .content {
+        padding: 18px 14px
+      }
+
+      .user span {
+        display: none
+      }
+
+      .welcome {
+        padding: 23px
+      }
+
+      .welcome h2 {
+        font-size: 21px
+      }
+    }
+
+    @media(max-width:440px) {
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 9px
+      }
+
+      .stat {
+        padding: 14px
+      }
+
+      .stat h3 {
+        font-size: 22px
+      }
+
+      .logout {
+        padding: 9px
+      }
+
+      .heading h1 {
+        font-size: 16px
+      }
+    }
+
+    .session-panel {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 20px
+    }
+
+    .session-item {
+      background: #fff;
+      border: 1px solid #e4eae3;
+      border-radius: 12px;
+      padding: 15px 17px;
+      min-width: 0
+    }
+
+    .session-item small {
+      display: block;
+      color: #77847b;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      margin-bottom: 8px
+    }
+
+    .session-item strong {
+      display: block;
+      color: #17251d;
+      font-size: 12px;
+      overflow-wrap: anywhere
+    }
+
+    .session-item .safe-note {
+      font-weight: 600;
+      color: #4c7956
+    }
+
+    @media(max-width:650px) {
+      .session-panel {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* Dashboard alignment and responsive polish */
+    .content {
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 30px clamp(16px, 2.4vw, 36px) 48px;
+    }
+
+    .topbar {
+      min-height: 78px;
+      height: auto;
+      gap: 16px;
+      padding: 14px clamp(16px, 2.4vw, 34px);
+    }
+
+    .heading {
+      min-width: 0
+    }
+
+    .heading h1 {
+      line-height: 1.2;
+      overflow-wrap: anywhere
+    }
+
+    .heading p {
+      line-height: 1.45
+    }
+
+    .user {
+      min-width: 0;
+      max-width: min(38vw, 340px);
+      gap: 10px
+    }
+
+    .user span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+      line-height: 1.35
+    }
+
+    .user-email {
+      display: block !important;
+      font-size: 10px !important;
+      font-weight: 500 !important;
+      color: #718078 !important;
+      margin-top: 3px;
+      max-width: 230px;
+      overflow-wrap: anywhere
+    }
+
+    .stats {
+      align-items: stretch;
+      gap: 16px;
+      margin: 22px 0
+    }
+
+    .stat {
+      min-width: 0;
+      padding: 20px;
+      border-radius: 14px
+    }
+
+    .stat h3 {
+      line-height: 1.15;
+      overflow-wrap: anywhere
+    }
+
+    .stat small {
+      line-height: 1.5
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+      margin: 18px 0
+    }
+
+    .panel {
+      min-width: 0;
+      padding: 22px;
+      border-radius: 14px;
+      overflow: hidden
+    }
+
+    .panel h3 {
+      line-height: 1.35
+    }
+
+    .desc {
+      line-height: 1.6;
+      max-width: 100%
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto
+    }
+
+    .table-wrap table {
+      width: 100%;
+      min-width: 580px;
+      border-collapse: collapse
+    }
+
+    .table-wrap th,
+    .table-wrap td {
+      padding: 13px 12px;
+      text-align: left;
+      vertical-align: middle;
+      white-space: normal;
+      line-height: 1.45
+    }
+
+    .activity-row {
+      align-items: flex-start;
+      gap: 12px
+    }
+
+    .activity-row p {
+      min-width: 0;
+      line-height: 1.45
+    }
+
+    .session-panel {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 22px
+    }
+
+    .session-item {
+      min-width: 0;
+      padding: 17px;
+      border-radius: 13px
+    }
+
+    .session-item strong {
+      line-height: 1.5;
+      overflow-wrap: anywhere
+    }
+
+    .welcome {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 28px 30px;
+      border-radius: 16px
+    }
+
+    .welcome>div {
+      min-width: 0;
+      flex: 1
+    }
+
+    .extra-dashboard-grid {
+      margin-top: 18px
+    }
+
+    .planning-list,
+    .resource-list,
+    .calendar-list,
+    .region-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 18px
+    }
+
+    .planning-row,
+    .resource-list>div,
+    .calendar-list>div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      padding: 12px 0;
+      border-bottom: 1px solid #edf0eb
+    }
+
+    .planning-row:last-child,
+    .resource-list>div:last-child,
+    .calendar-list>div:last-child {
+      border-bottom: 0
+    }
+
+    .planning-row>div,
+    .resource-list>div>div,
+    .calendar-list p {
+      flex: 1;
+      min-width: 0
+    }
+
+    .planning-row b,
+    .resource-list b,
+    .calendar-list b {
+      display: block;
+      font-size: 12px;
+      line-height: 1.4
+    }
+
+    .planning-row small,
+    .resource-list small,
+    .calendar-list small {
+      display: block;
+      margin-top: 4px;
+      color: #77847b;
+      font-size: 11px;
+      line-height: 1.45
+    }
+
+    .plan-icon,
+    .resource-icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: #edf5e9;
+      color: #347246
+    }
+
+    .planning-row>strong,
+    .resource-list>div>strong {
+      font-size: 11px;
+      color: #347246;
+      white-space: nowrap
+    }
+
+    .region-list>div {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      font-size: 11px;
+      align-items: center
+    }
+
+    .region-list>div>b {
+      font-size: 11px
+    }
+
+    .region-list i {
+      grid-column: 1/-1;
+      height: 7px;
+      border-radius: 20px;
+      background: #edf1e9;
+      overflow: hidden
+    }
+
+    .region-list em {
+      display: block;
+      height: 100%;
+      background: #8dbb55;
+      border-radius: 20px
+    }
+
+    .calendar-list time {
+      flex: 0 0 58px;
+      padding: 8px 5px;
+      text-align: center;
+      border-radius: 8px;
+      background: #edf5e9;
+      color: #347246;
+      font-size: 10px;
+      font-weight: 800
+    }
+
+    .tip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px
+    }
+
+    .tip-grid>div {
+      padding: 16px;
+      border-radius: 11px;
+      background: #f5f8f2
+    }
+
+    .tip-grid b {
+      font-size: 12px
+    }
+
+    .tip-grid p {
+      margin-top: 7px;
+      color: #718078;
+      font-size: 11px;
+      line-height: 1.6
+    }
+
+    @media(max-width:1050px) {
+      .grid2 {
+        grid-template-columns: 1fr
+      }
+
+      .tip-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:760px) {
+      .content {
+        padding: 18px 14px 36px
+      }
+
+      .topbar {
+        padding: 12px 14px;
+        min-height: 70px
+      }
+
+      .user {
+        max-width: 44vw
+      }
+
+      .user-email {
+        max-width: 38vw;
+        font-size: 9px !important
+      }
+
+      .user span {
+        display: block !important
+      }
+
+      .welcome {
+        padding: 22px
+      }
+
+      .session-panel {
+        grid-template-columns: 1fr
+      }
+
+      .stats {
+        gap: 10px
+      }
+
+      .panel {
+        padding: 17px
+      }
+
+      .tip-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:480px) {
+      .topbar {
+        gap: 8px
+      }
+
+      .heading h1 {
+        font-size: 15px
+      }
+
+      .heading p {
+        font-size: 10px
+      }
+
+      .user {
+        display: none
+      }
+
+      .logout {
+        font-size: 10px;
+        padding: 8px 10px
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      .stat {
+        padding: 13px
+      }
+
+      .stat h3 {
+        font-size: 20px
+      }
+
+      .session-item {
+        padding: 14px
+      }
+
+      .welcome h2 {
+        font-size: 20px
+      }
+
+      .panel {
+        padding: 15px
+      }
+
+      .planning-row {
+        align-items: flex-start
+      }
+
+      .planning-row>strong {
+        font-size: 10px
+      }
+    }
+
+    /* Mobile profile and logout visibility */
+    @media(max-width:760px) {
+      .topbar {
+        height: auto;
+        min-height: 78px;
+        flex-wrap: wrap;
+        align-items: center;
+        row-gap: 10px;
+        padding: 12px 14px
+      }
+
+      .topbar>div:first-child {
+        flex: 1 1 100%;
+        min-width: 0
+      }
+
+      .topbar>.user {
+        display: flex !important;
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 8px;
+        padding-top: 10px;
+        border-top: 1px solid var(--line)
+      }
+
+      .topbar>.user .avatar {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px
+      }
+
+      .topbar>.user span {
+        display: block !important;
+        flex: 1 1 110px;
+        min-width: 0;
+        font-size: 11px
+      }
+
+      .topbar>.user .user-email {
+        display: block !important;
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-left: 42px;
+        font-size: 10px !important
+      }
+
+      .topbar>.user .logout {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        min-height: 36px;
+        white-space: nowrap
+      }
+    }
+
+    @media(max-width:480px) {
+      .topbar>.user {
+        display: flex !important
+      }
+
+      .topbar>.user span,
+      .topbar>.user .user-email,
+      .topbar>.user .logout {
+        display: block !important
+      }
+
+      .topbar>.user .logout {
+        display: inline-flex !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"><a aria-label="Stackly Agriculture home" class="brand" href="index.html"><img
+          alt="Stackly Agriculture logo" src="images/logo-white.webp" /></a>
+      <div class="side-caption">MY FARM SPACE</div>
+      <nav class="nav"><button class="active" data-section="home"><i class="fa-solid fa-house"></i>My
+          Overview</button><button data-section="mycrops"><i class="fa-solid fa-leaf"></i>My Crops</button><button
+          data-section="tasks"><i class="fa-solid fa-list-check"></i>Farm Tasks</button><button
+          data-section="harvest"><i class="fa-solid fa-basket-shopping"></i>Harvest Log</button><button
+          data-section="weather"><i class="fa-solid fa-cloud-sun"></i>Weather Notes</button><button
+          data-section="profile"><i class="fa-solid fa-user"></i>My Profile</button></nav>
+      <div class="side-bottom"><strong>Grow one day at a time</strong>Keep your crop records updated and plan your next
+        farm activity.</div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div style="display:flex;align-items:center;gap:12px"><button class="menu-toggle" id="menu"><i
+              class="fa-solid fa-bars"></i></button>
+          <div class="heading">
+            <h1 id="pageTitle">My Farm Overview</h1>
+            <p>Your farm activity and crop progress · Sample dashboard data</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="avatar" id="avatar">FK</div><span id="userName">Farmer Kumar</span><button class="logout"
+            onclick="logout()">Log out</button><small class="user-email" id="headerEmail">Signed-in email</small>
+        </div>
+      </header>
+      <div class="content">
+        <section class="section active" id="home">
+          <div class="welcome">
+            <h2 id="welcomeTitle">Welcome back, Farmer!</h2>
+            <p>Your farm is moving forward. Here is a quick look at your crops, planned work and recent harvest
+              activity.</p><span class="tag">YOUR FARM · CURRENT SEASON</span>
+          </div>
+          <div aria-label="Account session details" class="session-panel">
+            <div class="session-item"><small>Signed-in account</small><strong id="sessionEmail">Not available</strong>
+            </div>
+            <div class="session-item"><small>Login date and time</small><strong id="sessionLoginTime">Not
+                available</strong></div>
+            <div class="session-item"><small>Password status</small><strong class="safe-note">Protected · Password is
+                not displayed</strong></div>
+          </div>
+          <div class="stats">
+            <article class="stat">
+              <div class="stat-top">Active Crops <span class="stat-icon"><i class="fa-solid fa-seedling"></i></span>
+              </div>
+              <h3>04</h3><small>Across 3.5 acres</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Tasks Completed <span class="stat-icon"><i class="fa-solid fa-check"></i></span>
+              </div>
+              <h3>18/22</h3><small>82% this month</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Next Irrigation <span class="stat-icon"><i class="fa-solid fa-droplet"></i></span>
+              </div>
+              <h3>Tomorrow</h3><small>Early morning</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Harvest Logged <span class="stat-icon"><i class="fa-solid fa-wheat-awn"></i></span>
+              </div>
+              <h3>1.2 t</h3><small>Current season</small>
+            </article>
+          </div>
+          <div class="grid2">
+            <article class="panel">
+              <h3>Crop growth progress</h3>
+              <p class="desc">Current progress of your main crops</p>
+              <div style="display:grid;gap:18px">
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:7px">
+                    <b>Rice</b><span>75%</span></div>
+                  <div style="height:8px;background:#edf1e9;border-radius:10px">
+                    <div style="height:100%;width:75%;background:#8dbb55;border-radius:10px"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:7px">
+                    <b>Banana</b><span>60%</span></div>
+                  <div style="height:8px;background:#edf1e9;border-radius:10px">
+                    <div style="height:100%;width:60%;background:#174d32;border-radius:10px"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:7px">
+                    <b>Groundnut</b><span>42%</span></div>
+                  <div style="height:8px;background:#edf1e9;border-radius:10px">
+                    <div style="height:100%;width:42%;background:#c4a45a;border-radius:10px"></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>Today's farm checklist</h3>
+              <p class="desc">Simple reminders for your field</p>
+              <div class="activity"><label class="activity-row"><input type="checkbox" />
+                  <p><b>Check irrigation channels</b><small>Morning · Field A</small></p>
+                </label><label class="activity-row"><input type="checkbox" />
+                  <p><b>Inspect leaves for pests</b><small>Before noon · Rice crop</small></p>
+                </label><label class="activity-row"><input type="checkbox" />
+                  <p><b>Update crop observations</b><small>Evening · Farm record</small></p>
+                </label></div>
+            </article>
+          </div>
+          <article class="panel">
+            <h3>Recent farm updates</h3>
+            <p class="desc">Your latest activity</p>
+            <div class="activity">
+              <div class="activity-row"><span class="activity-icon"><i class="fa-solid fa-droplet"></i></span>
+                <p><b>Irrigation completed</b><small>Field A · Yesterday</small></p>
+              </div>
+              <div class="activity-row"><span class="activity-icon"><i class="fa-solid fa-leaf"></i></span>
+                <p><b>Crop growth note added</b><small>Rice field · 2 days ago</small></p>
+              </div>
+            </div>
+          </article>
+          <div class="grid2 extra-dashboard-grid">
+            <article class="panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Farm inputs and resources</h3>
+                  <p class="desc">A quick record of materials planned for this season</p>
+                </div><span class="pill">Current season</span>
+              </div>
+              <div class="resource-list">
+                <div><span class="resource-icon"><i class="fa-solid fa-seedling"></i></span>
+                  <div><b>Seeds</b><small>Certified paddy seed · 18 kg</small></div><strong>Ready</strong>
+                </div>
+                <div><span class="resource-icon"><i class="fa-solid fa-leaf"></i></span>
+                  <div><b>Organic compost</b><small>Farm compost · 6 bags planned</small></div><strong>Planned</strong>
+                </div>
+                <div><span class="resource-icon"><i class="fa-solid fa-droplet"></i></span>
+                  <div><b>Irrigation supply</b><small>Canal water · Field A</small></div><strong>Scheduled</strong>
+                </div>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading">
+                <div>
+                  <h3>Upcoming farm calendar</h3>
+                  <p class="desc">Plan the next few field activities</p>
+                </div>
+              </div>
+              <div class="calendar-list">
+                <div><time>11 NOV</time>
+                  <p><b>Inspect irrigation channels</b><small>Field A · Early morning</small></p>
+                </div>
+                <div><time>12 NOV</time>
+                  <p><b>Record crop observations</b><small>Rice field · Before noon</small></p>
+                </div>
+                <div><time>14 NOV</time>
+                  <p><b>Review compost application</b><small>Banana field · Afternoon</small></p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Farm performance notes</h3>
+                <p class="desc">Useful reminders for consistent crop monitoring</p>
+              </div>
+            </div>
+            <div class="tip-grid">
+              <div><b>Soil care</b>
+                <p>Check soil moisture before scheduling irrigation or adding nutrients.</p>
+              </div>
+              <div><b>Crop health</b>
+                <p>Inspect the underside of leaves regularly and record unusual changes.</p>
+              </div>
+              <div><b>Farm records</b>
+                <p>Update planting, input and harvest details after each major activity.</p>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="section" id="mycrops">
+          <div class="stats">
+            <article class="stat">
+              <div class="stat-top">Registered crops <span class="stat-icon"><i class="fa-solid fa-seedling"></i></span>
+              </div>
+              <h3>04</h3><small>Across 3 active fields</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Cultivated area <span class="stat-icon"><i class="fa-solid fa-map"></i></span></div>
+              <h3>3.5 ac</h3><small>Current season</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Healthy crop records <span class="stat-icon"><i
+                    class="fa-solid fa-heart"></i></span></div>
+              <h3>03</h3><small>Based on sample observations</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Next field review <span class="stat-icon"><i
+                    class="fa-solid fa-calendar-check"></i></span></div>
+              <h3>12 Nov</h3><small>Rice · Field A</small>
+            </article>
+          </div>
+          <div class="grid2">
+            <article class="panel">
+              <h3>My crop register</h3>
+              <p class="desc">Track planting dates, field allocation and the next action for each crop.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Crop</th>
+                      <th>Field</th>
+                      <th>Planted</th>
+                      <th>Growth</th>
+                      <th>Next action</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Rice</td>
+                      <td>Field A</td>
+                      <td>12 Aug 2026</td>
+                      <td>75%</td>
+                      <td>Check water level</td>
+                      <td><span class="pill">Growing</span></td>
+                    </tr>
+                    <tr>
+                      <td>Banana</td>
+                      <td>Field B</td>
+                      <td>04 Mar 2026</td>
+                      <td>60%</td>
+                      <td>Apply compost</td>
+                      <td><span class="pill">Growing</span></td>
+                    </tr>
+                    <tr>
+                      <td>Groundnut</td>
+                      <td>Field C</td>
+                      <td>18 Sep 2026</td>
+                      <td>42%</td>
+                      <td>Inspect leaves</td>
+                      <td><span class="pill">Growing</span></td>
+                    </tr>
+                    <tr>
+                      <td>Vegetables</td>
+                      <td>Field D</td>
+                      <td>05 Oct 2026</td>
+                      <td>30%</td>
+                      <td>Check soil moisture</td>
+                      <td><span class="pill">Early stage</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>Crop care priorities</h3>
+              <p class="desc">Suggested checks to keep your crop records up to date.</p>
+              <div class="planning-list">
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-droplet"></i></span>
+                  <div><b>Water management</b><small>Review field moisture before irrigation</small></div>
+                  <strong>Daily</strong>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-bug"></i></span>
+                  <div><b>Pest inspection</b><small>Check leaves and stems for unusual signs</small></div>
+                  <strong>Weekly</strong>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-leaf"></i></span>
+                  <div><b>Soil nutrition</b><small>Record compost and nutrient applications</small></div><strong>As
+                    planned</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section" id="tasks">
+          <div class="stats">
+            <article class="stat">
+              <div class="stat-top">Tasks scheduled <span class="stat-icon"><i
+                    class="fa-solid fa-list-check"></i></span></div>
+              <h3>08</h3><small>This week</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Completed <span class="stat-icon"><i class="fa-solid fa-check"></i></span></div>
+              <h3>06</h3><small>Sample progress · 75%</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Pending <span class="stat-icon"><i class="fa-regular fa-clock"></i></span></div>
+              <h3>02</h3><small>Needs attention</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Priority <span class="stat-icon"><i class="fa-solid fa-flag"></i></span></div>
+              <h3>High</h3><small>Irrigation inspection</small>
+            </article>
+          </div>
+          <div class="grid2">
+            <article class="panel">
+              <h3>Farm task planner</h3>
+              <p class="desc">Tick off the activities as you complete them. These are sample tasks for planning.</p>
+              <div class="activity"><label class="activity-row"><input type="checkbox" />
+                  <p><b>Prepare compost mix</b><small>Today · Soil care · Banana field</small></p>
+                </label><label class="activity-row"><input type="checkbox" />
+                  <p><b>Inspect drip irrigation</b><small>Tomorrow · Water management · Field B</small></p>
+                </label><label class="activity-row"><input type="checkbox" />
+                  <p><b>Record plant height</b><small>Friday · Crop monitoring · Field A</small></p>
+                </label><label class="activity-row"><input type="checkbox" />
+                  <p><b>Check for pest activity</b><small>Saturday · Crop protection · Field C</small></p>
+                </label><label class="activity-row"><input type="checkbox" />
+                  <p><b>Update input usage</b><small>Sunday · Farm records</small></p>
+                </label></div>
+            </article>
+            <article class="panel">
+              <h3>Routine field checklist</h3>
+              <p class="desc">A simple sequence for your daily field visit.</p>
+              <div class="planning-list">
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-sun"></i></span>
+                  <div><b>Morning inspection</b><small>Check leaves, soil moisture and standing water</small></div>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-cloud-sun"></i></span>
+                  <div><b>Midday observation</b><small>Note weather changes and visible crop stress</small></div>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-book"></i></span>
+                  <div><b>End-of-day update</b><small>Record completed work and pending activities</small></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section" id="harvest">
+          <div class="stats">
+            <article class="stat">
+              <div class="stat-top">Total recorded <span class="stat-icon"><i
+                    class="fa-solid fa-scale-balanced"></i></span></div>
+              <h3>1.2 t</h3><small>Current season · Sample data</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Harvest entries <span class="stat-icon"><i
+                    class="fa-solid fa-clipboard-list"></i></span></div>
+              <h3>02</h3><small>Recorded batches</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Crops harvested <span class="stat-icon"><i class="fa-solid fa-wheat-awn"></i></span>
+              </div>
+              <h3>02</h3><small>Rice and banana</small>
+            </article>
+            <article class="stat">
+              <div class="stat-top">Next review <span class="stat-icon"><i class="fa-solid fa-calendar"></i></span>
+              </div>
+              <h3>15 Nov</h3><small>Review storage records</small>
+            </article>
+          </div>
+          <div class="grid2">
+            <article class="panel">
+              <h3>Harvest log</h3>
+              <p class="desc">Sample records for your current season. Update quantities after weighing each batch.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Crop</th>
+                      <th>Quantity</th>
+                      <th>Field</th>
+                      <th>Date</th>
+                      <th>Batch</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Rice</td>
+                      <td>850 kg</td>
+                      <td>Field A</td>
+                      <td>02 Nov 2026</td>
+                      <td>HR-026</td>
+                      <td><span class="pill">Recorded</span></td>
+                    </tr>
+                    <tr>
+                      <td>Banana</td>
+                      <td>350 kg</td>
+                      <td>Field B</td>
+                      <td>28 Oct 2026</td>
+                      <td>HR-025</td>
+                      <td><span class="pill">Recorded</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>Post-harvest checklist</h3>
+              <p class="desc">Keep harvested produce in good condition.</p>
+              <div class="activity"><label class="activity-row"><input type="checkbox" />
+                  <p><b>Clean and sort produce</b><small>Separate damaged and healthy produce</small></p>
+                </label><label class="activity-row"><input type="checkbox" />
+                  <p><b>Check storage area</b><small>Keep the storage space clean and dry</small></p>
+                </label><label class="activity-row"><input type="checkbox" />
+                  <p><b>Update quantity record</b><small>Enter the final weighed quantity</small></p>
+                </label></div>
+            </article>
+          </div>
+        </section>
+        <section class="section" id="weather">
+          <div class="grid2">
+            <article class="panel">
+              <h3>Daily weather and field notes</h3>
+              <p class="desc">Record local conditions observed on your farm. This page does not provide a live weather
+                forecast.</p><label for="weatherNote"
+                style="display:block;font-size:11px;font-weight:700;margin-bottom:8px">Today's
+                observation</label><textarea id="weatherNote"
+                placeholder="Example: Cloudy morning, moist soil in Field A, light wind..."
+                style="width:100%;min-height:150px;border:1px solid #e4eae3;border-radius:9px;padding:13px;font:13px Arial;resize:vertical"></textarea><button
+                class="logout" onclick="saveNote()" style="margin-top:12px;color:#174d32">Save note</button>
+              <p id="noteStatus" style="font-size:11px;color:#4c965e" aria-live="polite"></p>
+            </article>
+            <article class="panel">
+              <h3>Observation guide</h3>
+              <p class="desc">Useful details to include in your daily farm record.</p>
+              <div class="planning-list">
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-cloud"></i></span>
+                  <div><b>Sky and rainfall</b><small>Cloud cover, rainfall and unusual weather changes</small></div>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-droplet"></i></span>
+                  <div><b>Soil and water</b><small>Soil moisture, field water level and drainage</small></div>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-leaf"></i></span>
+                  <div><b>Crop response</b><small>Leaf colour, plant condition and visible stress</small></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section" id="profile">
+          <div class="grid2">
+            <article class="panel">
+              <h3>My farmer profile</h3>
+              <p class="desc">Account information linked to your current sign-in session.</p>
+              <div class="profile-details">
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-user"></i></span>
+                  <div><b>Display name</b><small id="profileName">Not available</small></div>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-envelope"></i></span>
+                  <div><b>Registered email</b><small id="profileEmail">Sign in to display your account details.</small>
+                  </div>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-clock"></i></span>
+                  <div><b>Last login</b><small id="profileLoginTime">Not available</small></div>
+                </div>
+                <div class="planning-row"><span class="plan-icon"><i class="fa-solid fa-id-badge"></i></span>
+                  <div><b>Account role</b><small id="accountRole">Farmer</small></div>
+                </div>
+              </div>
+            </article>
+            <article class="panel">
+              <h3>Account security</h3>
+              <p class="desc">Your account information is handled safely in this dashboard.</p>
+              <div class="tip-grid" style="grid-template-columns:1fr">
+                <div><b><i class="fa-solid fa-shield-halved"></i> Password protection</b>
+                  <p>Password is protected and is never displayed in the dashboard.</p>
+                </div>
+                <div><b><i class="fa-solid fa-right-from-bracket"></i> Sign out securely</b>
+                  <p>Use the Log out button to clear the current session and return to the login page.</p>
+                </div>
+              </div><button class="logout" onclick="logout()" style="margin-top:14px">Log out</button>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script>
+    const sections = [...document.querySelectorAll('.section')], nav = [...document.querySelectorAll('.nav button')];
+    nav.forEach(btn => btn.addEventListener('click', () => { nav.forEach(x => x.classList.remove('active')); btn.classList.add('active'); sections.forEach(s => s.classList.toggle('active', s.id === btn.dataset.section)); document.getElementById('pageTitle').textContent = btn.textContent.trim(); document.getElementById('sidebar').classList.remove('open') }));
+    document.getElementById('menu').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('open'));
+    document.addEventListener('click', e => { const sidebar = document.getElementById('sidebar'), menu = document.getElementById('menu'); if (window.innerWidth <= 760 && sidebar.classList.contains('open') && !sidebar.contains(e.target) && !menu.contains(e.target)) sidebar.classList.remove('open') });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('sidebar').classList.remove('open') });
+    function logout() { sessionStorage.removeItem('stacklyLogin'); location.href = 'login.html' }
+    function saveNote() { const value = document.getElementById('weatherNote').value.trim(); if (!value) { document.getElementById('noteStatus').textContent = 'Please enter a weather or field observation before saving.'; return } localStorage.setItem('stacklyWeatherNote', value); document.getElementById('noteStatus').textContent = 'Your note has been saved in this browser.' }
+    try {
+      const savedNote = localStorage.getItem('stacklyWeatherNote'); if (savedNote && document.getElementById('weatherNote')) document.getElementById('weatherNote').value = savedNote;
+      const d = JSON.parse(sessionStorage.getItem('stacklyLogin') || 'null');
+      const targets = ['sessionEmail', 'profileEmail', 'headerEmail'];
+      if (d && d.email) {
+        const email = String(d.email).trim().toLowerCase(), displayName = email.split('@')[0].replace(/[._-]+/g, ' ').replace(/\\b\\w/g, c => c.toUpperCase());
+        const stamp = d.loginTime ? new Date(d.loginTime) : null, formatted = stamp && !Number.isNaN(stamp.getTime()) ? stamp.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }) : 'Not available';
+        targets.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = email });
+        ['sessionLoginTime', 'profileLoginTime'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = formatted });
+        const name = document.getElementById('userName'); if (name) name.textContent = displayName;
+        const profileName = document.getElementById('profileName'); if (profileName) profileName.textContent = displayName;
+        const avatar = document.getElementById('avatar'); if (avatar) avatar.textContent = displayName.split(' ').map(x => x[0]).join('').slice(0, 2).toUpperCase();
+        const welcome = document.getElementById('welcomeTitle'); if (welcome) welcome.textContent = 'Welcome back, ' + displayName + '!';
+        const role = document.getElementById('accountRole'); if (role) role.textContent = d.role === 'admin' ? 'Administrator' : 'Farmer';
+      } else { targets.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = 'No active login session' }) }
+    } catch (e) { console.warn('Unable to load Stackly session details.', e) }
+  </script>
+</body>
+
+</html>
